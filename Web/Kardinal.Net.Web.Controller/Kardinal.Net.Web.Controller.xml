@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Kardinal.Net.Web.Controller</name>
+    </assembly>
+    <members>
+        <member name="T:Kardinal.Net.Web.AbstractController">
+            <summary>
+            Classe base para todos os controllers do sistema.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.AbstractController._logger">
+            <summary>
+            Instância do serviço de logs.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.AbstractController._provider">
+            <summary>
+            Instância do provedor de serviços. Veja <see cref="T:System.IServiceProvider"/> para mais detalhes.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.AbstractController.#ctor(System.IServiceProvider)">
+            <summary>
+            Método construtor.
+            </summary>
+            /// <param name="provider">Instância do provedor de serviços.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.AbstractController.GetService``1(``0)">
+            <summary>
+            Método que obtém um serviço através da injeção de dependências.
+            </summary>
+            <typeparam name="T">Interface do serviço desejado.</typeparam>
+            <param name="replacementService">Instância de serviço de substituição caso o serviço solicitado não seja encontrado.</param>
+            <returns>Instância do serviço desejado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.AbstractController.GetCurrentUser">
+            <summary>
+            Método que obtém os dados do usuário atualmente autenticado.
+            </summary>
+            <returns>Instância do serviço contendo os dados do usuário. Veja <see cref="T:Kardinal.Net.Web.ICurrentUserService"/></returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.AbstractController.GetApplicationInfo">
+            <summary>
+            Método que obtém os dados da aplicação atual.
+            </summary>
+            <returns>Instância do serviço de informações da aplicação.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.AbstractController.Error(System.Exception)">
+            <summary>
+            Método que responte à requisição com um erro.
+            </summary>
+            <param name="exception">exceção à ser respondida à requisição.</param>
+            <returns>Resposta à ser devolvida ao requerente da requisição. <see cref="T:Microsoft.AspNetCore.Mvc.ActionResult"/></returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.AbstractController.Error(System.Net.HttpStatusCode)">
+            <summary>
+            Método que responte à requisição com um erro.
+            </summary>
+            <param name="statusCode">Código de erro da exceção.</param>
+            <returns>Resposta à ser devolvida ao requerente da requisição. <see cref="T:Microsoft.AspNetCore.Mvc.ActionResult"/></returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.AbstractController.Error(System.Net.HttpStatusCode,System.String)">
+            <summary>
+            Método que responte à requisição com um erro.
+            </summary>
+            <param name="statusCode">Código de erro da exceção.</param>
+            <param name="message">Mensagem à ser apresentada na exceção.</param>
+            <returns>Resposta à ser devolvida ao requerente da requisição. <see cref="T:Microsoft.AspNetCore.Mvc.ActionResult"/></returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.AbstractController.Error(System.Int32,System.String)">
+            <summary>
+            Método que responte à requisição com um erro.
+            </summary>
+            <param name="statusCode">Código de erro da exceção.</param>
+            <param name="message">Mensagem à ser apresentada na exceção.</param>
+            <returns>Resposta à ser devolvida ao requerente da requisição. <see cref="T:Microsoft.AspNetCore.Mvc.ActionResult"/></returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.AbstractController.Error(System.Net.HttpStatusCode,System.Object)">
+            <summary>
+            Método que responte à requisição com um erro.
+            </summary>
+            <param name="statusCode">Código de erro da exceção.</param>
+            <param name="obj">Detalhes da exceção.</param>
+            <returns>Resposta à ser devolvida ao requerente da requisição. <see cref="T:Microsoft.AspNetCore.Mvc.ActionResult"/></returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.AbstractController.Error(System.Int32,System.Object)">
+            <summary>
+            Método que responte à requisição com um erro.
+            </summary>
+            <param name="statusCode">Código de erro da exceção.</param>
+            <param name="obj">Detalhes da exceção.</param>
+            <returns>Resposta à ser devolvida ao requerente da requisição. <see cref="T:Microsoft.AspNetCore.Mvc.ActionResult"/></returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.AbstractController.Error(System.Net.HttpStatusCode,System.String,System.Object)">
+            <summary>
+            Método que responte à requisição com um erro.
+            </summary>
+            <param name="statusCode">Código de erro da exceção.</param>
+            <param name="message">Mensagem à ser apresentada na exceção.</param>
+            <param name="obj">Detalhes da exceção.</param>
+            <returns>Resposta à ser devolvida ao requerente da requisição. <see cref="T:Microsoft.AspNetCore.Mvc.ActionResult"/></returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.AbstractController.Error(System.Int32,System.String,System.Object)">
+            <summary>
+            Método que responte à requisição com um erro.
+            </summary>
+            <param name="statusCode">Código de erro da exceção.</param>
+            <param name="message">Mensagem à ser apresentada na exceção.</param>
+            <param name="obj">Detalhes da exceção.</param>
+            <returns>Resposta à ser devolvida ao requerente da requisição. <see cref="T:Microsoft.AspNetCore.Mvc.ActionResult"/></returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.AbstractController.Error(System.Net.HttpStatusCode,System.Exception,System.Object)">
+            <summary>
+            Método que responte à requisição com um erro.
+            </summary>
+            <param name="statusCode">Código de erro da exceção.</param>
+            <param name="exception">exceção à ser respondida à requisição.</param>
+            <param name="obj">Objeto à ser apresentado na exceção.</param>
+            <returns>Resposta à ser devolvida ao requerente da requisição. <see cref="T:Microsoft.AspNetCore.Mvc.ActionResult"/></returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.AbstractController.Error(System.Int32,System.Exception,System.Object)">
+            <summary>
+            Método que responte à requisição com um erro.
+            </summary>
+            <param name="statusCode">Código de erro da exceção.</param>
+            <param name="exception">exceção à ser respondida à requisição.</param>
+            <param name="obj">Objeto à ser apresentado na exceção.</param>
+            <returns>Resposta à ser devolvida ao requerente da requisição. <see cref="T:Microsoft.AspNetCore.Mvc.ActionResult"/></returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.IController">
+            <summary>
+            Interface de controle de web api.
+            </summary>
+        </member>
+    </members>
+</doc>

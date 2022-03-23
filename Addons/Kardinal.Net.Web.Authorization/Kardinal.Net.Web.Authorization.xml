@@ -1,0 +1,410 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Kardinal.Net.Web.Authorization</name>
+    </assembly>
+    <members>
+        <member name="T:Kardinal.Net.Web.Authorization.TokenValidationStatus">
+            <summary>
+            Enumerador do resultado da validação do token.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.Authorization.TokenValidationStatus.Valid">
+            <summary>
+            Token válido
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.Authorization.TokenValidationStatus.Expired">
+            <summary>
+            Token expirado
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.Authorization.TokenValidationStatus.InvalidAudience">
+            <summary>
+            Audiência inválida
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.Authorization.TokenValidationStatus.InvalidLifetime">
+            <summary>
+            Token vencido
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.Authorization.TokenValidationStatus.InvalidSignature">
+            <summary>
+            Assinatura inválida
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.Authorization.TokenValidationStatus.NoExpiration">
+            <summary>
+            Sem data de expiração.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.Authorization.TokenValidationStatus.NotYetValid">
+            <summary>
+            Início de validade posterior a atual.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.Authorization.TokenValidationStatus.ReplayAdd">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.Authorization.TokenValidationStatus.ReplayDetected">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.Authorization.TokenValidationStatus.Error">
+            <summary>
+            Falha geral
+            </summary>
+        </member>
+        <member name="T:Kardinal.Net.Web.Authorization.AuthorizationException">
+            <summary>
+            Exceção gerada pelo serviço de autorização.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.AuthorizationException.#ctor">
+            <summary>
+            Método construtor.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.AuthorizationException.#ctor(System.String)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="message">Mensagem de exceção.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.AuthorizationException.#ctor(System.Net.HttpStatusCode,System.String,System.Exception)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="statusCode">Código de status da exceção.</param>
+            <param name="message">Mensagem de exceção.</param>
+            <param name="innerException">Exceção interior.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.AuthorizationException.#ctor(System.Net.HttpStatusCode)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="statusCode">Código de status da exceção.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.AuthorizationException.#ctor(System.Net.HttpStatusCode,System.String)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="statusCode">Código de status da exceção.</param>
+            <param name="description">Indica se deve ser adicionado o código de erro à descrição.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.AuthorizationException.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.Authorization.AuthorityConfigurationsExtensions">
+            <summary>
+            Classe de extensões para <see cref="T:Kardinal.Net.Web.Authorization.KardinalIdentityOptions"/>.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.AuthorityConfigurationsExtensions.GetTokenParametesAsync(Kardinal.Net.Web.Authorization.KardinalIdentityOptions,System.IdentityModel.Tokens.Jwt.JwtSecurityToken,System.Threading.CancellationToken)">
+            <summary>
+            Extensão que retorna os parâmetros de validação de token OAuth.
+            </summary>
+            <param name="options">Objeto referenciado</param>
+            <param name="token">Token de autenticação</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Parâmetros de validação do Token. Veja <see cref="T:Microsoft.IdentityModel.Tokens.TokenValidationParameters"/></returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.AuthorityConfigurationsExtensions.GetSigningKeyAsync(Kardinal.Net.Web.Authorization.KardinalIdentityOptions,System.IdentityModel.Tokens.Jwt.JwtSecurityToken,System.Threading.CancellationToken)">
+            <summary>
+            Método para obtenção da chave de assinatura do token provida pela autoridade de identificação.
+            </summary>
+            <param name="configurations">Objeto referenciado</param>
+            <param name="token">Token de autenticação</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Chave de segurança provida pela autoridade de identificação.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.Authorization.AuthorizationFilterContextExtensions">
+            <summary>
+            Classe de extensões para <see cref="T:Microsoft.AspNetCore.Mvc.Filters.AuthorizationFilterContext"/>.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.AuthorizationFilterContextExtensions.GetIdentityCurrentUserClaims(Microsoft.AspNetCore.Mvc.Filters.AuthorizationFilterContext,Kardinal.Net.Web.Authorization.KardinalIdentityOptions)">
+            <summary>
+            Método que busca as claims do usuário atual.
+            </summary>
+            <param name="context"></param>
+            <param name="options">Configurações do provedor de identidade.</param>
+            <returns>Enumeração de claims do usuário atual.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.Authorization.HttpClientExtensions">
+            <summary>
+            Extensões para <see cref="T:System.Net.Http.HttpClient"/>
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.HttpClientExtensions.GetUserInfoAsync(System.Net.Http.HttpClient,System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Extensão para busca dos dados do usuário junto à autoridade.
+            </summary>
+            <param name="client">Objeto referenciado</param>
+            <param name="authorityUri">Endereço da autoridade.</param>
+            <param name="token">Token de acesso do usuário.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Dados do usuário</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.Authorization.JwtSecurityTokenExtensions">
+            <summary>
+            Extensões para <see cref="T:System.IdentityModel.Tokens.Jwt.JwtSecurityToken"/>
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.JwtSecurityTokenExtensions.ValidateAsync(System.IdentityModel.Tokens.Jwt.JwtSecurityToken,Kardinal.Net.Web.Authorization.KardinalIdentityOptions)">
+            <summary>
+            Extensão que faz a validação de um token.
+            </summary>
+            <param name="token">Objeto referenciado</param>
+            <param name="options">Configurações de autoridade</param>
+            <returns>Resultado da validação do token</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.Authorization.PasswordGeneratorService">
+            <summary>
+            Implementação do serviço de geração de senhas.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.PasswordGeneratorService.#ctor(System.IServiceProvider)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="provider">Instância do provedor de serviços.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.PasswordGeneratorService.#ctor(Microsoft.AspNetCore.Identity.PasswordOptions)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="options">Configurações de senha.</param>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.PasswordGeneratorService.Instance">
+            <summary>
+            Instância do serviço de criação de senhas.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.PasswordGeneratorService.Generate(System.Int32,System.Char[])">
+            <summary>
+            Método que gera uma nova senha.
+            </summary>
+            <param name="length">Comprimento da senha à ser gerada.</param>
+            <param name="exclusions">Caracteres à serem excluídos da senha à ser gerada.</param>
+            <returns>Senha gerada</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.PasswordGeneratorService.IsValid(System.String)">
+            <summary>
+            Método que faz a validação da senha gerada junto aos critérios de senha do serviço.
+            </summary>
+            <param name="password"></param>
+            <returns>Verdadeiro caso a senha seja váldia e falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.PasswordGeneratorService.GetCharacterSet(System.Char[])">
+            <summary>
+            Método que obtém o character set com base nos critérios de senha do serviço.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.PasswordGeneratorService.GetRandomNumberInRange(System.Int32,System.Int32)">
+            <summary>
+            Método que obtém um número randônico dentro de uma faixa estabelecida.
+            </summary>
+            <param name="min">Valor mínimo da faixa.</param>
+            <param name="max">Valor máximo da faixa.</param>
+            <returns>Valor aleatório dentro da faixa estabelecida.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.Authorization.IPasswordGeneratorService">
+            <summary>
+            Interface do serviço de geração de senhas.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.IPasswordGeneratorService.Generate(System.Int32,System.Char[])">
+            <summary>
+            Método que gera uma nova senha.
+            </summary>
+            <param name="length">Comprimento da senha à ser gerada.</param>
+            <param name="exclusions">Caracteres à serem excluídos da senha à ser gerada.</param>
+            <returns>Senha gerada</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.Authorization.Localization.Resource">
+            <summary>
+              Uma classe de recurso de tipo de alta segurança, para pesquisar cadeias de caracteres localizadas etc.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.Localization.Resource.ResourceManager">
+            <summary>
+              Retorna a instância de ResourceManager armazenada em cache usada por essa classe.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.Localization.Resource.Culture">
+            <summary>
+              Substitui a propriedade CurrentUICulture do thread atual para todas as
+              pesquisas de recursos que usam essa classe de recurso de tipo de alta segurança.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.Localization.Resource.ERROR_INVALID_PASSWORD_LENGHT">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The length of the password requested is less than the minimum established by the service:.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.Localization.Resource.TOKEN_VALIDATION_VALID">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The token is valid!.
+            </summary>
+        </member>
+        <member name="T:Kardinal.Net.Web.Authorization.KardinalTokenValidationResult">
+            <summary>
+            Classe que representa o resultado de uma validação de token.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.KardinalTokenValidationResult.IsValid">
+            <summary>
+            Atributo que indica se o token é válido.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.KardinalTokenValidationResult.Status">
+            <summary>
+            Atributo que indica o status da validação.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.KardinalTokenValidationResult.Message">
+            <summary>
+            Atributo que indica a mensagem de validação.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.KardinalTokenValidationResult.Principal">
+            <summary>
+            Atributo que contém os dados do usuário presentes no token.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.KardinalTokenValidationResult.SecurityToken">
+            <summary>
+            Atributo que contém os dados validados do token.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.KardinalTokenValidationResult.#ctor(Kardinal.Net.Web.Authorization.TokenValidationStatus,System.String)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="status">Status da validação.</param>
+            <param name="message">Mensagem de validação.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.KardinalTokenValidationResult.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.Authorization.UserInfo">
+            <summary>
+            Classe que representa as informações de um usuário providas pela autoridade.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.UserInfo.ToClaims">
+            <summary>
+            Método que converte este objeto em uma enumeração de claims. Veja <see cref="T:System.Security.Claims.Claim"/>
+            </summary>
+            <returns>Enumeração de claims do usuário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.UserInfo.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.Authorization.AuthorizationOptions">
+            <summary>
+            Classe de opções de autorização.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.AuthorizationOptions.#ctor">
+            <summary>
+            Método construtor.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.AuthorizationOptions.Identity">
+            <summary>
+            Configurações de identidade.
+            </summary>
+        </member>
+        <member name="T:Kardinal.Net.Web.Authorization.KardinalIdentityOptions">
+            <summary>
+            Classe de configurações Identity
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.KardinalIdentityOptions.Authority">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.KardinalIdentityOptions.Audience">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.KardinalIdentityOptions.ApiName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.KardinalIdentityOptions.ApiSecret">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.KardinalIdentityOptions.SaveToken">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.KardinalIdentityOptions.SupportedTokens">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.KardinalIdentityOptions.RoleClaimType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.KardinalIdentityOptions.NameClaimType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.KardinalIdentityOptions.ValidateIssuerSigningKey">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.KardinalIdentityOptions.ValidateIssuer">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.KardinalIdentityOptions.ValidateAudience">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.KardinalIdentityOptions.ValidateLifetime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.KardinalIdentityOptions.RequireHttpsMetadata">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.KardinalIdentityOptions.Scopes">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Kardinal.Net.Web.Controller</name>
+    </assembly>
+    <members>
+        <member name="T:Kardinal.Net.Web.AbstractController">
+            <summary>
+            Classe base para todos os controllers do sistema.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.AbstractController._logger">
+            <summary>
+            Instância do serviço de logs.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.AbstractController._provider">
+            <summary>
+            Instância do provedor de serviços. Veja <see cref="T:System.IServiceProvider"/> para mais detalhes.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.AbstractController.#ctor(System.IServiceProvider)">
+            <summary>
+            Método construtor.
+            </summary>
+            /// <param name="provider">Instância do provedor de serviços.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.AbstractController.GetService``1(``0)">
+            <summary>
+            Método que obtém um serviço através da injeção de dependências.
+            </summary>
+            <typeparam name="T">Interface do serviço desejado.</typeparam>
+            <param name="replacementService">Instância de serviço de substituição caso o serviço solicitado não seja encontrado.</param>
+            <returns>Instância do serviço desejado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.AbstractController.GetCurrentUser">
+            <summary>
+            Método que obtém os dados do usuário atualmente autenticado.
+            </summary>
+            <returns>Instância do serviço contendo os dados do usuário. Veja <see cref="T:Kardinal.Net.Web.ICurrentUserService"/></returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.AbstractController.GetApplicationInfo">
+            <summary>
+            Método que obtém os dados da aplicação atual.
+            </summary>
+            <returns>Instância do serviço de informações da aplicação.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.IServiceCollectionExtensions">
+            <summary>
+            Extensões para <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.IServiceCollectionExtensions.AddDataProtection(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,System.String)">
+            <summary>
+            Extensão para adição do serviço de proteção de dados.
+            </summary>
+            <param name="services">Objeto referenciado.</param>
+            <param name="configuration">Instância do contâiner de configurações.</param>
+            <param name="sector">Setor onde se encontram as configurações de proteção de dados.</param>
+            <returns>Objeto referenciado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.IServiceCollectionExtensions.AddDataProtection(Microsoft.Extensions.DependencyInjection.IServiceCollection,Kardinal.Net.Web.DataProtectionOptions)">
+            <summary>
+            Extensão para adição do serviço de proteção de dados.
+            </summary>
+            <param name="services">Objeto referenciado.</param>
+            <param name="options">Configurações do serviço de proteção de dados.</param>
+            <returns>Objeto referenciado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.IServiceCollectionExtensions.AddCertificateByFileSytem(Microsoft.AspNetCore.DataProtection.IDataProtectionBuilder,System.String,System.String)">
+            <summary>
+            Método para carregamento do certificado de proteção de dados através do sistema de arquivos.
+            </summary>
+            <param name="builder">Instância do construtor de proteção de dados.</param>
+            <param name="path">Caminho do certificado no sistema de arquivos.</param>
+            <param name="password">Senha do certificado.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.IServiceCollectionExtensions.AddCertificateByThumbprint(Microsoft.AspNetCore.DataProtection.IDataProtectionBuilder,System.Security.Cryptography.X509Certificates.StoreName,System.Security.Cryptography.X509Certificates.StoreLocation,System.Boolean,System.String)">
+            <summary>
+            Método para carregamento do certificado de proteção de dados através repositório de certificados.
+            </summary>
+            <param name="builder">Instância do construtor de proteção de dados.</param>
+            <param name="storeName">Nome do diretório de certificados.</param>
+            <param name="storeLocation">Localização do diretório de certificados.</param>
+            <param name="validOnly">Indica que apenas certificados válidos serão buscados.</param>
+            <param name="thumbprint">Impressão digital do certificado.</param>
+        </member>
+    </members>
+</doc>

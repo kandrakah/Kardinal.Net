@@ -1,0 +1,799 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Kardinal.Net.Blockchain</name>
+    </assembly>
+    <members>
+        <member name="T:Kardinal.Net.Blockchain.Blockchain">
+            <summary>
+            Classe de funções estáticas de blockchain.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Blockchain.Blockchain.Serializers">
+            <summary>
+            Dicionário de serializadores de blockchain.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.Blockchain.#cctor">
+            <summary>
+            Método estático para registro de serializadores padrões de blockchain.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.Blockchain.SetDefaultSerializer(System.String)">
+            <summary>
+            Método que define o serializador padrão.
+            </summary>
+            <param name="key">Chave do serializador padrão.</param>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.Blockchain.GetDefaultSerializer">
+            <summary>
+            Método que obtém o serializador padrão.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.Blockchain.RegisterSerializer``1(System.String,System.Boolean)">
+            <summary>
+            Método que efetua o registro de novos serializadores de blockchain.
+            </summary>
+            <typeparam name="T">Tipo do serializador à ser registrado.</typeparam>
+            <param name="key">Chave de identificação do serializador à ser registrado.</param>
+            <param name="setAsDefault">Indica que o serializador registrado deve ser marcado como o padrão.</param>
+        </member>
+        <member name="T:Kardinal.Net.Blockchain.BlockchainException">
+            <summary>
+            Classe de exceção de falha de blockchain.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.BlockchainException.#ctor(System.String)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="message">Mensagem de exceção.</param>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.BlockchainException.#ctor(System.String,System.Exception)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="message">Mensagem de exceção.</param>
+            <param name="innerException">Exceção interior.</param>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.BlockchainException.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Blockchain.BlockchainSerializationException">
+            <summary>
+            Classe de exceção que indica que há um problema de serialização
+            de algum item da blockchain.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.BlockchainSerializationException.#ctor(System.String)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="message">Mensagem de exceção.</param>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.BlockchainSerializationException.#ctor(System.String,System.Exception)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="message">Mensagem de exceção.</param>
+            <param name="innerException">Exceção interior.</param>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.BlockchainSerializationException.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Blockchain.BrokenChainException">
+            <summary>
+            Classe de exceção de quebra de blockchain, ou seja
+            quando um dos elos não pôde ser validado.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.BrokenChainException.#ctor(System.String)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="message">Mensagem de exceção.</param>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.BrokenChainException.#ctor(System.String,System.Exception)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="message">Mensagem de exceção.</param>
+            <param name="innerException">Exceção interior.</param>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.BrokenChainException.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Blockchain.HashNotFoundException">
+            <summary>
+            Classe de exceção que indica que um hash informado não foi localizado
+            dentro da blockchain.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.HashNotFoundException.#ctor(System.String)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="message">Mensagem de exceção.</param>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.HashNotFoundException.#ctor(System.String,System.Exception)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="message">Mensagem de exceção.</param>
+            <param name="innerException">Exceção interior.</param>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.HashNotFoundException.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Blockchain.IndexNotFoundException">
+            <summary>
+            Classe de exceção que indica que um índice informado não foi localizado
+            dentro da blockchain.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.IndexNotFoundException.#ctor(System.String)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="message">Mensagem de exceção.</param>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.IndexNotFoundException.#ctor(System.String,System.Exception)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="message">Mensagem de exceção.</param>
+            <param name="innerException">Exceção interior.</param>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.IndexNotFoundException.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Blockchain.DefaultJsonSimpleBlockchainDataSerializer">
+            <summary>
+            Implementação do serializador de blockchain para json.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.DefaultJsonSimpleBlockchainDataSerializer.#ctor">
+            <summary>
+            Método construtor.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.DefaultJsonSimpleBlockchainDataSerializer.Parse(System.String)">
+            <summary>
+            Método que desserializa uma entrada em json em um blockchain.
+            </summary>
+            <param name="data">Dados à serem desserializados.</param>
+            <returns>Blockchain resultante da desserialização. Veja <see cref="T:Kardinal.Net.Blockchain.SimpleBlockchain"/></returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.DefaultJsonSimpleBlockchainDataSerializer.TryParse(System.String,Kardinal.Net.Blockchain.SimpleBlockchain@)">
+            <summary>
+            Método que faz a tentativa de desserialização do blockchain.
+            </summary>
+            <param name="data">Dados à serem desserializados.</param>
+            <param name="blockchain">Blockchain resultante da desserialização. Veja <see cref="T:Kardinal.Net.Blockchain.SimpleBlockchain"/></param>
+            <returns>Verdadeiro caso a desserialização seja bem sucedida e falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.DefaultJsonSimpleBlockchainDataSerializer.CanSerialize``1(``0)">
+            <summary>
+            Método que verifica se o objeto pode ser serializado.
+            </summary>
+            <typeparam name="T">ipo do objeto à ser serializado.</typeparam>
+            <param name="obj">Objeto à ser serializado.</param>
+            <returns>Verdadeiro caso o objeto possa ser serializado e falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.DefaultJsonSimpleBlockchainDataSerializer.CanDeserialize``1(System.String)">
+            <summary>
+            Método que verifica se o objeto pode ser desserializado.
+            </summary>
+            <typeparam name="T">ipo do objeto à ser serializado.</typeparam>
+            <param name="data">Dados à serem desserializados.</param>
+            <returns>Verdadeiro caso o objeto possa ser desserializado e falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.DefaultJsonSimpleBlockchainDataSerializer.SerializeChainLink``1(``0)">
+            <summary>
+            Método para serialização de dados.
+            </summary>
+            <typeparam name="T">Tipo do objeto à ser serializado.</typeparam>
+            <param name="obj">Objeto à ser serializado.</param>
+            <returns>Valor serializado do objeto.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.DefaultJsonSimpleBlockchainDataSerializer.DesserializeChainLink``1(System.String)">
+            <summary>
+            Método para desserialziação de dados.
+            </summary>
+            <typeparam name="T">Tipo do objeto à ser desserialziado.</typeparam>
+            <param name="data">Dados do objeto à ser desserializado.</param>
+            <returns>Objeto desserializado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.DefaultJsonSimpleBlockchainDataSerializer.Serialize(Kardinal.Net.Blockchain.SimpleBlockchain,System.Collections.Generic.IEnumerable{Kardinal.Net.Blockchain.ChainLink})">
+            <summary>
+            Método que efetua a serialização do blockchain.
+            </summary>
+            <param name="blockchain">Blockchain à ser serializado.</param>
+            <param name="chainLinks">Enumeração de elos do blockchain.</param>
+            <returns>Forma serializada do blockchain.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.DefaultJsonSimpleBlockchainDataSerializer.Deserialize(System.String)">
+            <summary>
+            Método que efetua a serialização do blockchain.
+            </summary>        
+            <returns>Forma serializada do blockchain.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Blockchain.DefaultXmlSimpleBlockchainDataSerializer">
+            <summary>
+            Implementação do serializador de blockchain para xml.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.DefaultXmlSimpleBlockchainDataSerializer.Parse(System.String)">
+            <summary>
+            Método que desserializa uma entrada em xml em um blockchain.
+            </summary>
+            <param name="data">Dados à serem desserializados.</param>
+            <returns>Blockchain resultante da desserialização. Veja <see cref="T:Kardinal.Net.Blockchain.SimpleBlockchain"/></returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.DefaultXmlSimpleBlockchainDataSerializer.TryParse(System.String,Kardinal.Net.Blockchain.SimpleBlockchain@)">
+            <summary>
+            Método que faz a tentativa de desserialização do blockchain.
+            </summary>
+            <param name="data">Dados à serem desserializados.</param>
+            <param name="blockchain">Blockchain resultante da desserialização. Veja <see cref="T:Kardinal.Net.Blockchain.SimpleBlockchain"/></param>
+            <returns>Verdadeiro caso a desserialização seja bem sucedida e falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.DefaultXmlSimpleBlockchainDataSerializer.CanSerialize``1(``0)">
+            <summary>
+            Método que verifica se o objeto pode ser serializado.
+            </summary>
+            <typeparam name="T">ipo do objeto à ser serializado.</typeparam>
+            <param name="obj">Objeto à ser serializado.</param>
+            <returns>Verdadeiro caso o objeto possa ser serializado e falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.DefaultXmlSimpleBlockchainDataSerializer.CanDeserialize``1(System.String)">
+            <summary>
+            Método que verifica se o objeto pode ser desserializado.
+            </summary>
+            <typeparam name="T">ipo do objeto à ser serializado.</typeparam>
+            <param name="data">Dados à serem desserializados.</param>
+            <returns>Verdadeiro caso o objeto possa ser desserializado e falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.DefaultXmlSimpleBlockchainDataSerializer.SerializeChainLink``1(``0)">
+            <summary>
+            Método para serialização de dados.
+            </summary>
+            <typeparam name="T">Tipo do objeto à ser serializado.</typeparam>
+            <param name="obj">Objeto à ser serializado.</param>
+            <returns>Valor serializado do objeto.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.DefaultXmlSimpleBlockchainDataSerializer.DesserializeChainLink``1(System.String)">
+            <summary>
+            Método para desserialziação de dados.
+            </summary>
+            <typeparam name="T">Tipo do objeto à ser desserialziado.</typeparam>
+            <param name="data">Dados do objeto à ser desserializado.</param>
+            <returns>Objeto desserializado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.DefaultXmlSimpleBlockchainDataSerializer.Serialize(Kardinal.Net.Blockchain.SimpleBlockchain,System.Collections.Generic.IEnumerable{Kardinal.Net.Blockchain.ChainLink})">
+            <summary>
+            Método que efetua a serialização do blockchain.
+            </summary>
+            <param name="blockchain">Blockchain à ser serializado.</param>
+            <param name="chainLinks">Enumeração de elos do blockchain.</param>
+            <returns>Forma serializada do blockchain.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.DefaultXmlSimpleBlockchainDataSerializer.Deserialize(System.String)">
+            <summary>
+            Método que efetua a serialização do blockchain.
+            </summary>        
+            <returns>Forma serializada do blockchain.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Blockchain.ISimpleBlockchainDataSerializer">
+            <summary>
+            Interface de serialização de dados blockchain.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.ISimpleBlockchainDataSerializer.CanSerialize``1(``0)">
+            <summary>
+            Método que verifica se o objeto pode ser serializado.
+            </summary>
+            <typeparam name="T">ipo do objeto à ser serializado.</typeparam>
+            <param name="obj">Objeto à ser serializado.</param>
+            <returns>Verdadeiro caso o objeto possa ser serializado e falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.ISimpleBlockchainDataSerializer.CanDeserialize``1(System.String)">
+            <summary>
+            Método que verifica se o objeto pode ser desserializado.
+            </summary>
+            <typeparam name="T">ipo do objeto à ser serializado.</typeparam>
+            <param name="data">Dados à serem desserializados.</param>
+            <returns>Verdadeiro caso o objeto possa ser desserializado e falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.ISimpleBlockchainDataSerializer.SerializeChainLink``1(``0)">
+            <summary>
+            Método para serialização de dados.
+            </summary>
+            <typeparam name="T">Tipo do objeto à ser serializado.</typeparam>
+            <param name="obj">Objeto à ser serializado.</param>
+            <returns>Valor serializado do objeto.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.ISimpleBlockchainDataSerializer.DesserializeChainLink``1(System.String)">
+            <summary>
+            Método para desserialziação de dados.
+            </summary>
+            <typeparam name="T">Tipo do objeto à ser desserialziado.</typeparam>
+            <param name="data">Dados do objeto à ser desserializado.</param>
+            <returns>Objeto desserializado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.ISimpleBlockchainDataSerializer.Serialize(Kardinal.Net.Blockchain.SimpleBlockchain,System.Collections.Generic.IEnumerable{Kardinal.Net.Blockchain.ChainLink})">
+            <summary>
+            Método que efetua a serialização do blockchain.
+            </summary>
+            <param name="blockchain">Blockchain à ser serializado.</param>
+            <param name="chainLinks">Enumeração de elos do blockchain.</param>
+            <returns>Forma serializada do blockchain.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.ISimpleBlockchainDataSerializer.Deserialize(System.String)">
+            <summary>
+            Método que efetua a serialização do blockchain.
+            </summary>        
+            <returns>Forma serializada do blockchain.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Blockchain.Localization.Resource">
+            <summary>
+              Uma classe de recurso de tipo de alta segurança, para pesquisar cadeias de caracteres localizadas etc.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Blockchain.Localization.Resource.ResourceManager">
+            <summary>
+              Retorna a instância de ResourceManager armazenada em cache usada por essa classe.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Blockchain.Localization.Resource.Culture">
+            <summary>
+              Substitui a propriedade CurrentUICulture do thread atual para todas as
+              pesquisas de recursos que usam essa classe de recurso de tipo de alta segurança.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Blockchain.Localization.Resource.ERROR_BLOCKCHAIN_INVALID_DESSERIALIZATION">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Null or invalid deserialization data..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Blockchain.Localization.Resource.ERROR_BLOCKCHAIN_INVALID_LINK">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The link [{index}][{hash}] does not belong to this blockchain..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Blockchain.Localization.Resource.ERROR_BLOCKCHAIN_NO_LINKS">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Unable to serialize blockchain that has no links..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Blockchain.Localization.Resource.ERROR_HASH_MISMATCH">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The object&apos;s current hash does not match the one recorded in the blockchain..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Blockchain.Localization.Resource.ERROR_HASH_NOT_FOUND">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The hash entered does not match any item in the chain..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Blockchain.Localization.Resource.ERROR_HASH_PREVIOUS_MISMATCH">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Previous blockchain Hash does not match record in current object: [INDEX: {index}].
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Blockchain.Localization.Resource.ERROR_INDEX_NOT_FOUND">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The index informed does not match any item in the chain..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Blockchain.Localization.Resource.ERROR_SERIALIZER_KEY_NOT_FOUND">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Serializer identification key not found..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Blockchain.Localization.Resource.ERROR_SERIALIZER_KEY_NULL">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The serializer identification key is null or invalid..
+            </summary>
+        </member>
+        <member name="T:Kardinal.Net.Blockchain.SimpleBlockchainSerializedModel">
+            <summary>
+            Classe de modelo para serialização de blockchain.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Blockchain.SimpleBlockchainSerializedModel.BlockchainId">
+            <summary>
+            Id do blockchain.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Blockchain.SimpleBlockchainSerializedModel.Count">
+            <summary>
+            Contagens de elos do blockchain.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Blockchain.SimpleBlockchainSerializedModel.FirstIndex">
+            <summary>
+            Índice inicial do blockchain.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Blockchain.SimpleBlockchainSerializedModel.LastIndex">
+            <summary>
+            Índice final do blockchain.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Blockchain.SimpleBlockchainSerializedModel.ChainLinks">
+            <summary>
+            Lista de elos do blockchain.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.SimpleBlockchainSerializedModel.ToString">
+            <summary>
+            Método que retorna a representação string desta instância.
+            </summary>
+            <returns>Representação string da instância desta classe.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Blockchain.SimpleChainLinkSerializedModel">
+            <summary>
+            Classe de modelo de um elo de blockchain.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Blockchain.SimpleChainLinkSerializedModel.Index">
+            <summary>
+            Índice do elo.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Blockchain.SimpleChainLinkSerializedModel.Timestamp">
+            <summary>
+            Data de criação do blockchain.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Blockchain.SimpleChainLinkSerializedModel.Data">
+            <summary>
+            Dados do blockchain.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Blockchain.SimpleChainLinkSerializedModel.PreviousHash">
+            <summary>
+            Hash do elo anterior do blockchain.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Blockchain.SimpleChainLinkSerializedModel.Hash">
+            <summary>
+            Hash do elo do blockchain.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.SimpleChainLinkSerializedModel.ToString">
+            <summary>
+            Método que retorna a representação string desta instância.
+            </summary>
+            <returns>Representação string da instância desta classe.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Blockchain.ChainLink">
+            <summary>
+            Struct de elo de uma blockchain.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Blockchain.ChainLink.BlockchainId">
+            <summary>
+            Código de identificação do blockchain de origem do elo.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Blockchain.ChainLink.Index">
+            <summary>
+            Índice do item na blockchain.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Blockchain.ChainLink.Timestamp">
+            <summary>
+            Data de criação do registro.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Blockchain.ChainLink.PreviousHash">
+            <summary>
+            Hash do registro anterior.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Blockchain.ChainLink.Hash">
+            <summary>
+            Hash do item atual.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Blockchain.ChainLink.Data">
+            <summary>
+            Dados atuais do elo.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Blockchain.ChainLink.IsGenesis">
+            <summary>
+            Atributo que indica que se trata do elo inicial.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.ChainLink.#ctor(System.String,System.Int32,System.DateTime,System.Byte[],System.String)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="blockchainId">Código de identificação do blockchain de origem do elo.</param>
+            <param name="index">Índice do elo no blockchain.</param>
+            <param name="timestamp">Data de criação do registro.</param>
+            <param name="data">Dados atuais do elo.</param>
+            <param name="previousHash">Hash do registro anterior.</param>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.ChainLink.#ctor(System.String,System.Int32,System.DateTime,System.Byte[],System.String,System.String)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="blockchainId">Código de identificação do blockchain de origem do elo.</param>
+            <param name="index">Índice do elo no blockchain.</param>
+            <param name="timestamp">Data de criação do registro.</param>
+            <param name="data">Dados atuais do elo.</param>
+            <param name="dataHash">Hash do registro atual.</param>
+            <param name="previousHash">Hash do registro anterior.</param>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.ChainLink.NewChainLink(System.String,System.Int32,System.DateTime,System.Byte[],System.String)">
+            <summary>
+            Método estático que cria um novo elo de blockchain.
+            </summary>
+            <param name="blockchainId">Código de identificação do blockchain de origem do elo.</param>
+            <param name="index">Índice do elo no blockchain.</param>
+            <param name="timestamp">Data de criação do registro.</param>
+            <param name="data">Dados atuais do elo.</param>
+            <param name="previousHash">Hash do registro anterior.</param>
+            <returns>Novo elo de blockchain.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.ChainLink.NewChainLink(System.String,System.Int32,System.DateTime,System.Byte[],System.String,System.String)">
+            <summary>
+            Método estático que cria um novo elo de blockchain.
+            </summary>
+            <param name="blockchainId">Código de identificação do blockchain de origem do elo.</param>
+            <param name="index">Índice do elo no blockchain.</param>
+            <param name="timestamp">Data de criação do registro.</param>
+            <param name="data">Dados atuais do elo.</param>
+            <param name="dataHash">Hash do registro atual.</param>
+            <param name="previousHash">Hash do registro anterior.</param>
+            <returns>Novo elo de blockchain.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.ChainLink.op_Equality(Kardinal.Net.Blockchain.ChainLink,Kardinal.Net.Blockchain.ChainLink)">
+            <summary>
+            Comparação de igualdade entre dois elos de blockchain.
+            </summary>
+            <param name="first">Primeiro elo à ser comparado.</param>
+            <param name="second">Segundo elo à ser comparado.</param>
+            <returns>Verdadeiro caso os elos sejam iguais e falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.ChainLink.op_Inequality(Kardinal.Net.Blockchain.ChainLink,Kardinal.Net.Blockchain.ChainLink)">
+            <summary>
+            Comparação de diferença entre dois elos de blockchain.
+            </summary>
+            <param name="first">Primeiro elo à ser comparado.</param>
+            <param name="second">Segundo elo à ser comparado.</param>
+            <returns>Verdadeiro caso os elos sejam diferentes e falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.ChainLink.op_GreaterThan(Kardinal.Net.Blockchain.ChainLink,Kardinal.Net.Blockchain.ChainLink)">
+            <summary>
+            Comparação de maioridade entre dois elos de blockchain.
+            </summary>
+            <param name="first">Primeiro elo à ser comparado.</param>
+            <param name="second">Segundo elo à ser comparado.</param>
+            <returns>Verdadeiro caso o primeiro elo seja maior que o segundo e Falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.ChainLink.op_LessThan(Kardinal.Net.Blockchain.ChainLink,Kardinal.Net.Blockchain.ChainLink)">
+            <summary>
+            Comparação de minoridade entre dois elos de blockchain.
+            </summary>
+            <param name="first">Primeiro elo à ser comparado.</param>
+            <param name="second">Segundo elo à ser comparado.</param>
+            <returns>Verdadeiro caso o primeiro elo seja menor que o segundo e Falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.ChainLink.op_GreaterThanOrEqual(Kardinal.Net.Blockchain.ChainLink,Kardinal.Net.Blockchain.ChainLink)">
+            <summary>
+            Comparação de maioridade e equalidade entre dois elos de blockchain.
+            </summary>
+            <param name="first">Primeiro elo à ser comparado.</param>
+            <param name="second">Segundo elo à ser comparado.</param>
+            <returns>Verdadeiro caso o primeiro elo seja maior ou igual ao segundo e Falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.ChainLink.op_LessThanOrEqual(Kardinal.Net.Blockchain.ChainLink,Kardinal.Net.Blockchain.ChainLink)">
+            <summary>
+            Comparação de minoridade e equalidade entre dois elos de blockchain.
+            </summary>
+            <param name="first">Primeiro elo à ser comparado.</param>
+            <param name="second">Segundo elo à ser comparado.</param>
+            <returns>Verdadeiro caso o primeiro elo seja menor ou igual ao segundo e Falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.ChainLink.CalculateHash">
+            <summary>
+            Método que efetua o cálculo de hash do elo de blockchain.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.ChainLink.CompareTo(Kardinal.Net.Blockchain.ChainLink)">
+            <summary>
+            Método de comparação entre este e outro elo do blockchain.
+            </summary>
+            <param name="other">Outro elo do blockchain.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.ChainLink.Equals(Kardinal.Net.Blockchain.ChainLink)">
+            <summary>
+            Método de comparação de equalidade entre dois elos do blockchain.
+            </summary>
+            <param name="other">Outro elo do blockchain.</param>
+            <returns>Verdadeiro caso os elos sejam iguais e falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.ChainLink.Equals(System.String)">
+            <summary>
+            Método de comparação de equalidade entre este elo e um hash.
+            </summary>
+            <param name="other">Hash de blockchain.</param>
+            <returns>Verdadeiro caso os elos sejam iguais e falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.ChainLink.Equals(System.Object)">
+            <summary>
+            Método de comparação de equalidade entre este elo e um objeto.
+            </summary>
+            <param name="obj">Objeto à ser comparado.</param>
+            <returns>Verdadeiro caso os elos sejam iguais e falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.ChainLink.GetHashCode">
+            <summary>
+            Método que calcula o hashCode desta instância.
+            </summary>
+            <returns>HashCode da instância dessa classe.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.ChainLink.ToString">
+            <summary>
+            Método que retorna a representação string desta instância.
+            </summary>
+            <returns>Representação string da instância desta classe.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Blockchain.SimpleBlockchain">
+            <summary>
+            Struct simples para blockchain.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Blockchain.SimpleBlockchain.BlockchainId">
+            <summary>
+            Código de identificação único do blockchain.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Blockchain.SimpleBlockchain._chainLinks">
+            <summary>
+            Lista de elos do blockchain.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.SimpleBlockchain.#ctor(System.String)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="id">Id do blockchain.</param>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.SimpleBlockchain.#ctor(System.String,System.Collections.Generic.IEnumerable{Kardinal.Net.Blockchain.ChainLink})">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="blockchainId">Id do blockchain.</param>
+            <param name="chainLinks">Elos do blockchain.</param>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.SimpleBlockchain.Initialize">
+            <summary>
+            Método que faz a inicialização do blockchain.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.SimpleBlockchain.New">
+            <summary>
+            Método estático que cria uma istância de um blockchain com serialização em formato json.
+            </summary>
+            <returns>Instância de um blockchain.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.SimpleBlockchain.Add``1(``0)">
+            <summary>
+            Método que adiciona um novo elo ao blockchain.
+            </summary>
+            <typeparam name="T">Tipo de dados à serem inseridos.</typeparam>
+            <param name="item">Item à ser inserido.</param>
+            <returns>Hash do item inserido.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.SimpleBlockchain.Get(System.Int32)">
+            <summary>
+            Método que obtém um item pelo índice.
+            </summary>
+            <param name="index">Índice do item desejado.</param>
+            <returns>Objeto referente ao índice indicado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.SimpleBlockchain.Get``1(System.Int32)">
+            <summary>
+            Método que obtém um item pelo índice.
+            </summary>
+            <typeparam name="T">Tipo do objeto à ser obtido.</typeparam>
+            <param name="index">Índice do item desejado.</param>
+            <returns>Objeto referente ao índice indicado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.SimpleBlockchain.Get(System.String)">
+            <summary>
+            Método que obtém um item pelo hash.
+            </summary>
+            <param name="hash">Hash do item desejado.</param>
+            <returns>Objeto referente ao índice indicado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.SimpleBlockchain.Get``1(System.String)">
+            <summary>
+            Método que obtém um item pelo hash.
+            </summary>
+            <typeparam name="T">Tipo do objeto à ser obtido.</typeparam>
+            <param name="hash">Hash do item desejado.</param>
+            <returns>Objeto referente ao índice indicado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.SimpleBlockchain.Validate">
+            <summary>
+            Método que efetua a validação do blockchain.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.SimpleBlockchain.Parse(System.String)">
+            <summary>
+            Método estático que cria uma instância de um blockchain utilizando o serializador padrão.
+            </summary>
+            <param name="data">Dados json do blockchain.</param>
+            <returns><see cref="T:Kardinal.Net.Blockchain.SimpleBlockchain"/> resultante dos dados.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.SimpleBlockchain.Parse(System.String,System.String)">
+            <summary>
+            Método estático que cria uma instância de um blockchain utilizando o serializador informado.
+            </summary>
+            <param name="data">Dados json do blockchain.</param>
+            <param name="serializerKey">Chave de identificação do serializador à ser utilizado.</param>
+            <returns><see cref="T:Kardinal.Net.Blockchain.SimpleBlockchain"/> resultante dos dados.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.SimpleBlockchain.TryParse(System.String,Kardinal.Net.Blockchain.SimpleBlockchain@)">
+            <summary>
+            Método estático que cria uma instância de um blockchain utilizando o serializador informado.
+            </summary>
+            <param name="data">Dados json do blockchain.</param>
+            <param name="blockchain"><see cref="T:Kardinal.Net.Blockchain.SimpleBlockchain"/> resultante dos dados.</param>        
+            <returns>Verdadeiro caso os dados possam ser convertidos em um blockchain e falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.SimpleBlockchain.TryParse(System.String,System.String,Kardinal.Net.Blockchain.SimpleBlockchain@)">
+            <summary>
+            Método estático que cria uma instância de um blockchain utilizando o serializador informado.
+            </summary>
+            <param name="data">Dados json do blockchain.</param>
+            <param name="serializerKey">Chave de identificação do serializador à ser utilizado.</param>
+            <param name="blockchain"><see cref="T:Kardinal.Net.Blockchain.SimpleBlockchain"/> resultante dos dados.</param>        
+            <returns>Verdadeiro caso os dados possam ser convertidos em um blockchain e falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.SimpleBlockchain.Export(System.IO.Stream)">
+            <summary>
+            Método que faz a exportação do blockchain.
+            </summary>
+            <param name="stream">Stream de dados onde o blockchain será exportado.</param>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.SimpleBlockchain.Export(System.IO.Stream,System.String)">
+            <summary>
+            Método que faz a exportação do blockchain.
+            </summary>
+            <param name="stream">Stream de dados onde o blockchain será exportado.</param>
+            <param name="serializerKey">Identificador do serializador de blockchain.</param>
+        </member>
+        <member name="M:Kardinal.Net.Blockchain.SimpleBlockchain.ToString">
+            <summary>
+            Método que retorna a representação string desta instância.
+            </summary>
+            <returns>Representação string da instância desta classe.</returns>
+        </member>
+    </members>
+</doc>

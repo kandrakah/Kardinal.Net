@@ -1,0 +1,431 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Kardinal.Net.Web.Authorization.Permissions</name>
+    </assembly>
+    <members>
+        <member name="T:Kardinal.Net.Web.Authorization.PermissionAttribute">
+            <summary>
+            Classe de atributo que define a permissão necessária para acesso ao endpoint com ela decorado.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.PermissionAttribute.#ctor">
+            <summary>
+            Método construtor.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.PermissionAttribute.#ctor(Kardinal.Net.Web.Authorization.PermissionValidationType,System.String[])">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="validationType">Tipo de validação de permissão. Veja <see cref="T:Kardinal.Net.Web.Authorization.PermissionValidationType"/></param>
+            <param name="permissions">Permissões requeridas para autorização</param>
+        </member>
+        <member name="T:Kardinal.Net.Web.Authorization.PermissionAttribute.PermissionAttributeImpl">
+            <summary>
+            Implementação do atributo de permissão.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.PermissionAttribute.PermissionAttributeImpl.#ctor(Microsoft.Extensions.Logging.ILogger{Kardinal.Net.Web.Authorization.PermissionAttribute},Kardinal.Net.Web.Authorization.PermissionsAuthorizationRequirement,System.IServiceProvider)">
+            <summary>
+            Método construtor
+            </summary>
+            <param name="logger">Instância do serviço de log</param>
+            <param name="permissionRequeriment">Permissões requeridas pelo atributo</param>
+            <param name="provider">Instância do provedor de serviços</param>
+        </member>
+        <member name="T:Kardinal.Net.Web.Authorization.PermissionValidationType">
+            <summary>
+            Enumerador para indicar o tipo de validação de múltiplas permissões.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.Authorization.PermissionValidationType.Annonymous">
+            <summary>
+            Indica possibilidade de acesso anônimo.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.Authorization.PermissionValidationType.RequireAuthenticatedOnly">
+            <summary>
+            Indica que o usuário ativo precisa apenas estar autenticado.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.Authorization.PermissionValidationType.RequireOneOf">
+            <summary>
+            Indica que o usuário ativo deve ter ao menos uma das permissões.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.Authorization.PermissionValidationType.RequireAll">
+            <summary>
+            Indica que o usuário ativo deve ter todas as permissões.
+            </summary>
+        </member>
+        <member name="T:Kardinal.Net.Web.Authorization.ICurrentUserServiceExtensions">
+            <summary>
+            Extensões para <see cref="T:Kardinal.Net.Web.ICurrentUserService"/>
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.ICurrentUserServiceExtensions.HasPermission(Kardinal.Net.Web.ICurrentUserService,System.String,System.String)">
+            <summary>
+            Extensão que verifica se o usuário possui determinada permissão.
+            </summary>
+            <param name="currentUser">Objeto referenciado.</param>
+            <param name="permissionClaimName">Nome da claim de permissões.</param>
+            <param name="permissionKey">Chave da permissão.</param>
+            <returns>Verdadeiro caso o usuário possua a permissão indicada e falso caso contrário.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.Authorization.ServiceCollectionExtensions">
+            <summary>
+            Extensões para <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.ServiceCollectionExtensions.AddClaimsPermissionAuthorizationService(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Extensão para adição do serviço de autorização por permissões baseado em claims.
+            </summary>
+            <param name="services">Objeto referenciado.</param>
+            <param name="configuration">Instância do container de configurações.</param>
+            <returns>Objeto referenciado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.ServiceCollectionExtensions.AddClaimsPermissionAuthorizationService(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,System.String)">
+            <summary>
+            Extensão para adição do serviço de autorização por permissões baseado em claims.
+            </summary>
+            <param name="services">Objeto referenciado.</param>
+            <param name="configuration">Instância do container de configurações.</param>
+            <param name="section">Nome da sessão de configurações.</param>
+            <returns>Objeto referenciado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.ServiceCollectionExtensions.AddClaimsPermissionAuthorizationService(Microsoft.Extensions.DependencyInjection.IServiceCollection,Kardinal.Net.Web.Authorization.PermissionsAuthorizationOptions)">
+            <summary>
+            Extensão para adição do serviço de autorização por permissões baseado em claims.
+            </summary>
+            <param name="services">Objeto referenciado.</param>
+            <param name="options">Opções do serviço de permissões.</param>        
+            <returns>Objeto referenciado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.ServiceCollectionExtensions.AddClaimsPermissionAuthorizationService(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Kardinal.Net.Web.Authorization.PermissionsAuthorizationOptions})">
+            <summary>
+            Extensão para adição do serviço de autorização por permissões baseado em claims.
+            </summary>
+            <param name="services">Objeto referenciado.</param>
+            <param name="options">Opções do serviço de permissões.</param>        
+            <returns>Objeto referenciado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.ServiceCollectionExtensions.AddPermissionAuthorizationService``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,``1)">
+            <summary>
+            Extensão para adição do serviço de autorização por permissões.
+            </summary>
+            <typeparam name="TImplementation">Implementação do serviço de autorização por permissões. Veja <see cref="T:Kardinal.Net.Web.Authorization.IPermissionAuthorizationService"/></typeparam>
+            <typeparam name="TOptions">Tipo das configurações do serviço de autorização por permissões.</typeparam>
+            <param name="services">Objeto referenciado.</param>
+            <param name="options">Configurações do serviço de autorização por permissões.</param>
+            <returns>Objeto referenciado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.ServiceCollectionExtensions.AddPermissionAuthorizationService``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{``1})">
+            <summary>
+            Extensão para adição do serviço de autorização por permissões.
+            </summary>
+            <typeparam name="TImplementation">Implementação do serviço de autorização por permissões. Veja <see cref="T:Kardinal.Net.Web.Authorization.IPermissionAuthorizationService"/></typeparam>
+            <typeparam name="TOptions">Tipo das configurações do serviço de autorização por permissões.</typeparam>
+            <param name="services">Objeto referenciado.</param>
+            <param name="options">Configurações do serviço de autorização por permissões.</param>
+            <returns>Objeto referenciado.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.Authorization.ClaimsPermissionAuthorizationService">
+            <summary>
+            Implementação do serviço de autorização por permissões baseado em claims.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.Authorization.ClaimsPermissionAuthorizationService._logger">
+            <summary>
+            Instância do serviço de log.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.Authorization.ClaimsPermissionAuthorizationService._options">
+            <summary>
+            Instância do provedor de configurações.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.Authorization.ClaimsPermissionAuthorizationService._currentUser">
+            <summary>
+            Instância do serviço de dados do usuário atual.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.Authorization.ClaimsPermissionAuthorizationService._accessor">
+            <summary>
+            Acessor do contexto http.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.ClaimsPermissionAuthorizationService.#ctor(Microsoft.Extensions.Logging.ILogger{Kardinal.Net.Web.Authorization.ClaimsPermissionAuthorizationService},Microsoft.Extensions.Options.IOptions{Kardinal.Net.Web.Authorization.PermissionsAuthorizationOptions},Kardinal.Net.Web.ICurrentUserService,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            Método construtor
+            </summary>
+            <param name="logger">Instância do serviço de logs.</param>
+            <param name="options">Instância do container de configurações.</param>
+            <param name="currentUser">Instância do serviço do usuário do sistema.</param>
+            <param name="accessor">Instância do accessor do contexto http.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.ClaimsPermissionAuthorizationService.AuthorizeAsync(Microsoft.AspNetCore.Mvc.Filters.AuthorizationFilterContext,Kardinal.Net.Web.Authorization.PermissionsAuthorizationRequirement)">
+            <summary>
+            Método que efetua a validação da autorização de acesso.
+            </summary>
+            <param name="context">Contexto de autorização</param>
+            <param name="permissionRequeriment">Requerimento de permissão</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.ClaimsPermissionAuthorizationService.UpdateUserIdentityWithAuthority(Kardinal.Net.Web.Authorization.KardinalIdentityOptions,System.String)">
+            <summary>
+            Método que faz a atualização dos dados do usuário com informações da autoridade.
+            </summary>
+            <param name="settings">Configurações da autoridade</param>
+            <param name="token">Token de acesso</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.ClaimsPermissionAuthorizationService.ValidatePermissions(Kardinal.Net.Web.Authorization.ClaimsPermissionsOptions,Kardinal.Net.Web.Authorization.PermissionsAuthorizationRequirement,System.Collections.Generic.List{System.String}@)">
+            <summary>
+            Método que efetua a verificação de permissão de uma identidade considerando o requerimento de permissão informado.
+            </summary>
+            <param name="configurations"></param>
+            <param name="permissionRequeriment">Requerimento de permissão</param>
+            <param name="missingPermissions"></param>
+            <returns>Verdadeiro caso o usuário atenda aos critérios requisitados e falso caso contrário</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.ClaimsPermissionAuthorizationService.LogPermissionErrorMessage(Kardinal.Net.Web.Authorization.PermissionValidationType,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            
+            </summary>
+            <param name="validationType"></param>
+            <param name="missingPermissions"></param>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.ClaimsPermissionAuthorizationService.MissingPermissions(Kardinal.Net.Web.ICurrentUserService,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Método que invoca o resultado de exceção exibindo as permissões ausentes
+            que são requeridas para o acesso.
+            </summary>
+            <param name="currentUser">Dados do usuário atual.</param>
+            <param name="permissions">Enumeração de permissões ausentes.</param>
+            <returns>Resultado da ação.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.ClaimsPermissionAuthorizationService.Unauthorized(System.String,System.Object)">
+            <summary>
+            Método que invoca o resultado de exceção de requisição indicando
+            acesso negado.
+            </summary>
+            <param name="message">Mensagem de exceção.</param>
+            <param name="details">Detalhes da exceção.</param>
+            <returns>Resultado da ação.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.Authorization.IPermissionAuthorizationService">
+            <summary>
+            Interface do serviço de autorização
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.IPermissionAuthorizationService.AuthorizeAsync(Microsoft.AspNetCore.Mvc.Filters.AuthorizationFilterContext,Kardinal.Net.Web.Authorization.PermissionsAuthorizationRequirement)">
+            <summary>
+            Método que efetua a validação da autorização de acesso.
+            </summary>
+            <param name="context">Contexto de autorização</param>
+            <param name="permissionRequeriment">Requerimento de permissão</param>
+        </member>
+        <member name="T:Kardinal.Net.Web.Authorization.Permissions.Localization.Resource">
+            <summary>
+              Uma classe de recurso de tipo de alta segurança, para pesquisar cadeias de caracteres localizadas etc.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.Permissions.Localization.Resource.ResourceManager">
+            <summary>
+              Retorna a instância de ResourceManager armazenada em cache usada por essa classe.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.Permissions.Localization.Resource.Culture">
+            <summary>
+              Substitui a propriedade CurrentUICulture do thread atual para todas as
+              pesquisas de recursos que usam essa classe de recurso de tipo de alta segurança.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.Permissions.Localization.Resource.AUTHORIZATION_ADDING_USER_DETAILS">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Updating user data with the authority.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.Permissions.Localization.Resource.AUTHORIZATION_ERROR_INVALID_TOKEN">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Invalid access token: [{status}: {message}].
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.Permissions.Localization.Resource.AUTHORIZATION_ERROR_TOKEN_WRONG_FORMAT">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Invalid access token: Wrong format!.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.Permissions.Localization.Resource.AUTHORIZATION_ERROR_UPDATE_SYSTEM_USER">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Failed to update system user: {msg}.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.Permissions.Localization.Resource.AUTHORIZATION_USER_AUTHORIZED">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The user {usr} is authorized to access the {path} endpoint..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.Permissions.Localization.Resource.AUTHORIZATION_USER_ISROOT">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Authorized user under master authority..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.Permissions.Localization.Resource.AUTHORIZATION_USER_UNHAUTHORIZED">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Unauthorized user..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.Permissions.Localization.Resource.AUTHORIZATION_VALIDATING_TOKEN">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Validating access token..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.Permissions.Localization.Resource.ERROR_PERMISSION_DECLARATION_NOT_REQUIRED">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Anonymous access permission should not contain a declaration of required permissions..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.Permissions.Localization.Resource.ERROR_PERMISSION_DECLARATION_REQUIRED">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a At least one permission statement is required for the type of validation entered..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.Permissions.Localization.Resource.ERROR_PERMISSION_MISSING_MULTI_LOGGER">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The user {usr} does not have one of the required permissions for this service: {pems}.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.Permissions.Localization.Resource.ERROR_PERMISSION_MISSING_SINGLE_LOGGER">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The user {usr} does not have any of the necessary permissions to access this service. At least one permission is required: {pem}.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.Permissions.Localization.Resource.ERROR_PERMISSION_SERVICE_NOT_FOUND">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The permission-based authorization service was not found..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.Permissions.Localization.Resource.PERMISSION_AUTHORIZATION_ANNONYMOUS">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Anonymous access to endpoint {endpoint} authorized by remote requester {ipAddress}..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.Permissions.Localization.Resource.UNAUTHORIZED_DEFAULT_MESSAGE">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Unauthorized access..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.Permissions.Localization.Resource.UNAUTHORIZED_INVALID_TOKEN">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Invalid access token..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.Permissions.Localization.Resource.UNAUTHORIZED_MISSING_PERMISSIONS">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The user {userName} doesn&apos;t have permissions to access this service..
+            </summary>
+        </member>
+        <member name="T:Kardinal.Net.Web.Authorization.PermissionsAuthorizationRequirement">
+            <summary>
+            Implementação do requerimento de autorização.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.PermissionsAuthorizationRequirement.Permissions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.PermissionsAuthorizationRequirement.ValidationType">
+            <summary>
+            Enumerador para indicar o tipo de validação de múltiplas permissões.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.PermissionsAuthorizationRequirement.#ctor(Kardinal.Net.Web.Authorization.PermissionValidationType,System.String[])">
+            <summary>
+            Método construtor
+            </summary>
+            <param name="validationType">Tipo de validação de permissões.</param>
+            <param name="requiredPermissions">Permissões requeridas para acesso.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.PermissionsAuthorizationRequirement.Contains(System.String)">
+            <summary>
+            Método que verifica se a permissão infomada existe no requerimento.
+            </summary>
+            <param name="permission">Nome da permissão à ser verificada</param>
+            <returns>Verdadeiro caso a permissão exista no requerimento e falso caso contrário</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.Authorization.StatusCodeModel">
+            <summary>
+            Modelo de retorno de dados em caso de falhas de requisição.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.StatusCodeModel.Status">
+            <summary>
+            Código de status da falha.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.StatusCodeModel.Title">
+            <summary>
+            Descrição da falha.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.StatusCodeModel.Details">
+            <summary>
+            Detalhes da falha.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.Authorization.StatusCodeModel.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.Authorization.ClaimsPermissionsOptions">
+            <summary>
+            Classe de configurações para permissões baseada em claims.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.ClaimsPermissionsOptions.PermissionClaimName">
+            <summary>
+            Nome da claim de permissão.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.ClaimsPermissionsOptions.EnableRootPermission">
+            <summary>
+            Indica o uso de permissão mestre.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.ClaimsPermissionsOptions.RootPermissionKey">
+            <summary>
+            Chave da permissão mestre.
+            </summary>
+        </member>
+        <member name="T:Kardinal.Net.Web.Authorization.PermissionsAuthorizationOptions">
+            <summary>
+            Classe de opções do serviço de autorização por permissões.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.PermissionsAuthorizationOptions.ShowMissingAuthorizationPermissions">
+            <summary>
+            Opção que habilita a visualização das permissões ausentes durante
+            a autenticação de acesso.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Authorization.PermissionsAuthorizationOptions.Claims">
+            <summary>
+            Configurações de permissões baseadas em claims.
+            </summary>
+        </member>
+        <member name="T:Kardinal.Net.Web.Authorization.PermissionConstants">
+            <summary>
+            Constantes da biblioteca de identidade.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.Authorization.PermissionConstants.PERMISSION_ROOT_TAG">
+            <summary>
+            Permissão mestre do sistema.
+            </summary>
+        </member>
+    </members>
+</doc>

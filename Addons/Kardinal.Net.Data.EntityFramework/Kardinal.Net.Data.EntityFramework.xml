@@ -1,0 +1,1119 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Kardinal.Net.Data.EntityFramework</name>
+    </assembly>
+    <members>
+        <member name="T:Kardinal.Net.Data.Entity">
+            <summary>
+            Classe abstrata que serve de base para todas as entidades primárias.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Data.Entity.Id">
+            <summary>
+            Índice único da entidade.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Data.Entity.Version">
+            <summary>
+            Versão do registro da linha.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Data.Entity.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Data.ProtectedAttribute">
+            <summary>
+            Atributo que indica que uma informação deve ser protegida.
+            </summary>
+        </member>
+        <member name="T:Kardinal.Net.Data.AbstractRepository`2">
+            <summary>
+            Classe abstrata de repositório de dados.
+            </summary>
+            <typeparam name="TContext">Tipo do contexto.</typeparam>
+            <typeparam name="TEntity">Tipo da entidade gerenciada.</typeparam>
+        </member>
+        <member name="F:Kardinal.Net.Data.AbstractRepository`2._context">
+            <summary>
+            Instância do contexto do repositório.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Data.AbstractRepository`2.#ctor(`0)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="context">Instância do contexto do repositório.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.AbstractRepository`2.AsQueryable">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.AbstractRepository`2.AsAsyncEnumerable">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.AbstractRepository`2.Find(System.Object[])">
+            <summary>
+            Método que faz a busca de um registro de uma entidade
+            com base em suas chaves primárias informadas.
+            </summary>
+            <param name="keyValues">Chaves primárias da entidade.</param>
+            <returns>Dados do registro associado às chaves primárias informadas.
+            Caso nenhum registro seja encontrado, retornará nulo.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.AbstractRepository`2.FindAsync(System.Object[])">
+            <summary>
+            Método que faz a busca de um registro de uma entidade
+            com base em suas chaves primárias informadas.
+            </summary>
+            <param name="keyValues">Chaves primárias da entidade.</param>
+            <returns>Dados do registro associado às chaves primárias informadas.
+            Caso nenhum registro seja encontrado, retornará nulo.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.AbstractRepository`2.FindAsync(System.Object[],System.Threading.CancellationToken)">
+            <summary>
+            Método que faz a busca de um registro de uma entidade
+            com base em suas chaves primárias informadas.
+            </summary>
+            <param name="keyValues">Chaves primárias da entidade.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Dados do registro associado às chaves primárias informadas.
+            Caso nenhum registro seja encontrado, retornará nulo.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.AbstractRepository`2.Add(`1)">
+            <summary>
+            Método para a adição de um novo registro no repositório
+            de entidades.
+            </summary>
+            <param name="entity">Entidade à ser adicionada.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.AbstractRepository`2.AddAsync(`1,System.Threading.CancellationToken)">
+            <summary>
+            Método para a adição de um novo registro no repositório
+            de entidades.
+            </summary>
+            <param name="entity">Entidade à ser adicionada.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.AbstractRepository`2.AddRange(System.Collections.Generic.IEnumerable{`1})">
+            <summary>
+            Método para a adição de vários novos registros no repositório
+            de entidades.
+            </summary>
+            <param name="entities">Entidades à serem adicionadas.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.AbstractRepository`2.AddRange(`1[])">
+            <summary>
+            Método para a adição de vários novos registros no repositório
+            de entidades.
+            </summary>
+            <param name="entities">Entidades à serem adicionadas.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.AbstractRepository`2.AddRangeAsync(System.Collections.Generic.IEnumerable{`1},System.Threading.CancellationToken)">
+            <summary>
+            Método para a adição de vários novos registros no repositório
+            de entidades.
+            </summary>
+            <param name="entities">Entidades à serem adicionadas.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.AbstractRepository`2.AddRangeAsync(System.Threading.CancellationToken,`1[])">
+            <summary>
+            Método para a adição de vários novos registros no repositório
+            de entidades.
+            </summary>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <param name="entities">Entidades à serem adicionadas.</param>        
+        </member>
+        <member name="M:Kardinal.Net.Data.AbstractRepository`2.Attach(`1)">
+            <summary>
+            Começa a rastrear uma entidade fornecida e as entradas acessíveis a partir dessa entidade
+            usando o estado <see cref="F:Microsoft.EntityFrameworkCore.EntityState.Unchanged"/> por padrão.
+            </summary>
+            <param name="entity">entidade à ser rastreada.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.AbstractRepository`2.AttachRange(System.Collections.Generic.IEnumerable{`1})">
+            <summary>
+            Começa a rastrear várias entidades fornecidas e as entradas acessíveis a partir dessa entidade
+            usando o estado <see cref="F:Microsoft.EntityFrameworkCore.EntityState.Unchanged"/> por padrão.
+            </summary>
+            <param name="entity">entidade à ser rastreada.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.AbstractRepository`2.AttachRange(`1[])">
+            <summary>
+            Começa a rastrear várias entidades fornecidas e as entradas acessíveis a partir dessa entidade
+            usando o estado <see cref="F:Microsoft.EntityFrameworkCore.EntityState.Unchanged"/> por padrão.
+            </summary>
+            <param name="entity">entidade à ser rastreada.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.AbstractRepository`2.Update(`1)">
+            <summary>
+            Método para a edição de um registro no repositório
+            de entidades.
+            </summary>
+            <param name="entity">Entidade à ser modificada.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.AbstractRepository`2.UpdateRange(System.Collections.Generic.IEnumerable{`1})">
+            <summary>
+            Método para a edição de vários registros no repositório
+            de entidades.
+            </summary>
+            <param name="entities">Entidades à serem modificadas.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.AbstractRepository`2.UpdateRange(`1[])">
+            <summary>
+            Método para a edição de vários registros no repositório
+            de entidades.
+            </summary>
+            <param name="entities">Entidades à serem modificadas.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.AbstractRepository`2.Remove(`1)">
+            <summary>
+            Método para a remoção de um registro no repositório
+            de entidades.
+            </summary>
+            <param name="entity">Entidade à ser removida.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.AbstractRepository`2.RemoveRange(System.Collections.Generic.IEnumerable{`1})">
+            <summary>
+            Método para a remoção de vários registros no repositório
+            de entidades.
+            </summary>
+            <param name="entity">Entidades à serem removida.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.AbstractRepository`2.RemoveRange(`1[])">
+            <summary>
+            Método para a remoção de vários registros no repositório
+            de entidades.
+            </summary>
+            <param name="entity">Entidades à serem removida.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.AbstractRepository`2.SaveChanges">
+            <summary>
+            Método que efetua a confirmação de alterações do contexto.
+            </summary>
+            <returns>Contagem de registros alterados.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.AbstractRepository`2.SaveChanges(System.Boolean)">
+            <summary>
+            Método que efetua a confirmação de alterações do contexto.
+            </summary>
+            <param name="acceptAllChangesOnSuccess">Indica se <see cref="M:Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.AcceptAllChanges"/> 
+            é chamado após as alterações terem sido enviadas com sucesso para o banco de dados.</param>
+            <returns>Contagem de registros alterados.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.AbstractRepository`2.SaveChangesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Método que efetua a confirmação de alterações do contexto.
+            </summary>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Contagem de registros alterados.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.AbstractRepository`2.SaveChangesAsync(System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Método que efetua a confirmação de alterações do contexto.
+            </summary>
+            <param name="acceptAllChangesOnSuccess">Indica se <see cref="M:Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.AcceptAllChanges"/> 
+            é chamado após as alterações terem sido enviadas com sucesso para o banco de dados.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Contagem de registros alterados.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.AbstractRepository`2.Dispose">
+            <summary>
+            Método que efetua a liberação de resursos de um objeto.
+            </summary>
+        </member>
+        <member name="T:Kardinal.Net.Data.DefaultRepository`1">
+            <summary>
+            Implementação padrão de um repositório.
+            </summary>
+            <typeparam name="TEntity">Entidade gerenciada pelo repositório.</typeparam>
+        </member>
+        <member name="M:Kardinal.Net.Data.DefaultRepository`1.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="context">Instância do contexto do repositório.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.DefaultRepository`1.Dispose">
+            <summary>
+            Método que efetua a liberação de resursos de um objeto.
+            </summary>
+        </member>
+        <member name="T:Kardinal.Net.Data.DefaultRepository`2">
+            <summary>
+            Implementação padrão de um repositório.
+            </summary>
+            <typeparam name="TContext">Contexto provedor do repositório.</typeparam>
+            <typeparam name="TEntity">Entidade gerenciada pelo repositório.</typeparam>
+        </member>
+        <member name="M:Kardinal.Net.Data.DefaultRepository`2.#ctor(`0)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="context">Instância do contexto do repositório.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.DefaultRepository`2.Dispose">
+            <summary>
+            Método que efetua a liberação de resursos de um objeto.
+            </summary>
+        </member>
+        <member name="T:Kardinal.Net.Data.TransactionContext">
+            <summary>
+            Implementação de uma transação criada a partir de um contexto de base de dados.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Data.TransactionContext.Id">
+            <summary>
+            Id da transação.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Data.TransactionContext._context">
+            <summary>
+            Instância do contexto de dados.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Data.TransactionContext.ContextTransaction">
+            <summary>
+            Instância da transação atual.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Data.TransactionContext._readers">
+            <summary>
+            Enumeração de readers da transação.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Data.TransactionContext.#ctor(Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="context">Instância do contexto de dados.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.TransactionContext.BeginTransaction">
+            <summary>
+            Método que cria uma nova transação.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Data.TransactionContext.BeginTransactionAsync(System.Threading.CancellationToken)">
+            <summary>
+            Método que cria uma nova transação.
+            </summary>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.TransactionContext.Execute(System.String,System.Data.CommandBehavior,System.Collections.Generic.KeyValuePair{System.String,System.Object}[])">
+            <summary>
+            Método para execução de uma instrução SQL.
+            </summary>
+            <param name="sqlCommand">Comando SQL à ser executado.</param>
+            <param name="behavior">Descrição do efeito do comando SQL na base de dados.</param>
+            <param name="parameters">Parâmetros do comando SQL.</param>
+            <returns><see cref="T:System.Data.Common.DbDataReader"/> com o resultado da execução do comando SQL.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.TransactionContext.Execute(System.String,System.Data.CommandBehavior,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Método para execução de uma instrução SQL.
+            </summary>
+            <param name="sqlCommand">Comando SQL à ser executado.</param>
+            <param name="behavior">Descrição do efeito do comando SQL na base de dados.</param>
+            <param name="parameters">Parâmetros do comando SQL.</param>
+            <returns><see cref="T:System.Data.Common.DbDataReader"/> com o resultado da execução do comando SQL.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.TransactionContext.Execute(System.String,System.Collections.Generic.KeyValuePair{System.String,System.Object}[])">
+            <summary>
+            Método para execução de uma instrução SQL.
+            </summary>
+            <param name="sqlCommand">Comando SQL à ser executado.</param>
+            <param name="parameters">Parâmetros do comando SQL.</param>
+            <returns>Contagem de registros afetados.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.TransactionContext.Execute(System.String,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Método para execução de uma instrução SQL.
+            </summary>
+            <param name="sqlCommand">Comando SQL à ser executado.</param>
+            <param name="parameters">Parâmetros do comando SQL.</param>
+            <returns>Contagem de registros afetados.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.TransactionContext.ExecuteAsync(System.String,System.Data.CommandBehavior,System.Threading.CancellationToken,System.Collections.Generic.KeyValuePair{System.String,System.Object}[])">
+            <summary>
+            Método para execução de uma instrução SQL.
+            </summary>
+            <param name="sqlCommand">Comando SQL à ser executado.</param>
+            <param name="behavior">Descrição do efeito do comando SQL na base de dados.</param>
+            <param name="parameters">Parâmetros do comando SQL.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns><see cref="T:System.Data.Common.DbDataReader"/> com o resultado da execução do comando SQL.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.TransactionContext.ExecuteAsync(System.String,System.Data.CommandBehavior,System.Collections.Generic.IDictionary{System.String,System.Object},System.Threading.CancellationToken)">
+            <summary>
+            Método para execução de uma instrução SQL.
+            </summary>
+            <param name="sqlCommand">Comando SQL à ser executado.</param>
+            <param name="behavior">Descrição do efeito do comando SQL na base de dados.</param>
+            <param name="parameters">Parâmetros do comando SQL.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns><see cref="T:System.Data.Common.DbDataReader"/> com o resultado da execução do comando SQL.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.TransactionContext.ExecuteAsync(System.String,System.Threading.CancellationToken,System.Collections.Generic.KeyValuePair{System.String,System.Object}[])">
+            <summary>
+            Método para execução de uma instrução SQL.
+            </summary>
+            <param name="sqlCommand">Comando SQL à ser executado.</param>
+            <param name="parameters">Parâmetros do comando SQL.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Contagem de registros afetados.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.TransactionContext.ExecuteAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.Object},System.Threading.CancellationToken)">
+            <summary>
+            Método para execução de uma instrução SQL.
+            </summary>
+            <param name="sqlCommand">Comando SQL à ser executado.</param>
+            <param name="parameters">Parâmetros do comando SQL.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Contagem de registros afetados.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.TransactionContext.CreateSavepoint(System.String)">
+            <summary>
+            Cria um ponto de salvamento na transação. Isso permite que todos os comandos executados 
+            após o ponto de salvamento sejam revertidos, restaurando o estado da transação para o 
+            que estava no momento do ponto de salvamento.
+            </summary>
+            <param name="name">O nome do ponto de salvamento a ser criado.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.TransactionContext.CreateSavepointAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Cria um ponto de salvamento na transação. Isso permite que todos os comandos executados 
+            após o ponto de salvamento sejam revertidos, restaurando o estado da transação para o 
+            que estava no momento do ponto de salvamento.
+            </summary>
+            <param name="name">O nome do ponto de salvamento a ser criado.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.TransactionContext.RollbackToSavepoint(System.String)">
+            <summary>
+            Reverte todos os comandos que foram executados após o estabelecimento do ponto de salvamento especificado.
+            </summary>
+            <param name="name">O nome do ponto de salvamento a ser revertido.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.TransactionContext.RollbackToSavepointAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Reverte todos os comandos que foram executados após o estabelecimento do ponto de salvamento especificado.
+            </summary>
+            <param name="name">O nome do ponto de salvamento a ser revertido.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.TransactionContext.ReleaseSavepointAsync(System.String)">
+            <summary>
+            Destrói um ponto de salvamento previamente definido na transação atual. 
+            Isso permite que o sistema recupere alguns recursos antes que a transação termine.
+            </summary>
+            <param name="name">O nome do ponto de salvamento a ser destruído.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.TransactionContext.ReleaseSavepoint(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Destrói um ponto de salvamento previamente definido na transação atual. 
+            Isso permite que o sistema recupere alguns recursos antes que a transação termine.
+            </summary>
+            <param name="name">O nome do ponto de salvamento a ser destruído.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.TransactionContext.Commit">
+            <summary>
+            Confirma todas as alterações feitas na base de dados da transação.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Data.TransactionContext.CommitAsync(System.Threading.CancellationToken)">
+            <summary>
+            Confirma todas as alterações feitas na base de dados da transação.
+            </summary>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.TransactionContext.Rollback">
+            <summary>
+            Descarta todas as alterações feitas na base de dados da transação.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Data.TransactionContext.RollbackAsync(System.Threading.CancellationToken)">
+            <summary>
+            Descarta todas as alterações feitas na base de dados da transação.
+            </summary>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.TransactionContext.Dispose">
+            <summary>
+            Executa tarefas definidas pelo aplicativo associadas à liberação ou redefinição de recursos não gerenciados.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Data.TransactionContext.DisposeAsync">
+            <summary>
+            Executa tarefas definidas pelo aplicativo associadas à liberação ou redefinição de recursos não gerenciados.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.TransactionContext.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Data.UnitOfWork`1">
+            <summary>
+            Implementação da unidade de trabalho.
+            </summary>
+            <typeparam name="TContext">Contexto à ser utilizado pela unidade de trabalho.</typeparam>
+        </member>
+        <member name="F:Kardinal.Net.Data.UnitOfWork`1._logger">
+            <summary>
+            Instância do serviço de log.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Data.UnitOfWork`1._context">
+            <summary>
+            Instância do contexto.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Data.UnitOfWork`1.#ctor(Microsoft.Extensions.Logging.ILogger{Kardinal.Net.Data.UnitOfWork{`0}},`0)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="logger">Instância do serviço de log.</param>
+            <param name="context">Instância do contexto.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.UnitOfWork`1.Set``1">
+            <summary>
+            Método que cria uma instância de um <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> de uma entidade.
+            </summary>
+            <typeparam name="T">Tipo da entidade.</typeparam>
+            <returns>DbSet da entidade solicitada.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.UnitOfWork`1.CreateTransaction">
+            <summary>
+            Método para criar um contexto de transação.
+            </summary>
+            <returns>Instância do contexto de transação.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.UnitOfWork`1.CreateTransactionAsync(System.Threading.CancellationToken)">
+            <summary>
+            Método para criar um contexto de transação.
+            </summary>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Instância do contexto de transação.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.UnitOfWork`1.ExecuteCommand(System.String,System.Data.CommandBehavior,System.Collections.Generic.KeyValuePair{System.String,System.Object}[])">
+            <summary>
+            Método para execução de uma instrução SQL.
+            </summary>
+            <param name="sqlCommand">Comando SQL à ser executado.</param>
+            <param name="behavior">Descrição do efeito do comando SQL na base de dados.</param>
+            <param name="parameters">Parâmetros do comando SQL.</param>
+            <returns><see cref="T:System.Data.Common.DbDataReader"/> com o resultado da execução do comando SQL.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.UnitOfWork`1.ExecuteCommand(System.String,System.Data.CommandBehavior,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Método para execução de uma instrução SQL.
+            </summary>
+            <param name="sqlCommand">Comando SQL à ser executado.</param>
+            <param name="behavior">Descrição do efeito do comando SQL na base de dados.</param>
+            <param name="parameters">Parâmetros do comando SQL.</param>
+            <returns><see cref="T:System.Data.Common.DbDataReader"/> com o resultado da execução do comando SQL.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.UnitOfWork`1.ExecuteCommand(System.String,System.Collections.Generic.KeyValuePair{System.String,System.Object}[])">
+            <summary>
+            Método para execução de uma instrução SQL.
+            </summary>
+            <param name="sqlCommand">Comando SQL à ser executado.</param>
+            <param name="parameters">Parâmetros do comando SQL.</param>
+            <returns>Contagem de registros afetados.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.UnitOfWork`1.ExecuteCommand(System.String,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Método para execução de uma instrução SQL.
+            </summary>
+            <param name="sqlCommand">Comando SQL à ser executado.</param>
+            <param name="parameters">Parâmetros do comando SQL.</param>
+            <returns>Contagem de registros afetados.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.UnitOfWork`1.ExecuteCommandAsync(System.String,System.Data.CommandBehavior,System.Threading.CancellationToken,System.Collections.Generic.KeyValuePair{System.String,System.Object}[])">
+            <summary>
+            Método para execução de uma instrução SQL.
+            </summary>
+            <param name="sqlCommand">Comando SQL à ser executado.</param>
+            <param name="behavior">Descrição do efeito do comando SQL na base de dados.</param>
+            <param name="parameters">Parâmetros do comando SQL.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns><see cref="T:System.Data.Common.DbDataReader"/> com o resultado da execução do comando SQL.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.UnitOfWork`1.ExecuteCommandAsync(System.String,System.Data.CommandBehavior,System.Collections.Generic.IDictionary{System.String,System.Object},System.Threading.CancellationToken)">
+            <summary>
+            Método para execução de uma instrução SQL.
+            </summary>
+            <param name="sqlCommand">Comando SQL à ser executado.</param>
+            <param name="behavior">Descrição do efeito do comando SQL na base de dados.</param>
+            <param name="parameters">Parâmetros do comando SQL.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns><see cref="T:System.Data.Common.DbDataReader"/> com o resultado da execução do comando SQL.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.UnitOfWork`1.ExecuteCommandAsync(System.String,System.Threading.CancellationToken,System.Collections.Generic.KeyValuePair{System.String,System.Object}[])">
+            <summary>
+            Método para execução de uma instrução SQL.
+            </summary>
+            <param name="sqlCommand">Comando SQL à ser executado.</param>
+            <param name="parameters">Parâmetros do comando SQL.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Contagem de registros afetados.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.UnitOfWork`1.ExecuteCommandAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.Object},System.Threading.CancellationToken)">
+            <summary>
+            Método para execução de uma instrução SQL.
+            </summary>
+            <param name="sqlCommand">Comando SQL à ser executado.</param>
+            <param name="parameters">Parâmetros do comando SQL.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Contagem de registros afetados.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.UnitOfWork`1.SaveChanges">
+            <summary>
+            Método que efetua a confirmação de alterações do contexto.
+            </summary>
+            <returns>Contagem de registros alterados.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.UnitOfWork`1.SaveChanges(System.Boolean)">
+            <summary>
+            Método que efetua a confirmação de alterações do contexto.
+            </summary>
+            <param name="acceptAllChangesOnSuccess">Indica se <see cref="M:Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.AcceptAllChanges"/> 
+            é chamado após as alterações terem sido enviadas com sucesso para o banco de dados.</param>
+            <returns>Contagem de registros alterados.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.UnitOfWork`1.SaveChangesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Método que efetua a confirmação de alterações do contexto.
+            </summary>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Contagem de registros alterados.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.UnitOfWork`1.SaveChangesAsync(System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Método que efetua a confirmação de alterações do contexto.
+            </summary>
+            <param name="acceptAllChangesOnSuccess">Indica se <see cref="M:Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.AcceptAllChanges"/> 
+            é chamado após as alterações terem sido enviadas com sucesso para o banco de dados.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Contagem de registros alterados.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.UnitOfWork`1.Dispose">
+            <summary>
+            Método que efetua a liberação de resursos de um objeto.
+            </summary>
+        </member>
+        <member name="T:Kardinal.Net.Data.IRepository`2">
+            <summary>
+            Interface do repositório do Entity Framework.
+            </summary>
+            <typeparam name="TContext">Tipo do contexto do repositório.</typeparam>
+            <typeparam name="TEntity">Entidade associada ao repositório.</typeparam>
+        </member>
+        <member name="T:Kardinal.Net.Data.IRepository`1">
+            <summary>
+            Interface do repositório do Entity Framework.
+            </summary>
+            <typeparam name="TEntity">Entidade associada ao repositório.</typeparam>
+        </member>
+        <member name="M:Kardinal.Net.Data.IRepository`1.AsQueryable">
+            <summary>
+            Método que obtém uma instância de <see cref="T:System.Linq.IQueryable`1"/> para a entidade
+            gerenciada pelo repositório.
+            </summary>
+            <returns>Instância de <see cref="T:System.Linq.IQueryable`1"/> da entidade gerenciada.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.IRepository`1.AsAsyncEnumerable">
+            <summary>
+            Método que obtém uma instância de <see cref="T:System.Collections.Generic.IAsyncEnumerable`1"/> para a entidade
+            gerenciada pelo repositório.
+            </summary>
+            <returns>Instância de <see cref="T:System.Collections.Generic.IAsyncEnumerable`1"/> da entidade gerenciada.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.IRepository`1.Find(System.Object[])">
+            <summary>
+            Método que faz a busca de um registro de uma entidade
+            com base em suas chaves primárias informadas.
+            </summary>
+            <param name="keyValues">Chaves primárias da entidade.</param>
+            <returns>Dados do registro associado às chaves primárias informadas.
+            Caso nenhum registro seja encontrado, retornará nulo.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.IRepository`1.FindAsync(System.Object[])">
+            <summary>
+            Método que faz a busca de um registro de uma entidade
+            com base em suas chaves primárias informadas.
+            </summary>
+            <param name="keyValues">Chaves primárias da entidade.</param>
+            <returns>Dados do registro associado às chaves primárias informadas.
+            Caso nenhum registro seja encontrado, retornará nulo.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.IRepository`1.Add(`0)">
+            <summary>
+            Método para a adição de um novo registro no repositório
+            de entidades.
+            </summary>
+            <param name="entity">Entidade à ser adicionada.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.IRepository`1.AddAsync(`0,System.Threading.CancellationToken)">
+            <summary>
+            Método para a adição de um novo registro no repositório
+            de entidades.
+            </summary>
+            <param name="entity">Entidade à ser adicionada.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.IRepository`1.AddRange(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Método para a adição de vários novos registros no repositório
+            de entidades.
+            </summary>
+            <param name="entities">Entidades à serem adicionadas.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.IRepository`1.AddRange(`0[])">
+            <summary>
+            Método para a adição de vários novos registros no repositório
+            de entidades.
+            </summary>
+            <param name="entities">Entidades à serem adicionadas.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.IRepository`1.AddRangeAsync(System.Collections.Generic.IEnumerable{`0},System.Threading.CancellationToken)">
+            <summary>
+            Método para a adição de vários novos registros no repositório
+            de entidades.
+            </summary>
+            <param name="entities">Entidades à serem adicionadas.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.IRepository`1.AddRangeAsync(System.Threading.CancellationToken,`0[])">
+            <summary>
+            Método para a adição de vários novos registros no repositório
+            de entidades.
+            </summary>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <param name="entities">Entidades à serem adicionadas.</param>        
+        </member>
+        <member name="M:Kardinal.Net.Data.IRepository`1.Attach(`0)">
+            <summary>
+            Começa a rastrear uma entidade fornecida e as entradas acessíveis a partir dessa entidade
+            usando o estado <see cref="F:Microsoft.EntityFrameworkCore.EntityState.Unchanged"/> por padrão.
+            </summary>
+            <param name="entity">entidade à ser rastreada.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.IRepository`1.AttachRange(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Começa a rastrear várias entidades fornecidas e as entradas acessíveis a partir dessa entidade
+            usando o estado <see cref="F:Microsoft.EntityFrameworkCore.EntityState.Unchanged"/> por padrão.
+            </summary>
+            <param name="entity">entidade à ser rastreada.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.IRepository`1.AttachRange(`0[])">
+            <summary>
+            Começa a rastrear várias entidades fornecidas e as entradas acessíveis a partir dessa entidade
+            usando o estado <see cref="F:Microsoft.EntityFrameworkCore.EntityState.Unchanged"/> por padrão.
+            </summary>
+            <param name="entity">entidade à ser rastreada.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.IRepository`1.Update(`0)">
+            <summary>
+            Método para a edição de um registro no repositório
+            de entidades.
+            </summary>
+            <param name="entity">Entidade à ser modificada.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.IRepository`1.UpdateRange(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Método para a edição de vários registros no repositório
+            de entidades.
+            </summary>
+            <param name="entities">Entidades à serem modificadas.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.IRepository`1.UpdateRange(`0[])">
+            <summary>
+            Método para a edição de vários registros no repositório
+            de entidades.
+            </summary>
+            <param name="entities">Entidades à serem modificadas.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.IRepository`1.Remove(`0)">
+            <summary>
+            Método para a remoção de um registro no repositório
+            de entidades.
+            </summary>
+            <param name="entity">Entidade à ser removida.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.IRepository`1.RemoveRange(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Método para a remoção de vários registros no repositório
+            de entidades.
+            </summary>
+            <param name="entity">Entidades à serem removida.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.IRepository`1.RemoveRange(`0[])">
+            <summary>
+            Método para a remoção de vários registros no repositório
+            de entidades.
+            </summary>
+            <param name="entity">Entidades à serem removida.</param>
+        </member>
+        <member name="T:Kardinal.Net.Data.IRepository">
+            <summary>
+            Interface do repositório do Entity Framework.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Data.IRepository.SaveChanges">
+            <summary>
+            Método que efetua a confirmação de alterações do contexto.
+            </summary>
+            <returns>Contagem de registros alterados.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.IRepository.SaveChanges(System.Boolean)">
+            <summary>
+            Método que efetua a confirmação de alterações do contexto.
+            </summary>
+            <param name="acceptAllChangesOnSuccess">Indica se <see cref="M:Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.AcceptAllChanges"/> 
+            é chamado após as alterações terem sido enviadas com sucesso para o banco de dados.</param>
+            <returns>Contagem de registros alterados.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.IRepository.SaveChangesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Método que efetua a confirmação de alterações do contexto.
+            </summary>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Contagem de registros alterados.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.IRepository.SaveChangesAsync(System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Método que efetua a confirmação de alterações do contexto.
+            </summary>
+            <param name="acceptAllChangesOnSuccess">Indica se <see cref="M:Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.AcceptAllChanges"/> 
+            é chamado após as alterações terem sido enviadas com sucesso para o banco de dados.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Contagem de registros alterados.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Data.ITransactionContext">
+            <summary>
+            Interface de uma transação criada a partir de um contexto de base de dados.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Data.ITransactionContext.Id">
+            <summary>
+            Id da transação.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Data.ITransactionContext.Execute(System.String,System.Data.CommandBehavior,System.Collections.Generic.KeyValuePair{System.String,System.Object}[])">
+            <summary>
+            Método para execução de uma instrução SQL.
+            </summary>
+            <param name="sqlCommand">Comando SQL à ser executado.</param>
+            <param name="behavior">Descrição do efeito do comando SQL na base de dados.</param>
+            <param name="parameters">Parâmetros do comando SQL.</param>
+            <returns><see cref="T:System.Data.Common.DbDataReader"/> com o resultado da execução do comando SQL.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.ITransactionContext.Execute(System.String,System.Data.CommandBehavior,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Método para execução de uma instrução SQL.
+            </summary>
+            <param name="sqlCommand">Comando SQL à ser executado.</param>
+            <param name="behavior">Descrição do efeito do comando SQL na base de dados.</param>
+            <param name="parameters">Parâmetros do comando SQL.</param>
+            <returns><see cref="T:System.Data.Common.DbDataReader"/> com o resultado da execução do comando SQL.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.ITransactionContext.Execute(System.String,System.Collections.Generic.KeyValuePair{System.String,System.Object}[])">
+            <summary>
+            Método para execução de uma instrução SQL.
+            </summary>
+            <param name="sqlCommand">Comando SQL à ser executado.</param>
+            <param name="parameters">Parâmetros do comando SQL.</param>
+            <returns>Contagem de registros afetados.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.ITransactionContext.Execute(System.String,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Método para execução de uma instrução SQL.
+            </summary>
+            <param name="sqlCommand">Comando SQL à ser executado.</param>
+            <param name="parameters">Parâmetros do comando SQL.</param>
+            <returns>Contagem de registros afetados.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.ITransactionContext.ExecuteAsync(System.String,System.Data.CommandBehavior,System.Threading.CancellationToken,System.Collections.Generic.KeyValuePair{System.String,System.Object}[])">
+            <summary>
+            Método para execução de uma instrução SQL.
+            </summary>
+            <param name="sqlCommand">Comando SQL à ser executado.</param>
+            <param name="behavior">Descrição do efeito do comando SQL na base de dados.</param>
+            <param name="parameters">Parâmetros do comando SQL.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns><see cref="T:System.Data.Common.DbDataReader"/> com o resultado da execução do comando SQL.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.ITransactionContext.ExecuteAsync(System.String,System.Data.CommandBehavior,System.Collections.Generic.IDictionary{System.String,System.Object},System.Threading.CancellationToken)">
+            <summary>
+            Método para execução de uma instrução SQL.
+            </summary>
+            <param name="sqlCommand">Comando SQL à ser executado.</param>
+            <param name="behavior">Descrição do efeito do comando SQL na base de dados.</param>
+            <param name="parameters">Parâmetros do comando SQL.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns><see cref="T:System.Data.Common.DbDataReader"/> com o resultado da execução do comando SQL.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.ITransactionContext.ExecuteAsync(System.String,System.Threading.CancellationToken,System.Collections.Generic.KeyValuePair{System.String,System.Object}[])">
+            <summary>
+            Método para execução de uma instrução SQL.
+            </summary>
+            <param name="sqlCommand">Comando SQL à ser executado.</param>
+            <param name="parameters">Parâmetros do comando SQL.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Contagem de registros afetados.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.ITransactionContext.ExecuteAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.Object},System.Threading.CancellationToken)">
+            <summary>
+            Método para execução de uma instrução SQL.
+            </summary>
+            <param name="sqlCommand">Comando SQL à ser executado.</param>
+            <param name="parameters">Parâmetros do comando SQL.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Contagem de registros afetados.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.ITransactionContext.CreateSavepoint(System.String)">
+            <summary>
+            Cria um ponto de salvamento na transação. Isso permite que todos os comandos executados 
+            após o ponto de salvamento sejam revertidos, restaurando o estado da transação para o 
+            que estava no momento do ponto de salvamento.
+            </summary>
+            <param name="name">O nome do ponto de salvamento a ser criado.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.ITransactionContext.CreateSavepointAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Cria um ponto de salvamento na transação. Isso permite que todos os comandos executados 
+            após o ponto de salvamento sejam revertidos, restaurando o estado da transação para o 
+            que estava no momento do ponto de salvamento.
+            </summary>
+            <param name="name">O nome do ponto de salvamento a ser criado.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.ITransactionContext.RollbackToSavepoint(System.String)">
+            <summary>
+            Reverte todos os comandos que foram executados após o estabelecimento do ponto de salvamento especificado.
+            </summary>
+            <param name="name">O nome do ponto de salvamento a ser revertido.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.ITransactionContext.RollbackToSavepointAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Reverte todos os comandos que foram executados após o estabelecimento do ponto de salvamento especificado.
+            </summary>
+            <param name="name">O nome do ponto de salvamento a ser revertido.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.ITransactionContext.ReleaseSavepointAsync(System.String)">
+            <summary>
+            Destrói um ponto de salvamento previamente definido na transação atual. 
+            Isso permite que o sistema recupere alguns recursos antes que a transação termine.
+            </summary>
+            <param name="name">O nome do ponto de salvamento a ser destruído.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.ITransactionContext.ReleaseSavepoint(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Destrói um ponto de salvamento previamente definido na transação atual. 
+            Isso permite que o sistema recupere alguns recursos antes que a transação termine.
+            </summary>
+            <param name="name">O nome do ponto de salvamento a ser destruído.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.ITransactionContext.Commit">
+            <summary>
+            Confirma todas as alterações feitas na base de dados da transação.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Data.ITransactionContext.CommitAsync(System.Threading.CancellationToken)">
+            <summary>
+            Confirma todas as alterações feitas na base de dados da transação.
+            </summary>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+        </member>
+        <member name="M:Kardinal.Net.Data.ITransactionContext.Rollback">
+            <summary>
+            Descarta todas as alterações feitas na base de dados da transação.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Data.ITransactionContext.RollbackAsync(System.Threading.CancellationToken)">
+            <summary>
+            Descarta todas as alterações feitas na base de dados da transação.
+            </summary>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+        </member>
+        <member name="T:Kardinal.Net.Data.IUnitOfWork`1">
+            <summary>
+            Interface da unidade de trabalho.
+            </summary>
+            <typeparam name="TContext">Contexto à ser utilizado pela unidade de trabalho.</typeparam>
+        </member>
+        <member name="T:Kardinal.Net.Data.IUnitOfWork">
+            <summary>
+            Interface da unidade de trabalho.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Data.IUnitOfWork.Set``1">
+            <summary>
+            Método que cria uma instância de um <see cref="T:Microsoft.EntityFrameworkCore.DbSet`1"/> de uma entidade.
+            </summary>
+            <typeparam name="TEntity">Tipo da entidade.</typeparam>
+            <returns>DbSet da entidade solicitada.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.IUnitOfWork.CreateTransaction">
+            <summary>
+            Método para criar um contexto de transação.
+            </summary>
+            <returns>Instância do contexto de transação.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.IUnitOfWork.CreateTransactionAsync(System.Threading.CancellationToken)">
+            <summary>
+            Método para criar um contexto de transação.
+            </summary>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Instância do contexto de transação.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.IUnitOfWork.ExecuteCommand(System.String,System.Data.CommandBehavior,System.Collections.Generic.KeyValuePair{System.String,System.Object}[])">
+            <summary>
+            Método para execução de uma instrução SQL.
+            </summary>
+            <param name="sqlCommand">Comando SQL à ser executado.</param>
+            <param name="behavior">Descrição do efeito do comando SQL na base de dados.</param>
+            <param name="parameters">Parâmetros do comando SQL.</param>
+            <returns><see cref="T:System.Data.Common.DbDataReader"/> com o resultado da execução do comando SQL.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.IUnitOfWork.ExecuteCommand(System.String,System.Data.CommandBehavior,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Método para execução de uma instrução SQL.
+            </summary>
+            <param name="sqlCommand">Comando SQL à ser executado.</param>
+            <param name="behavior">Descrição do efeito do comando SQL na base de dados.</param>
+            <param name="parameters">Parâmetros do comando SQL.</param>
+            <returns><see cref="T:System.Data.Common.DbDataReader"/> com o resultado da execução do comando SQL.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.IUnitOfWork.ExecuteCommand(System.String,System.Collections.Generic.KeyValuePair{System.String,System.Object}[])">
+            <summary>
+            Método para execução de uma instrução SQL.
+            </summary>
+            <param name="sqlCommand">Comando SQL à ser executado.</param>
+            <param name="parameters">Parâmetros do comando SQL.</param>
+            <returns>Contagem de registros afetados.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.IUnitOfWork.ExecuteCommand(System.String,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            Método para execução de uma instrução SQL.
+            </summary>
+            <param name="sqlCommand">Comando SQL à ser executado.</param>
+            <param name="parameters">Parâmetros do comando SQL.</param>
+            <returns>Contagem de registros afetados.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.IUnitOfWork.ExecuteCommandAsync(System.String,System.Data.CommandBehavior,System.Threading.CancellationToken,System.Collections.Generic.KeyValuePair{System.String,System.Object}[])">
+            <summary>
+            Método para execução de uma instrução SQL.
+            </summary>
+            <param name="sqlCommand">Comando SQL à ser executado.</param>
+            <param name="behavior">Descrição do efeito do comando SQL na base de dados.</param>
+            <param name="parameters">Parâmetros do comando SQL.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns><see cref="T:System.Data.Common.DbDataReader"/> com o resultado da execução do comando SQL.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.IUnitOfWork.ExecuteCommandAsync(System.String,System.Data.CommandBehavior,System.Collections.Generic.IDictionary{System.String,System.Object},System.Threading.CancellationToken)">
+            <summary>
+            Método para execução de uma instrução SQL.
+            </summary>
+            <param name="sqlCommand">Comando SQL à ser executado.</param>
+            <param name="behavior">Descrição do efeito do comando SQL na base de dados.</param>
+            <param name="parameters">Parâmetros do comando SQL.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns><see cref="T:System.Data.Common.DbDataReader"/> com o resultado da execução do comando SQL.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.IUnitOfWork.ExecuteCommandAsync(System.String,System.Threading.CancellationToken,System.Collections.Generic.KeyValuePair{System.String,System.Object}[])">
+            <summary>
+            Método para execução de uma instrução SQL.
+            </summary>
+            <param name="sqlCommand">Comando SQL à ser executado.</param>
+            <param name="parameters">Parâmetros do comando SQL.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Contagem de registros afetados.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.IUnitOfWork.ExecuteCommandAsync(System.String,System.Collections.Generic.IDictionary{System.String,System.Object},System.Threading.CancellationToken)">
+            <summary>
+            Método para execução de uma instrução SQL.
+            </summary>
+            <param name="sqlCommand">Comando SQL à ser executado.</param>
+            <param name="parameters">Parâmetros do comando SQL.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Contagem de registros afetados.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.IUnitOfWork.SaveChanges">
+            <summary>
+            Método que efetua a confirmação de alterações do contexto.
+            </summary>
+            <returns>Contagem de registros alterados.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.IUnitOfWork.SaveChanges(System.Boolean)">
+            <summary>
+            Método que efetua a confirmação de alterações do contexto.
+            </summary>
+            <param name="acceptAllChangesOnSuccess">Indica se <see cref="M:Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.AcceptAllChanges"/> 
+            é chamado após as alterações terem sido enviadas com sucesso para o banco de dados.</param>
+            <returns>Contagem de registros alterados.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.IUnitOfWork.SaveChangesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Método que efetua a confirmação de alterações do contexto.
+            </summary>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Contagem de registros alterados.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Data.IUnitOfWork.SaveChangesAsync(System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            Método que efetua a confirmação de alterações do contexto.
+            </summary>
+            <param name="acceptAllChangesOnSuccess">Indica se <see cref="M:Microsoft.EntityFrameworkCore.ChangeTracking.ChangeTracker.AcceptAllChanges"/> 
+            é chamado após as alterações terem sido enviadas com sucesso para o banco de dados.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Contagem de registros alterados.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Data.EntityFramework.Localization.Resource">
+            <summary>
+              Uma classe de recurso de tipo de alta segurança, para pesquisar cadeias de caracteres localizadas etc.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Data.EntityFramework.Localization.Resource.ResourceManager">
+            <summary>
+              Retorna a instância de ResourceManager armazenada em cache usada por essa classe.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Data.EntityFramework.Localization.Resource.Culture">
+            <summary>
+              Substitui a propriedade CurrentUICulture do thread atual para todas as
+              pesquisas de recursos que usam essa classe de recurso de tipo de alta segurança.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Data.EntityFramework.Localization.Resource.ERROR_NO_TRANSACTION_RUNNING">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a There is no transaction running on this instance..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Data.EntityFramework.Localization.Resource.ERROR_SAVING_TRANSACTION_RUNNING">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a It is not possible to save the context with a transaction in progress. Confirm or restore the transaction before saving..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Data.EntityFramework.Localization.Resource.ERROR_TRANSACTION_RUNNING">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The transaction [{TransactionId}] is already underway in this instance..
+            </summary>
+        </member>
+    </members>
+</doc>

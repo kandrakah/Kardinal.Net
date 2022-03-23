@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="DEBUG_BACKGROUND_TASK_HOST_START" xml:space="preserve">
+    <value>O host de tarefas em segundo plano foi inicializado.</value>
+  </data>
+  <data name="DEBUG_BACKGROUND_TASK_HOST_STOP" xml:space="preserve">
+    <value>O host de tarefas em segundo plano foi finalizado.</value>
+  </data>
+  <data name="DEFAULT_SERVICE_NAME" xml:space="preserve">
+    <value>Api Service</value>
+  </data>
+  <data name="ERROR_BACKGROUND_TASK_FAIL" xml:space="preserve">
+    <value>Falha durante a execução da tarefa em segundo plano {task}: {message}</value>
+  </data>
+  <data name="ERROR_BACKGROUND_TASK_NULL" xml:space="preserve">
+    <value>A tarefa em segundo plano à ser executada não pode ser nula.</value>
+  </data>
+  <data name="ERROR_CANT_USE_BOTH_KESTREL_IIS_INTEGRATION" xml:space="preserve">
+    <value>Não é possível utilizar Kestrel e integração com o IIS simultaneamente.</value>
+  </data>
+  <data name="ERROR_CERTIFICATE_NOT_FOUND" xml:space="preserve">
+    <value>O certificado informado não foi localizado em [{path}].</value>
+  </data>
+  <data name="ERROR_CERTIFICATE_PRIVATE_KEY_MISSING" xml:space="preserve">
+    <value>O certificado [{thumbprint}] não possui uma chave privada atribuída.</value>
+  </data>
+  <data name="ERROR_CONTENT_ROOT_INVALID" xml:space="preserve">
+    <value>O diretório raíz {CONTENT_ROOT} é inválido!</value>
+  </data>
+  <data name="ERROR_NULL_EMPTY_CERTIFICATE_PATH" xml:space="preserve">
+    <value>A localização do certificado de serviço é nula ou inválida.</value>
+  </data>
+  <data name="ERROR_SERVICE_NOT_FOUND" xml:space="preserve">
+    <value>O serviço $[SERVICE_NAME] não foi encontrado! Verifique se o serviço foi implementado e registrado corretamente!</value>
+  </data>
+  <data name="FINALIZING_SERVICE" xml:space="preserve">
+    <value>O serviço está sendo encerrado...</value>
+  </data>
+  <data name="INITIALIZATION_APP_INFO" xml:space="preserve">
+    <value>Inicializando serviço {service} no ambiente {environment} [{processId}].</value>
+  </data>
+  <data name="INITIALIZATION_COMPLETE" xml:space="preserve">
+    <value>Inicialização concluída!</value>
+  </data>
+  <data name="INITIALIZE_BASEPATH" xml:space="preserve">
+    <value>Usando diretório de base {PATH}</value>
+  </data>
+  <data name="INITIALIZE_IIS_INTEGRATION" xml:space="preserve">
+    <value>Usando integração como o IIS</value>
+  </data>
+  <data name="LISTENING_URL" xml:space="preserve">
+    <value>Ouvindo requisições em {LISTENING_URL}</value>
+  </data>
+  <data name="SERVICE_FINALIZED" xml:space="preserve">
+    <value>O serviço foi encerrado com o código ${code}.</value>
+  </data>
+  <data name="STATUS_CODE_100" xml:space="preserve">
+    <value>A solicitação pode ser continuada.</value>
+  </data>
+  <data name="STATUS_CODE_101" xml:space="preserve">
+    <value>Protocolo de comutação.</value>
+  </data>
+  <data name="STATUS_CODE_200" xml:space="preserve">
+    <value>A solicitação foi bem-sucedida.</value>
+  </data>
+  <data name="STATUS_CODE_201" xml:space="preserve">
+    <value>A solicitação foi atendida e resultou na criação de um novo recurso.</value>
+  </data>
+  <data name="STATUS_CODE_202" xml:space="preserve">
+    <value>A solicitação foi aceita para processamento, mas o processamento não foi concluído.</value>
+  </data>
+  <data name="STATUS_CODE_203" xml:space="preserve">
+    <value>A meta informação retornada no cabeçalho da entidade não é o conjunto definitivo conforme disponível no servidor de origem, mas é coletada de uma cópia local ou de terceiros.</value>
+  </data>
+  <data name="STATUS_CODE_204" xml:space="preserve">
+    <value>O servidor atendeu à solicitação, mas não precisa retornar um corpo de entidade e pode desejar retornar metainformações atualizadas.</value>
+  </data>
+  <data name="STATUS_CODE_205" xml:space="preserve">
+    <value>O servidor cumpriu o pedido e o agente de utilizador DEVE reiniciar a vista do documento que originou o envio do pedido.</value>
+  </data>
+  <data name="STATUS_CODE_206" xml:space="preserve">
+    <value>O servidor atendeu à solicitação parcial GET para o recurso.</value>
+  </data>
+  <data name="STATUS_CODE_300" xml:space="preserve">
+    <value>Várias respostas disponíveis.</value>
+  </data>
+  <data name="STATUS_CODE_301" xml:space="preserve">
+    <value>O recurso solicitado foi movido para um novo endereço.</value>
+  </data>
+  <data name="STATUS_CODE_302" xml:space="preserve">
+    <value>O recurso solicitado foi temporariamente movido para outro endereço.</value>
+  </data>
+  <data name="STATUS_CODE_400" xml:space="preserve">
+    <value>A solicitação não foi aceita devido a dados ausentes ou não validados. Verifique o conteúdo do pedido.</value>
+  </data>
+  <data name="STATUS_CODE_401" xml:space="preserve">
+    <value>O pedido não foi autorizado. Verifique se a sessão está ativa, se o token de acesso foi informado ou se o usuário ativo tem autorização para acessar este serviço.</value>
+  </data>
+  <data name="STATUS_CODE_403" xml:space="preserve">
+    <value>O acesso ao serviço solicitado não é permitido.</value>
+  </data>
+  <data name="STATUS_CODE_404" xml:space="preserve">
+    <value>O serviço ou recurso solicitado não foi encontrado.</value>
+  </data>
+  <data name="STATUS_CODE_405" xml:space="preserve">
+    <value>O método especificado na solicitação não é permitido para o recurso solicitado.</value>
+  </data>
+  <data name="STATUS_CODE_406" xml:space="preserve">
+    <value>O recurso identificado pela solicitação só é capaz de gerar entidades de resposta que possuem características de conteúdo não aceitáveis de acordo com os cabeçalhos de aceitação enviados na solicitação.</value>
+  </data>
+  <data name="STATUS_CODE_407" xml:space="preserve">
+    <value>A autenticação de proxy é necessária antes de concluir a solicitação.</value>
+  </data>
+  <data name="STATUS_CODE_408" xml:space="preserve">
+    <value>O cliente não produziu um pedido dentro do tempo que o servidor estava preparado para esperar.</value>
+  </data>
+  <data name="STATUS_CODE_409" xml:space="preserve">
+    <value>A solicitação não pôde ser concluída devido a um conflito com o estado atual do recurso.</value>
+  </data>
+  <data name="STATUS_CODE_410" xml:space="preserve">
+    <value>O recurso solicitado não está mais disponível no servidor e nenhum endereço de encaminhamento é conhecido.</value>
+  </data>
+  <data name="STATUS_CODE_411" xml:space="preserve">
+    <value>O servidor se recusa a aceitar as solicitações sem um comprimento de conteúdo definido.</value>
+  </data>
+  <data name="STATUS_CODE_413" xml:space="preserve">
+    <value>O servidor se recusa a processar uma solicitação porque a entidade de solicitação é maior do que o servidor deseja ou é capaz de processar</value>
+  </data>
+  <data name="STATUS_CODE_414" xml:space="preserve">
+    <value>O servidor está se recusando a atender à solicitação porque o URI de solicitação é mais longo do que o servidor está disposto a interpretar.</value>
+  </data>
+  <data name="STATUS_CODE_415" xml:space="preserve">
+    <value>O servidor se recusa a atender à solicitação porque a entidade da solicitação está em um formato não compatível com o recurso solicitado para o método solicitado.</value>
+  </data>
+  <data name="STATUS_CODE_418" xml:space="preserve">
+    <value>Eu sou um bule de chá</value>
+  </data>
+  <data name="STATUS_CODE_500" xml:space="preserve">
+    <value>O servidor encontrou uma condição inesperada que o impediu de atender à solicitação.</value>
+  </data>
+  <data name="STATUS_CODE_501" xml:space="preserve">
+    <value>O servidor não oferece suporte à funcionalidade necessária para atender à solicitação.</value>
+  </data>
+  <data name="STATUS_CODE_502" xml:space="preserve">
+    <value>O servidor, enquanto agia como um gateway ou proxy, recebeu uma resposta inválida do servidor upstream que ele acessou na tentativa de atender à solicitação.</value>
+  </data>
+  <data name="STATUS_CODE_503" xml:space="preserve">
+    <value>O servidor atualmente não consegue lidar com a solicitação devido a uma sobrecarga temporária ou manutenção do servidor.</value>
+  </data>
+  <data name="STATUS_CODE_504" xml:space="preserve">
+    <value>O servidor, ao atuar como gateway ou proxy, não recebeu uma resposta oportuna do servidor upstream.</value>
+  </data>
+  <data name="STATUS_CODE_505" xml:space="preserve">
+    <value>O servidor não oferece suporte ou se recusa a aceitar a versão do protocolo HTTP usada na mensagem de solicitação.</value>
+  </data>
+  <data name="STATUS_CODE_510" xml:space="preserve">
+    <value>A política de acesso ao recurso não foi atendida na solicitação.</value>
+  </data>
+  <data name="STATUS_CODE_511" xml:space="preserve">
+    <value>A autenticação de rede é necessária antes de prosseguir.</value>
+  </data>
+  <data name="STATUS_CODE_UNKNOW" xml:space="preserve">
+    <value>Resposta desconhecida: $[VALUE].</value>
+  </data>
+</root>

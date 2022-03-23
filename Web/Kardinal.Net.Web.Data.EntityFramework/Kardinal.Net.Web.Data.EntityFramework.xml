@@ -1,0 +1,415 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Kardinal.Net.Web.Data.EntityFramework</name>
+    </assembly>
+    <members>
+        <member name="T:Kardinal.Net.Web.ProtectedDataConverter">
+            <summary>
+            Classe de conversão de dados que devem ser protegidos na base de dados com criptografia.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.ProtectedDataConverter.#ctor(Microsoft.AspNetCore.DataProtection.IDataProtectionProvider,Kardinal.Net.Web.IDataProtectionFailSafeProvider,System.String,System.String[])">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="protectionProvider">Instância do provedor de proteção.</param>
+            <param name="failSafeProvider">Instância do provedor de failsafe.</param>
+            <param name="purpose">Finalidade a ser atribuída ao <see cref="T:Microsoft.AspNetCore.DataProtection.IDataProtector"/> responsável pelo processo de proteção da informação.</param>
+            <param name="subPurposes">Finalidade secundárias a serem atribuídas ao <see cref="T:Microsoft.AspNetCore.DataProtection.IDataProtector"/> responsável pelo processo de proteção da informação.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.ProtectedDataConverter.Protect(Microsoft.AspNetCore.DataProtection.IDataProtectionProvider,Kardinal.Net.Web.IDataProtectionFailSafeProvider,System.String,System.String[],System.String)">
+            <summary>
+            Método que efetua a proteção do valor.
+            </summary>
+            <param name="protectionProvider">Instância do provedor de proteção.</param>
+            <param name="failSafeProvider">Instância do provedor de failsafe.</param>
+            <param name="purpose">Propósito da proteção.</param>
+            <param name="subPurposes">Subpropósitos da proteção.</param>
+            <param name="value">Valor à ser protegido.</param>
+            <returns>Valor protegido.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.ProtectedDataConverter.Unprotect(Microsoft.AspNetCore.DataProtection.IDataProtectionProvider,Kardinal.Net.Web.IDataProtectionFailSafeProvider,System.String,System.String[],System.String)">
+            <summary>
+            Método que efetua a desproteção do valor.
+            </summary>
+            <param name="protectionProvider">Instância do provedor de proteção.</param>
+            <param name="failSafeProvider">Instância do provedor de failsafe.</param>
+            <param name="purpose">Propósito da proteção.</param>
+            <param name="subPurposes">Subpropósitos da proteção.</param>
+            <param name="value">Valor à ser protegido.</param>
+            <returns>Valor desprotegido.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.ProtectedDataConverter`1">
+            <summary>
+            Classe de conversão de dados que devem ser protegidos na base de dados com criptografia.
+            </summary>
+            <typeparam name="T">Tipo do atributo à ser protegido.</typeparam>
+        </member>
+        <member name="M:Kardinal.Net.Web.ProtectedDataConverter`1.#ctor(Microsoft.AspNetCore.DataProtection.IDataProtectionProvider,Kardinal.Net.Web.IDataProtectionFailSafeProvider,System.String,System.String[])">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="protectionProvider">Instância do provedor de proteção.</param>
+            <param name="failSafeProvider">Instância do provedor de failsafe.</param>
+            <param name="purpose">Finalidade a ser atribuída ao <see cref="T:Microsoft.AspNetCore.DataProtection.IDataProtector"/> responsável pelo processo de proteção da informação.</param>
+            <param name="subPurposes">Finalidade secundárias a serem atribuídas ao <see cref="T:Microsoft.AspNetCore.DataProtection.IDataProtector"/> responsável pelo processo de proteção da informação.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.ProtectedDataConverter`1.Protect(Microsoft.AspNetCore.DataProtection.IDataProtectionProvider,Kardinal.Net.Web.IDataProtectionFailSafeProvider,System.String,System.String[],`0)">
+            <summary>
+            Método que efetua a proteção do valor.
+            </summary>
+            <param name="protectionProvider">Instância do provedor de proteção.</param>
+            <param name="failSafeProvider">Instância do provedor de failsafe.</param>
+            <param name="purpose">Propósito da proteção.</param>
+            <param name="subPurposes">Subpropósitos da proteção.</param>
+            <param name="value">Valor à ser protegido.</param>
+            <returns>Valor protegido.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.ProtectedDataConverter`1.Unprotect(Microsoft.AspNetCore.DataProtection.IDataProtectionProvider,Kardinal.Net.Web.IDataProtectionFailSafeProvider,System.String,System.String[],System.String)">
+            <summary>
+            Método que efetua a desproteção do valor.
+            </summary>
+            <param name="protectionProvider">Instância do provedor de proteção.</param>
+            <param name="failSafeProvider">Instância do provedor de failsafe.</param>
+            <param name="purpose">Propósito da proteção.</param>
+            <param name="subPurposes">Subpropósitos da proteção.</param>
+            <param name="value">Valor à ser desprotegido.</param>
+            <returns>Valor desprotegido.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.DataProtectionException">
+            <summary>
+            Classe de exceção para proteção de dados.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.DataProtectionException.#ctor">
+            <summary>
+            Método construtor.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.DataProtectionException.#ctor(System.String)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="message">Mensagem de exceção.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.DataProtectionException.#ctor(System.String,System.Exception)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="message">Mensagem de exceção.</param>
+            <param name="innerException">Exceção interior.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.DataProtectionException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="info"> The System.Runtime.Serialization.SerializationInfo that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The System.Runtime.Serialization.StreamingContext that contains contextual information about the source or destination.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.DataProtectionException.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.EntityTypeBuilderExtensions">
+            <summary>
+            Extensões para <see cref="T:Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder"/>
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.EntityTypeBuilderExtensions.AddDataProtection``1(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{``0},Microsoft.AspNetCore.DataProtection.IDataProtectionProvider,System.String,System.String[])">
+            <summary>
+            Extensão que irá adicionar o sistema de criptografia de dados das propriedades da entidade marcados com o atributo <see cref="T:Kardinal.Net.Data.ProtectedAttribute"/>.
+            </summary>
+            <typeparam name="TEntity">Tipo da entidade com dados à serem protegidos.</typeparam>
+            <param name="builder">Objeto referenciado.</param>
+            <param name="provider">Provedor de proteção de dados de atributos.</param>
+            <param name="purpose">Finalidade a ser atribuída ao <see cref="T:Microsoft.AspNetCore.DataProtection.IDataProtector"/> responsável pelo processo de proteção das informações.</param>
+            <param name="subPurposes">Finalidade secundárias a serem atribuídas ao <see cref="T:Microsoft.AspNetCore.DataProtection.IDataProtector"/> responsável pelo processo de proteção da informação.</param>
+            <returns>Objeto referenciado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.EntityTypeBuilderExtensions.AddDataProtection``2(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{``0},Microsoft.AspNetCore.DataProtection.IDataProtectionProvider,System.String,System.String[])">
+            <summary>
+            Extensão que irá adicionar o sistema de criptografia de dados das propriedades da entidade marcados com o atributo <see cref="T:Kardinal.Net.Data.ProtectedAttribute"/>.
+            </summary>
+            <typeparam name="TEntity">Tipo da entidade com dados à serem protegidos.</typeparam>
+            <typeparam name="TFailSafeProvider">Tipo do provedor de failsafe.</typeparam>
+            <param name="builder">Objeto referenciado.</param>
+            <param name="provider">Provedor de proteção de dados de atributos.</param>
+            <param name="purpose">Finalidade a ser atribuída ao <see cref="T:Microsoft.AspNetCore.DataProtection.IDataProtector"/> responsável pelo processo de proteção das informações.</param>
+            <param name="subPurposes">Finalidade secundárias a serem atribuídas ao <see cref="T:Microsoft.AspNetCore.DataProtection.IDataProtector"/> responsável pelo processo de proteção da informação.</param>
+            <returns>Objeto referenciado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.EntityTypeBuilderExtensions.AddDataProtection``1(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{``0},Microsoft.AspNetCore.DataProtection.IDataProtectionProvider,Kardinal.Net.Web.IDataProtectionFailSafeProvider,System.String,System.String[])">
+            <summary>
+            Extensão que irá adicionar o sistema de criptografia de dados das propriedades da entidade marcados com o atributo <see cref="T:Kardinal.Net.Data.ProtectedAttribute"/>.
+            </summary>
+            <typeparam name="TEntity">Tipo da entidade com dados à serem protegidos.</typeparam>
+            <param name="builder">Objeto referenciado.</param>
+            <param name="provider">Provedor de proteção de dados de atributos.</param>
+            <param name="failSafeProvider">Instância do provedor de failsafe.</param>
+            <param name="purpose">Finalidade a ser atribuída ao <see cref="T:Microsoft.AspNetCore.DataProtection.IDataProtector"/> responsável pelo processo de proteção das informações.</param>
+            <param name="subPurposes">Finalidade secundárias a serem atribuídas ao <see cref="T:Microsoft.AspNetCore.DataProtection.IDataProtector"/> responsável pelo processo de proteção da informação.</param>
+            <returns>Objeto referenciado.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.IApplicationBuilderExtensions">
+            <summary>
+            Classe de extensões para <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/>.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.IApplicationBuilderExtensions.ApplyMigrations``1(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Extensão que aplica a migração à um contexto.
+            </summary>
+            <typeparam name="TContext">Contexto o qual terá a migração aplicada.</typeparam>
+            <param name="builder">Objeto referenciado.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.IApplicationBuilderExtensions.ApplyMigrationsAsync``1(Microsoft.AspNetCore.Builder.IApplicationBuilder,System.Threading.CancellationToken)">
+            <summary>
+            Extensão que aplica a migração à um contexto.
+            </summary>
+            <typeparam name="TContext">Contexto o qual terá a migração aplicada.</typeparam>
+            <param name="builder">Objeto referenciado.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Operação assíncrona.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.IServiceCollectionExtensions">
+            <summary>
+            Extensões para <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.IServiceCollectionExtensions.AddDataProtection``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,System.String)">
+            <summary>
+            Extensão para adição do serviço de proteção de dados.
+            </summary>
+            <typeparam name="TContext" >Contexto para persistência das chaves de segurança.</typeparam>
+            <param name="services">Objeto referenciado.</param>
+            <param name="configuration">Instância do contâiner de configurações.</param>
+            <param name="sector">Setor onde se encontram as configurações de proteção de dados.</param>
+            <returns>Objeto referenciado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.IServiceCollectionExtensions.AddDataProtection``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,Kardinal.Net.Web.DataProtectionOptions)">
+            <summary>
+            Extensão para adição do serviço de proteção de dados.
+            </summary>
+            <typeparam name="TContext" >Contexto para persistência das chaves de segurança.</typeparam>
+            <param name="services">Objeto referenciado.</param>
+            <param name="configuration">Configurações do serviço de proteção de dados.</param>
+            <returns>Objeto referenciado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.IServiceCollectionExtensions.AddCertificateByFileSytem(Microsoft.AspNetCore.DataProtection.IDataProtectionBuilder,System.String,System.String)">
+            <summary>
+            Método para carregamento do certificado de proteção de dados através do sistema de arquivos.
+            </summary>
+            <param name="builder">Instância do construtor de proteção de dados.</param>
+            <param name="path">Caminho do certificado no sistema de arquivos.</param>
+            <param name="password">Senha do certificado.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.IServiceCollectionExtensions.AddCertificateByThumbprint(Microsoft.AspNetCore.DataProtection.IDataProtectionBuilder,System.Security.Cryptography.X509Certificates.StoreName,System.Security.Cryptography.X509Certificates.StoreLocation,System.Boolean,System.String)">
+            <summary>
+            Método para carregamento do certificado de proteção de dados através repositório de certificados.
+            </summary>
+            <param name="builder">Instância do construtor de proteção de dados.</param>
+            <param name="storeName">Nome do diretório de certificados.</param>
+            <param name="storeLocation">Localização do diretório de certificados.</param>
+            <param name="validOnly">Indica que apenas certificados válidos serão buscados.</param>
+            <param name="thumbprint">Impressão digital do certificado.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.IServiceCollectionExtensions.AddUnitOfWork(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Extensão para a adição do serviço de unidade de trabalho responsável pela
+            gerência de entidades junto ao Entity Framework.
+            
+            Esta opção aplica-se à sistemas com múltiplos contextos, sendo necessário
+            seu acesso em casos específicos.
+            </summary>
+            <param name="services">Objeto referenciado.</param>
+            <returns>Objeto referenciado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.IServiceCollectionExtensions.AddUnitOfWork``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Extensão para a adição do serviço de unidade de trabalho responsável pela
+            gerência de entidades junto ao Entity Framework.
+            
+            Esta opção se aplica a definição de um contexto específico como padrão 
+            para a utilização.
+            </summary>
+            <typeparam name="TContext">Tipo de contexto à ser atribuído como padrão.</typeparam>
+            <param name="services">Objeto referenciado.</param>
+            <returns>Objeto referenciado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.IServiceCollectionExtensions.AddRepositories(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Extensão para adição de repositórios de entidades
+            do Entity Framework.
+            
+            Esta opção destina-se à adicionar um serviço genérico para a utilização
+            com qualquer entidade registrada no contexto padrão.
+            </summary>
+            <param name="services">Objeto referenciado.</param>
+            <returns>Objeto referenciado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.IServiceCollectionExtensions.AddRepository``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Extensão para adição de repositório de uma entidade do Entity Framework.
+            
+            Esta opção destina-se à adicionar um repositório para a entidade informada.
+            É possível adicionar um repositório para cada entidade existente no contexto padrão.
+            </summary>
+            <typeparam name="TEntity">Tipo da entidade gerenciada pelo contexto.</typeparam>
+            <param name="services">Objeto referenciado.</param>
+            <returns>Objeto referenciado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.IServiceCollectionExtensions.AddRepository``2(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Extensão para adição de repositório de uma entidade do Entity Framework.
+            
+            Esta opção destina-se à adicionar um repositório para a entidade informada.
+            É possível adicionar um repositório para cada entidade existente no contexto <typeparamref name="TContext"/>.
+            </summary>
+            <typeparam name="TContext">Tipo do contexto o qual a entidade está associada.</typeparam>
+            <typeparam name="TEntity">Tipo da entidade gerenciada pelo contexto.</typeparam>
+            <param name="services">Objeto referenciado.</param>
+            <returns>Objeto referenciado.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.Data.IServiceProviderExtensions">
+            <summary>
+            Extensões para <see cref="T:System.IServiceProvider"/>.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.Data.IServiceProviderExtensions.GetUnitOfWork(System.IServiceProvider)">
+            <summary>
+            Extensão que obtém o serviço de unidade de trabalho.
+            </summary>
+            <param name="provider">Objeto referenciado.</param>
+            <returns>Instância da unidade de trabalho.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.Data.IServiceProviderExtensions.GetUnitOfWork``1(System.IServiceProvider)">
+            <summary>
+            Extensão que obtém o serviço de unidade de trabalho.
+            </summary>
+            <typeparam name="TContext">Tipo do contexto à ser aplicado.</typeparam>
+            <param name="provider">Objeto referenciado.</param>
+            <returns>Instância da unidade de trabalho.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.Data.IServiceProviderExtensions.GetRepository``1(System.IServiceProvider)">
+            <summary>
+            Extensão que obtém uma instância do repositório de uma entidade.
+            </summary>
+            <typeparam name="TEntity">Entidade gerenciada pelo repositório.</typeparam>
+            <param name="provider">Objeto referenciado.</param>
+            <returns>Instância do repositório da entidade.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.Data.IServiceProviderExtensions.GetRepository``2(System.IServiceProvider)">
+            <summary>
+            Extensão que obtém uma instância do repositório de uma entidade.
+            </summary>
+            <typeparam name="TContext">Tipo do contexto do repositório.</typeparam>
+            <typeparam name="TEntity">Tipo da entidade gerenciada pelo repositório.</typeparam>
+            <param name="provider">Objeto referenciado.</param>
+            <returns>Instância do repositório da entidade.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.Data.EntityFramework.Localization.Resource">
+            <summary>
+              Uma classe de recurso de tipo de alta segurança, para pesquisar cadeias de caracteres localizadas etc.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Data.EntityFramework.Localization.Resource.ResourceManager">
+            <summary>
+              Retorna a instância de ResourceManager armazenada em cache usada por essa classe.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Data.EntityFramework.Localization.Resource.Culture">
+            <summary>
+              Substitui a propriedade CurrentUICulture do thread atual para todas as
+              pesquisas de recursos que usam essa classe de recurso de tipo de alta segurança.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Data.EntityFramework.Localization.Resource.LOG_RUNNING_CONTEXT_MIGRATION">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Performing context migration {context}..
+            </summary>
+        </member>
+        <member name="T:Kardinal.Net.Web.PropertyBuilderExtensions">
+            <summary>
+            Extensões para <see cref="T:Microsoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder"/>
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.PropertyBuilderExtensions.IsProtected``1(Microsoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder{``0},Microsoft.AspNetCore.DataProtection.IDataProtectionProvider,System.String,System.String[])">
+            <summary>
+            Extensão que adiciona a camada de proteção da propriedade, criptografando-a na base de dados
+            e revertendo a criptografia quando a propriedade é solicitada pelo sistema.
+            </summary>
+            <typeparam name="TProperty">Tipo da propriedade.</typeparam>
+            <param name="builder">Objeto referenciado.</param>
+            <param name="provider">Provedor de proteção de dados de atributos.</param>
+            <param name="purpose">Finalidade a ser atribuída ao <see cref="T:Microsoft.AspNetCore.DataProtection.IDataProtector"/> responsável pelo processo de proteção das informações.</param>
+            <param name="subPurposes">Finalidade secundárias a serem atribuídas ao <see cref="T:Microsoft.AspNetCore.DataProtection.IDataProtector"/> responsável pelo processo de proteção da informação.</param>
+            <returns>Builder da propriedade.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.PropertyBuilderExtensions.IsProtected``2(Microsoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder{``0},Microsoft.AspNetCore.DataProtection.IDataProtectionProvider,System.String,System.String[])">
+            <summary>
+            Extensão que adiciona a camada de proteção da propriedade, criptografando-a na base de dados
+            e revertendo a criptografia quando a propriedade é solicitada pelo sistema.
+            </summary>
+            <typeparam name="TProperty">Tipo da propriedade.</typeparam>
+            <typeparam name="TFailSafeProvider">Tipo do provedor de failsafe.</typeparam>
+            <param name="builder">Objeto referenciado.</param>
+            <param name="provider">Provedor de proteção de dados de atributos.</param>
+            <param name="purpose">Finalidade a ser atribuída ao <see cref="T:Microsoft.AspNetCore.DataProtection.IDataProtector"/> responsável pelo processo de proteção das informações.</param>
+            <param name="subPurposes">Finalidade secundárias a serem atribuídas ao <see cref="T:Microsoft.AspNetCore.DataProtection.IDataProtector"/> responsável pelo processo de proteção da informação.</param>
+            <returns>Builder da propriedade.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.PropertyBuilderExtensions.IsProtected``1(Microsoft.EntityFrameworkCore.Metadata.Builders.PropertyBuilder{``0},Microsoft.AspNetCore.DataProtection.IDataProtectionProvider,Kardinal.Net.Web.IDataProtectionFailSafeProvider,System.String,System.String[])">
+            <summary>
+            Extensão que adiciona a camada de proteção da propriedade, criptografando-a na base de dados
+            e revertendo a criptografia quando a propriedade é solicitada pelo sistema.
+            </summary>
+            <typeparam name="TProperty">Tipo da propriedade.</typeparam>
+            <param name="builder">Objeto referenciado.</param>
+            <param name="provider">Provedor de proteção de dados de atributos.</param>
+            <param name="failSafeProvider">Instância do provedor de failsafe.</param>
+            <param name="purpose">Finalidade a ser atribuída ao <see cref="T:Microsoft.AspNetCore.DataProtection.IDataProtector"/> responsável pelo processo de proteção das informações.</param>
+            <param name="subPurposes">Finalidade secundárias a serem atribuídas ao <see cref="T:Microsoft.AspNetCore.DataProtection.IDataProtector"/> responsável pelo processo de proteção da informação.</param>
+            <returns>Builder da propriedade.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.InternalDataProtectionFailSafeProvider.OnProtectFail``1(System.Exception)">
+            <summary>
+            Método de tratamento de falha ao proteger informação.
+            </summary>
+            <typeparam name="T">Tipo do valor à ser protegido.</typeparam>
+            <param name="ex">Exceção gerada ao tentar proteger a informação.</param>
+            <returns>Resultado do tratamento da exceção.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.InternalDataProtectionFailSafeProvider.OnUnprotectFail``1(System.Exception)">
+            <summary>
+            Método de tratamento de falha ao desproteger informação.
+            </summary>
+            <typeparam name="T">Tipo do valor à ser desprotegido.</typeparam>
+            <param name="ex">Exceção gerada ao tentar desproteger a informação.</param>
+            <returns>Resultado do tratamento da exceção.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.IDataProtectionFailSafeProvider">
+            <summary>
+            Interface do provedor de failsafe para proteção de dados.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.IDataProtectionFailSafeProvider.OnProtectFail``1(System.Exception)">
+            <summary>
+            Método de tratamento de falha ao proteger informação.
+            </summary>
+            <typeparam name="T">Tipo do valor à ser protegido.</typeparam>
+            <param name="ex">Exceção gerada ao tentar proteger a informação.</param>
+            <returns>Resultado do tratamento da exceção.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.IDataProtectionFailSafeProvider.OnUnprotectFail``1(System.Exception)">
+            <summary>
+            Método de tratamento de falha ao desproteger informação.
+            </summary>
+            <typeparam name="T">Tipo do valor à ser desprotegido.</typeparam>
+            <param name="ex">Exceção gerada ao tentar desproteger a informação.</param>
+            <returns>Resultado do tratamento da exceção.</returns>
+        </member>
+    </members>
+</doc>

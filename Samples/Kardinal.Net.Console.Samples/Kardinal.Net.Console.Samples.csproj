@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Addons\Kardinal.Net.Blockchain\Kardinal.Net.Blockchain.csproj" />
+    <ProjectReference Include="..\..\Addons\Kardinal.Net.Data.EntityFramework\Kardinal.Net.Data.EntityFramework.csproj" />
+    <ProjectReference Include="..\..\Addons\Kardinal.Net.MediaTypes\Kardinal.Net.MediaTypes.csproj" />
+    <ProjectReference Include="..\..\Core\Kardinal.Net\Kardinal.Net.csproj" />
+  </ItemGroup>
+
+</Project>

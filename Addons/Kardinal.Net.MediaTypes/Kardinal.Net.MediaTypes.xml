@@ -1,0 +1,3574 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Kardinal.Net.MediaTypes</name>
+    </assembly>
+    <members>
+        <member name="T:Kardinal.Net.BinaryFileType">
+            <summary>
+            Classe abstrata de tipo de arquivos binários.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.BinaryFileType.Storage">
+            <summary>
+            Entrada no armazenamento estruturado que é usada para identificar o formato.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.BinaryFileType.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="storage">Entrada no armazenamento estruturado que é usada para identificar o formato.</param>
+            <param name="mediaType">Tipo de mídia do formato.</param>
+            <param name="extension">Extensão conhecida do formato.</param>
+        </member>
+        <member name="M:Kardinal.Net.BinaryFileType.IsMatch(System.IDisposable)">
+            <summary>
+            Método que verifica se o Stream de dados do arquivo é compatível com este tipo de arquivo.
+            </summary>
+            <param name="file">Dados do arquivo.</param>
+            <returns>Verdadeiro caso o stream de dados do arquivo seja compatível com este tipo de arquivo e falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.BinaryFileType.Read(System.IO.Stream)">
+            <summary>
+            Método que efetua a leitura do arquivo binário.
+            </summary>
+            <param name="stream">Stream de dados do arquivo.</param>
+            <returns>Instância dos dados do arquivo composto. Veja <see cref="T:OpenMcdf.CompoundFile"/></returns>
+        </member>
+        <member name="T:Kardinal.Net.FileType">
+            <summary>
+            Classe abstrata para os tipos de arquivos.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.FileType.Signature">
+            <summary>
+            Dados da assinatura do tipo arquivo.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.FileType.HeaderLength">
+            <summary>
+            Tamanho do cabeçalho do arquivo.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.FileType.Extension">
+            <summary>
+            Extensão conhecida do arquivo.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.FileType.MediaType">
+            <summary>
+            Definição do tipo de mídia.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.FileType.Offset">
+            <summary>
+            Offset de localização do cabeçalho do tipo de arquivo.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.FileType.#ctor(System.String)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="mediaType">Definição do tipo de mídia.</param>
+        </member>
+        <member name="M:Kardinal.Net.FileType.#ctor(System.String,System.String)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="mediaType">Definição do tipo de mídia.</param>
+            <param name="extension">Extensão conhecida do tipo de arquivo.</param>
+        </member>
+        <member name="M:Kardinal.Net.FileType.#ctor(System.Byte[],System.String,System.String)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="signature">Dados do cabeçalho do tipo de arquivo.</param>
+            <param name="mediaType">Definição do tipo de mídia.</param>
+            <param name="extension">Extensão conhecida do tipo de arquivo.</param>
+        </member>
+        <member name="M:Kardinal.Net.FileType.#ctor(System.Byte[],System.Int32,System.String,System.String)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="signature">Dados do cabeçalho do tipo de arquivo.</param>
+            <param name="headerLength">Tamanho conhecido do cabeçalho do tipo de arquivo.</param>
+            <param name="mediaType">Definição do tipo de mídia.</param>
+            <param name="extension">Extensão conhecida do tipo de arquivo.</param>
+        </member>
+        <member name="M:Kardinal.Net.FileType.#ctor(System.Byte[],System.String,System.String,System.Int32)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="signature">Dados do cabeçalho do tipo de arquivo.</param>
+            <param name="mediaType">Definição do tipo de mídia.</param>
+            <param name="extension">Extensão conhecida do tipo de arquivo.</param>
+            <param name="offset">Offset de localização do cabeçalho do tipo de arquivo.</param>
+        </member>
+        <member name="M:Kardinal.Net.FileType.#ctor(System.Byte[],System.Int32,System.String,System.String,System.Int32)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="signature">Dados do cabeçalho do tipo de arquivo.</param>
+            <param name="headerLength">Tamanho conhecido do cabeçalho do tipo de arquivo.</param>
+            <param name="mediaType">Definição do tipo de mídia.</param>
+            <param name="extension">Extensão conhecida do tipo de arquivo.</param>
+            <param name="offset">Offset de localização do cabeçalho do tipo de arquivo.</param>
+        </member>
+        <member name="M:Kardinal.Net.FileType.IsMatch(System.IO.Stream)">
+            <summary>
+            Método que verifica se o Stream de dados do arquivo é compatível com este tipo de arquivo.
+            </summary>
+            <param name="stream">Stream de dados do arquivo.</param>
+            <returns>Verdadeiro caso o stream de dados do arquivo seja compatível com este tipo de arquivo e falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.FileType.Equals(System.Object)">
+            <summary>
+            Método para verfificar se um objeto é igual à este.
+            </summary>
+            <param name="obj">Objeto à ser comparado.</param>
+            <returns>Verdadeiro caso os objetos sejam iguais e falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.FileType.Equals(Kardinal.Net.FileType)">
+             <summary>
+             Método para verfificar se um objeto é igual à este.
+             </summary>
+            <param name="other">Objeto à ser comparado.</param>
+             <returns>Verdadeiro caso os objetos sejam iguais e falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.FileType.GetHashCode">
+            <summary>
+            Método que calcula o hashCode desta instância.
+            </summary>
+            <returns>HashCode da instância dessa classe.</returns>
+        </member>
+        <member name="M:Kardinal.Net.FileType.ToString">
+            <summary>
+            Método que retorna a representação string desta instância.
+            </summary>
+            <returns>Representação string da instância desta classe.</returns>
+        </member>
+        <member name="T:Kardinal.Net.ImageType">
+            <summary>
+            Classe abstrata de tipos de formato de aquivo de imagen.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.ImageType.#ctor(System.Byte[],System.String,System.String)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="signature">Dados do cabeçalho do tipo de arquivo.</param>
+            <param name="mediaType">Definição do tipo de mídia.</param>
+            <param name="extension">Extensão conhecida do tipo de arquivo.</param>
+        </member>
+        <member name="M:Kardinal.Net.ImageType.#ctor(System.Byte[],System.String,System.String,System.Int32)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="signature">Dados do cabeçalho do tipo de arquivo.</param>
+            <param name="mediaType">Definição do tipo de mídia.</param>
+            <param name="extension">Extensão conhecida do tipo de arquivo.</param>
+            <param name="offset">Offset de localização do cabeçalho do tipo de arquivo.</param>
+        </member>
+        <member name="T:Kardinal.Net.OpenXmlDocument">
+            <summary>
+            Classe abstrata de definição de tipos de arquivo OpenXmlDocument.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.OpenXmlDocument.IdentifiableEntry">
+            <summary>
+            Identificação de tipo de dados do tipo de arquivo.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.OpenXmlDocument.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="identifiableEntry">Identificação de tipo de dados do tipo de arquivo.</param>
+            <param name="mediaType">Definição do tipo de mídia.</param>
+            <param name="extension">Extensão conhecida do tipo de arquivo.</param>
+        </member>
+        <member name="M:Kardinal.Net.OpenXmlDocument.IsMatch(System.IDisposable)">
+            <summary>
+            Método que verifica se o Stream de dados do arquivo é compatível com este tipo de arquivo.
+            </summary>
+            <param name="file">dados do arquivo.</param>
+            <returns>Verdadeiro caso o stream de dados do arquivo seja compatível com este tipo de arquivo e falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.OpenXmlDocument.Read(System.IO.Stream)">
+            <summary>
+            Método que efetua a leitura do arquivo binário.
+            </summary>
+            <param name="stream">Stream de dados do arquivo.</param>
+            <returns>Instância dos dados do arquivo composto. Veja <see cref="T:System.IDisposable"/></returns>
+        </member>
+        <member name="T:Kardinal.Net.WindowsApplication">
+            <summary>
+            Dados de Executável.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.WindowsApplication.#ctor">
+            <summary>
+            Método construtor.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.WindowsApplication.ToString">
+            <summary>
+            Método que retorna a representação string desta instância.
+            </summary>
+            <returns>Representação string da instância desta classe.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Zip">
+            <summary>
+            Dados de tipo zip.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Zip.#ctor">
+            <summary>
+            Método construtor.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Zip.#ctor(System.Int32,System.String,System.String)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="headerLength">Tamanho do cabeçalho do tipo de arquivo.</param>
+            <param name="mediaType">Definição do tipo de mídia.</param>
+            <param name="extension">Extensão conhecida do tipo de arquivo.</param>
+        </member>
+        <member name="M:Kardinal.Net.Zip.ToString">
+            <summary>
+            Método que retorna a representação string desta instância.
+            </summary>
+            <returns>Representação string da instância desta classe.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Pdf">
+            <summary>
+            Dados do tipo PDF.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Pdf.#ctor">
+            <summary>
+            Método construtor.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Pdf.ToString">
+            <summary>
+            Método que retorna a representação string desta instância.
+            </summary>
+            <returns>Representação string da instância desta classe.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Rtf">
+            <summary>
+            Dados do tipo PDF.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Rtf.#ctor">
+            <summary>
+            Método construtor.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Rtf.ToString">
+            <summary>
+            Método que retorna a representação string desta instância.
+            </summary>
+            <returns>Representação string da instância desta classe.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Xps">
+            <summary>
+            Dados do tipo XPS
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Xps.#ctor">
+            <summary>
+            Método construtor.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Xps.ToString">
+            <summary>
+            Método que retorna a representação string desta instância.
+            </summary>
+            <returns>Representação string da instância desta classe.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Bmp">
+            <summary>
+            Dados do tipo BMP.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Bmp.#ctor">
+            <summary>
+            Método construtor.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Bmp.ToString">
+            <summary>
+            Método que retorna a representação string desta instância.
+            </summary>
+            <returns>Representação string da instância desta classe.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Gif">
+            <summary>
+            Dados do tipo GIF.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Gif.#ctor">
+            <summary>
+            Método construtor.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Gif.ToString">
+            <summary>
+            Método que retorna a representação string desta instância.
+            </summary>
+            <returns>Representação string da instância desta classe.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Jpg">
+            <summary>
+            Dados do tipo JPG.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Jpg.#ctor">
+            <summary>
+            Método construtor.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Jpg.#ctor(System.Byte[])">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="marker">O marcador de aplicativo de 2 bytes usado pelo formato JPEG.</param>
+        </member>
+        <member name="M:Kardinal.Net.Jpg.ToString">
+            <summary>
+            Método que retorna a representação string desta instância.
+            </summary>
+            <returns>Representação string da instância desta classe.</returns>
+        </member>
+        <member name="T:Kardinal.Net.JpgJfif">
+            <summary>
+            Dados do tipo JPG.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.JpgJfif.#ctor">
+            <summary>
+            Método construtor.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.JpgJfif.ToString">
+            <summary>
+            Método que retorna a representação string desta instância.
+            </summary>
+            <returns>Representação string da instância desta classe.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Png">
+            <summary>
+            Dados do tipo PNG.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Png.#ctor">
+            <summary>
+            Método construtor.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Png.ToString">
+            <summary>
+            Método que retorna a representação string desta instância.
+            </summary>
+            <returns>Representação string da instância desta classe.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Spiff">
+            <summary>
+            Dados do tipo SPIFF.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Spiff.#ctor">
+            <summary>
+            Método construtor.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Spiff.ToString">
+            <summary>
+            Método que retorna a representação string desta instância.
+            </summary>
+            <returns>Representação string da instância desta classe.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Tiff">
+            <summary>
+            Dados do tipo TIFF.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Tiff.#ctor">
+            <summary>
+            Método construtor.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Tiff.ToString">
+            <summary>
+            Método que retorna a representação string desta instância.
+            </summary>
+            <returns>Representação string da instância desta classe.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Excel">
+            <summary>
+            Dados do tipo Excel.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Excel.#ctor">
+            <summary>
+            Método construtor.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Excel.ToString">
+            <summary>
+            Método que retorna a representação string desta instância.
+            </summary>
+            <returns>Representação string da instância desta classe.</returns>
+        </member>
+        <member name="T:Kardinal.Net.ExcelLegacy">
+            <summary>
+            Dados do tipo Excel.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.ExcelLegacy.#ctor">
+            <summary>
+            Método construtor.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.ExcelLegacy.ToString">
+            <summary>
+            Método que retorna a representação string desta instância.
+            </summary>
+            <returns>Representação string da instância desta classe.</returns>
+        </member>
+        <member name="T:Kardinal.Net.PowerPointLegacy">
+            <summary>
+            Dados do tipo PowerPoint.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.PowerPointLegacy.#ctor">
+            <summary>
+            Método construtor.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.PowerPointLegacy.ToString">
+            <summary>
+            Método que retorna a representação string desta instância.
+            </summary>
+            <returns>Representação string da instância desta classe.</returns>
+        </member>
+        <member name="T:Kardinal.Net.VisioLegacy">
+            <summary>
+            Dados do tipo Visio.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.VisioLegacy.#ctor">
+            <summary>
+            Método construtor.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.VisioLegacy.ToString">
+            <summary>
+            Método que retorna a representação string desta instância.
+            </summary>
+            <returns>Representação string da instância desta classe.</returns>
+        </member>
+        <member name="T:Kardinal.Net.WordLegacy">
+            <summary>
+            Dados do tipo Word.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.WordLegacy.#ctor">
+            <summary>
+            Método construtor.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.WordLegacy.ToString">
+            <summary>
+            Método que retorna a representação string desta instância.
+            </summary>
+            <returns>Representação string da instância desta classe.</returns>
+        </member>
+        <member name="T:Kardinal.Net.PowerPoint">
+            <summary>
+            Dados do tipo PowerPoint.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.PowerPoint.#ctor">
+            <summary>
+            Método construtor.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.PowerPoint.ToString">
+            <summary>
+            Método que retorna a representação string desta instância.
+            </summary>
+            <returns>Representação string da instância desta classe.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Visio">
+            <summary>
+            Dados do tipo Visio.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Visio.#ctor">
+            <summary>
+            Método construtor.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Visio.ToString">
+            <summary>
+            Método que retorna a representação string desta instância.
+            </summary>
+            <returns>Representação string da instância desta classe.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Word">
+            <summary>
+            Dados do tipo Word.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Word.#ctor">
+            <summary>
+            Método construtor.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Word.ToString">
+            <summary>
+            Método que retorna a representação string desta instância.
+            </summary>
+            <returns>Representação string da instância desta classe.</returns>
+        </member>
+        <member name="T:Kardinal.Net.FileDetector">
+            <summary>
+            Implementação do serviço de detecção de tipos de arquivo.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.FileDetector.#ctor">
+            <summary>
+            Método construtor.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.FileDetector.#ctor(System.Reflection.Assembly)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="assembly">Assembly onde se localiza as implementações dos tipos de arquivo.</param>
+        </member>
+        <member name="M:Kardinal.Net.FileDetector.#ctor(System.Collections.Generic.IEnumerable{Kardinal.Net.FileType})">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="formats">Enumeração de tipos de arquivos.</param>
+        </member>
+        <member name="M:Kardinal.Net.FileDetector.Detect(System.Byte[])">
+            <summary>
+            Método para detecção do tipo do arquivo.
+            </summary>
+            <param name="data">Vetor de bytes do arquivo.</param>
+            <returns>Tipo do arquivo detectado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.FileDetector.Detect(System.IO.Stream)">
+            <summary>
+            Método para detecção do tipo do arquivo.
+            </summary>
+            <param name="stream">Stream de dados do arquivo.</param>
+            <returns>Tipo do arquivo detectado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.FileDetector.Detect(System.Byte[],Kardinal.Net.FileType[])">
+            <summary>
+            Método para detecção do tipo do arquivo.
+            </summary>
+            <param name="data">Vetor de bytes do arquivo.</param>
+            <param name="formats">Formatos de arquivo à serem usados na verificação.</param>
+            <returns>Tipo do arquivo detectado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.FileDetector.Detect(System.IO.Stream,Kardinal.Net.FileType[])">
+            <summary>
+            Método para detecção do tipo do arquivo.
+            </summary>
+            <param name="stream">Stream de dados do arquivo.</param>
+            <param name="formats">Formatos de arquivo à serem usados na verificação.</param>
+            <returns>Tipo do arquivo detectado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.FileDetector.IsOfType``1(System.Byte[])">
+            <summary>
+            Método que verifica se o arquivo é do tipo especificado.
+            </summary>
+            <typeparam name="T">Tipo de dados à ser checado.</typeparam>
+            <param name="data">Vetor de bytes do arquivo.</param>
+            <returns>Verdadeiro caso o aquivo seja do tipo informado e falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.FileDetector.IsOfType``1(System.IO.Stream)">
+            <summary>
+            Método que verifica se o arquivo é do tipo especificado.
+            </summary>
+            <typeparam name="T">Tipo de dados à ser checado.</typeparam>
+            <param name="stream">Stream de dados do arquivo.</param>
+            <returns>Verdadeiro caso o aquivo seja do tipo informado e falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.FileDetector.IsOfType(System.Byte[],System.String[])">
+            <summary>
+            Método que verifica se o arquivo é do tipo especificado.
+            </summary>
+            <param name="data">Vetor de bytes do arquivo.</param>
+            <param name="mediaTypes">Tipos de mídia à serem verificados.</param>
+            <returns>Verdadeiro caso o aquivo seja de um dos tipos informados e falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.FileDetector.IsOfType(System.IO.Stream,System.String[])">
+            <summary>
+            Método que verifica se o arquivo é do tipo especificado.
+            </summary>
+            <param name="stream">Stream de dados do arquivo.</param>
+            <param name="mediaTypes">Tipos de mídia à serem verificados.</param>
+            <returns>Verdadeiro caso o aquivo seja de um dos tipos informados e falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.FileDetector.IsOfType(System.Byte[],Kardinal.Net.FileType[])">
+            <summary>
+            Método que verifica se o arquivo é do tipo especificado.
+            </summary>
+            <param name="data">Vetor de bytes do arquivo.</param>
+            <param name="formats">Formatos à serem verificados.</param>
+            <returns>Verdadeiro caso o aquivo seja de um dos tipos informados e falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.FileDetector.IsOfType(System.IO.Stream,Kardinal.Net.FileType[])">
+            <summary>
+            Método que verifica se o arquivo é do tipo especificado.
+            </summary>
+            <param name="stream">Stream de dados do arquivo.</param>
+            <param name="formats">Formatos à serem verificados.</param>
+            <returns>Verdadeiro caso o aquivo seja de um dos tipos informados e falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.FileDetector.FindFormats(System.IO.Stream,System.Collections.Generic.IEnumerable{Kardinal.Net.FileType})">
+            <summary>
+            Método que efetua a busca dos formatos compatíveis com os dados informados.
+            </summary>
+            <param name="stream">Stream de dados do arquivo.</param>
+            <param name="formats">Formatos à serem verificados.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Kardinal.Net.FileDetector.Dispose">
+            <summary>
+            Método de dispersão da instância da classe.
+            </summary>
+        </member>
+        <member name="T:Kardinal.Net.IFileDetector">
+            <summary>
+            Interface do serviço de detecção de tipos de arquivos.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.IFileDetector.Detect(System.Byte[])">
+            <summary>
+            Método para detecção do tipo do arquivo.
+            </summary>
+            <param name="data">Vetor de bytes do arquivo.</param>
+            <returns>Tipo do arquivo detectado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.IFileDetector.Detect(System.IO.Stream)">
+            <summary>
+            Método para detecção do tipo do arquivo.
+            </summary>
+            <param name="stream">Stream de dados do arquivo.</param>
+            <returns>Tipo do arquivo detectado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.IFileDetector.Detect(System.Byte[],Kardinal.Net.FileType[])">
+            <summary>
+            Método para detecção do tipo do arquivo.
+            </summary>
+            <param name="data">Vetor de bytes do arquivo.</param>
+            <param name="formats">Formatos de arquivo à serem usados na verificação.</param>
+            <returns>Tipo do arquivo detectado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.IFileDetector.Detect(System.IO.Stream,Kardinal.Net.FileType[])">
+            <summary>
+            Método para detecção do tipo do arquivo.
+            </summary>
+            <param name="stream">Stream de dados do arquivo.</param>
+            <param name="formats">Formatos de arquivo à serem usados na verificação.</param>
+            <returns>Tipo do arquivo detectado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.IFileDetector.IsOfType``1(System.Byte[])">
+            <summary>
+            Método que verifica se o arquivo é do tipo especificado.
+            </summary>
+            <typeparam name="T">Tipo de dados à ser checado.</typeparam>
+            <param name="data">Vetor de bytes do arquivo.</param>
+            <returns>Verdadeiro caso o aquivo seja do tipo informado e falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.IFileDetector.IsOfType``1(System.IO.Stream)">
+            <summary>
+            Método que verifica se o arquivo é do tipo especificado.
+            </summary>
+            <typeparam name="T">Tipo de dados à ser checado.</typeparam>
+            <param name="stream">Stream de dados do arquivo.</param>
+            <returns>Verdadeiro caso o aquivo seja do tipo informado e falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.IFileDetector.IsOfType(System.Byte[],System.String[])">
+            <summary>
+            Método que verifica se o arquivo é do tipo especificado.
+            </summary>
+            <param name="data">Vetor de bytes do arquivo.</param>
+            <param name="mediaTypes">Tipos de mídia à serem verificados.</param>
+            <returns>Verdadeiro caso o aquivo seja de um dos tipos informados e falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.IFileDetector.IsOfType(System.IO.Stream,System.String[])">
+            <summary>
+            Método que verifica se o arquivo é do tipo especificado.
+            </summary>
+            <param name="stream">Stream de dados do arquivo.</param>
+            <param name="mediaTypes">Tipos de mídia à serem verificados.</param>
+            <returns>Verdadeiro caso o aquivo seja de um dos tipos informados e falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.IFileDetector.IsOfType(System.Byte[],Kardinal.Net.FileType[])">
+            <summary>
+            Método que verifica se o arquivo é do tipo especificado.
+            </summary>
+            <param name="data">Vetor de bytes do arquivo.</param>
+            <param name="formats">Formatos à serem verificados.</param>
+            <returns>Verdadeiro caso o aquivo seja de um dos tipos informados e falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.IFileDetector.IsOfType(System.IO.Stream,Kardinal.Net.FileType[])">
+            <summary>
+            Método que verifica se o arquivo é do tipo especificado.
+            </summary>
+            <param name="stream">Stream de dados do arquivo.</param>
+            <param name="formats">Formatos à serem verificados.</param>
+            <returns>Verdadeiro caso o aquivo seja de um dos tipos informados e falso caso contrário.</returns>
+        </member>
+        <member name="T:Kardinal.Net.IFileFormatReader">
+            <summary>
+            Interface de definição do FileFormatReader.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.IFileFormatReader.IsMatch(System.IDisposable)">
+            <summary>
+            Método que verifica se o Stream de dados do arquivo é compatível com este tipo de arquivo.
+            </summary>
+            <param name="file">Stream de dados do arquivo.</param>
+            <returns>Verdadeiro caso o stream de dados do arquivo seja compatível com este tipo de arquivo e falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.IFileFormatReader.Read(System.IO.Stream)">
+            <summary>
+            Método que efetua a leitura do arquivo binário.
+            </summary>
+            <param name="stream">Stream de dados do arquivo.</param>
+            <returns>Instância dos dados do arquivo composto. Veja <see cref="T:System.IO.Stream"/></returns>
+        </member>
+        <member name="T:Kardinal.Net.MediaTypes.Localization.Resource">
+            <summary>
+              Uma classe de recurso de tipo de alta segurança, para pesquisar cadeias de caracteres localizadas etc.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.MediaTypes.Localization.Resource.ResourceManager">
+            <summary>
+              Retorna a instância de ResourceManager armazenada em cache usada por essa classe.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.MediaTypes.Localization.Resource.Culture">
+            <summary>
+              Substitui a propriedade CurrentUICulture do thread atual para todas as
+              pesquisas de recursos que usam essa classe de recurso de tipo de alta segurança.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.MediaTypes.Localization.Resource.ERROR_EXTENSION_INVALID">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The file extension entered is null or invalid..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.MediaTypes.Localization.Resource.ERROR_FORMAT_MIMETYPE_NULL">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Null or invalid file mime type..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.MediaTypes.Localization.Resource.ERROR_FORMAT_SIGNATURE_NULL">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Null or invalid file signature..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.MediaTypes.Localization.Resource.ERROR_FORMAT_TYPES_NULL">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Null or invalid file format list..
+            </summary>
+        </member>
+        <member name="T:Kardinal.Net.MediaTypeNames">
+            <summary>
+            Classe estática de tipos Mime de arquivos.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.MediaTypeNames.GetMediaType(System.String)">
+            <summary>
+            Método público para obtenção de tipo mime com base na extensão do arquivo.
+            </summary>
+            <param name="extension">Extensão do arquivo.</param>
+            <returns>Tipo Mime do arquivo.</returns>
+        </member>
+        <member name="T:Kardinal.Net.MediaTypeNames.Application">
+            <summary>
+            Mimetypes do tipo Application.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.SEVENZIP">
+            <summary>
+            Declaração de 7z.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.AAF">
+            <summary>
+            Declaração de aaf.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ACA">
+            <summary>
+            Declaração de aca.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ACCDA">
+            <summary>
+            Declaração de accda.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ACCDB">
+            <summary>
+            Declaração de accdb.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ACCDC">
+            <summary>
+            Declaração de accdc.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ACCDE">
+            <summary>
+            Declaração de accde.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ACCDR">
+            <summary>
+            Declaração de accdr.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ACCDT">
+            <summary>
+            Declaração de accdt.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ACCDW">
+            <summary>
+            Declaração de accdw.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ACCFT">
+            <summary>
+            Declaração de accft.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ACX">
+            <summary>
+            Declaração de acx.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ADE">
+            <summary>
+            Declaração de ade.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ADOBEBRIDGE">
+            <summary>
+            Declaração de adobebridge.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ADP">
+            <summary>
+            Declaração de adp.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.AFM">
+            <summary>
+            Declaração de afm.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.AI">
+            <summary>
+            Declaração de ai.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.AIR">
+            <summary>
+            Declaração de air.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.AMC">
+            <summary>
+            Declaração de amc.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.APPLICATION">
+            <summary>
+            Declaração de application.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ASA">
+            <summary>
+            Declaração de asa.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ASAX">
+            <summary>
+            Declaração de asax.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ASCX">
+            <summary>
+            Declaração de ascx.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ASD">
+            <summary>
+            Declaração de asd.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ASHX">
+            <summary>
+            Declaração de ashx.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ASI">
+            <summary>
+            Declaração de asi.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ASMX">
+            <summary>
+            Declaração de asmx.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ASPX">
+            <summary>
+            Declaração de aspx.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ATOM">
+            <summary>
+            Declaração de atom.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.AXS">
+            <summary>
+            Declaração de axs.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.BCPIO">
+            <summary>
+            Declaração de bcpio.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.BIN">
+            <summary>
+            Declaração de bin.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.CAB">
+            <summary>
+            Declaração de cab.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.CALX">
+            <summary>
+            Declaração de calx.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.CAT">
+            <summary>
+            Declaração de cat.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.CDF">
+            <summary>
+            Declaração de cdf.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.CER">
+            <summary>
+            Declaração de cer.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.CHM">
+            <summary>
+            Declaração de chm.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.CLASS">
+            <summary>
+            Declaração de class.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.CLP">
+            <summary>
+            Declaração de clp.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.CONFIG">
+            <summary>
+            Declaração de config.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.COVERAGE">
+            <summary>
+            Declaração de coverage.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.CPIO">
+            <summary>
+            Declaração de cpio.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.CRD">
+            <summary>
+            Declaração de crd.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.CRL">
+            <summary>
+            Declaração de crl.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.CRT">
+            <summary>
+            Declaração de crt.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.CSH">
+            <summary>
+            Declaração de csh.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.CUR">
+            <summary>
+            Declaração de cur.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.DAT">
+            <summary>
+            Declaração de dat.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.DATASOURCE">
+            <summary>
+            Declaração de datasource.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.DCR">
+            <summary>
+            Declaração de dcr.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.DEPLOY">
+            <summary>
+            Declaração de deploy.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.DER">
+            <summary>
+            Declaração de der.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.DGML">
+            <summary>
+            Declaração de dgml.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.DIR">
+            <summary>
+            Declaração de dir.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.DLL">
+            <summary>
+            Declaração de dll.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.DOC">
+            <summary>
+            Declaração de doc.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.DOCM">
+            <summary>
+            Declaração de docm.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.DOCX">
+            <summary>
+            Declaração de docx.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.DOT">
+            <summary>
+            Declaração de dot.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.DOTM">
+            <summary>
+            Declaração de dotm.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.DOTX">
+            <summary>
+            Declaração de dotx.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.DSP">
+            <summary>
+            Declaração de dsp.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.DVI">
+            <summary>
+            Declaração de dvi.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.DWP">
+            <summary>
+            Declaração de dwp.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.DXR">
+            <summary>
+            Declaração de dxr.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.EMZ">
+            <summary>
+            Declaração de emz.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.EOT">
+            <summary>
+            Declaração de eot.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.EPS">
+            <summary>
+            Declaração de eps.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ETL">
+            <summary>
+            Declaração de etl.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.EVY">
+            <summary>
+            Declaração de evy.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.EXE">
+            <summary>
+            Declaração de exe.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.FDF">
+            <summary>
+            Declaração de fdf.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.FIF">
+            <summary>
+            Declaração de fif.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.FLA">
+            <summary>
+            Declaração de fla.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.FSSCRIPT">
+            <summary>
+            Declaração de fsscript.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.FSX">
+            <summary>
+            Declaração de fsx.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.GENERICTEST">
+            <summary>
+            Declaração de generictest.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.GTAR">
+            <summary>
+            Declaração de gtar.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.GZ">
+            <summary>
+            Declaração de gz.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.HDF">
+            <summary>
+            Declaração de hdf.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.HHC">
+            <summary>
+            Declaração de hhc.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.HHK">
+            <summary>
+            Declaração de hhk.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.HHP">
+            <summary>
+            Declaração de hhp.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.HLP">
+            <summary>
+            Declaração de hlp.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.HQX">
+            <summary>
+            Declaração de hqx.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.HTA">
+            <summary>
+            Declaração de hta.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.HXA">
+            <summary>
+            Declaração de hxa.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.HXC">
+            <summary>
+            Declaração de hxc.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.HXD">
+            <summary>
+            Declaração de hxd.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.HXE">
+            <summary>
+            Declaração de hxe.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.HXF">
+            <summary>
+            Declaração de hxf.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.HXH">
+            <summary>
+            Declaração de hxh.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.HXI">
+            <summary>
+            Declaração de hxi.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.HXK">
+            <summary>
+            Declaração de hxk.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.HXQ">
+            <summary>
+            Declaração de hxq.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.HXR">
+            <summary>
+            Declaração de hxr.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.HXS">
+            <summary>
+            Declaração de hxs.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.HXV">
+            <summary>
+            Declaração de hxv.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.HXW">
+            <summary>
+            Declaração de hxw.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ICS">
+            <summary>
+            Declaração de ics.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.III">
+            <summary>
+            Declaração de iii.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.INF">
+            <summary>
+            Declaração de inf.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.INS">
+            <summary>
+            Declaração de ins.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.IPA">
+            <summary>
+            Declaração de ipa.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.IPG">
+            <summary>
+            Declaração de ipg.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.IPSW">
+            <summary>
+            Declaração de ipsw.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ISP">
+            <summary>
+            Declaração de isp.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ITE">
+            <summary>
+            Declaração de ite.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ITLP">
+            <summary>
+            Declaração de itlp.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ITMS">
+            <summary>
+            Declaração de itms.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ITPC">
+            <summary>
+            Declaração de itpc.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.JAR">
+            <summary>
+            Declaração de jar.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.JAVA">
+            <summary>
+            Declaração de java.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.JCK">
+            <summary>
+            Declaração de jck.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.JCZ">
+            <summary>
+            Declaração de jcz.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.JNLP">
+            <summary>
+            Declaração de jnlp.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.JPB">
+            <summary>
+            Declaração de jpb.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.JS">
+            <summary>
+            Declaração de js.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.JSON">
+            <summary>
+            Declaração de json.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.LATEX">
+            <summary>
+            Declaração de latex.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.LIBRARY_MS">
+            <summary>
+            Declaração de library-ms.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.LIT">
+            <summary>
+            Declaração de lit.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.LOADTEST">
+            <summary>
+            Declaração de loadtest.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.LPK">
+            <summary>
+            Declaração de lpk.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.LZH">
+            <summary>
+            Declaração de lzh.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.M13">
+            <summary>
+            Declaração de m13.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.M14">
+            <summary>
+            Declaração de m14.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.MAN">
+            <summary>
+            Declaração de man.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.MANIFEST">
+            <summary>
+            Declaração de manifest.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.MASTER">
+            <summary>
+            Declaração de master.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.MDA">
+            <summary>
+            Declaração de mda.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.MDB">
+            <summary>
+            Declaração de mdb.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.MDE">
+            <summary>
+            Declaração de mde.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.MDP">
+            <summary>
+            Declaração de mdp.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ME">
+            <summary>
+            Declaração de me.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.MFP">
+            <summary>
+            Declaração de mfp.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.MIX">
+            <summary>
+            Declaração de mix.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.MMF">
+            <summary>
+            Declaração de mmf.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.MNY">
+            <summary>
+            Declaração de mny.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.MPF">
+            <summary>
+            Declaração de mpf.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.MPP">
+            <summary>
+            Declaração de mpp.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.MS">
+            <summary>
+            Declaração de ms.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.MSI">
+            <summary>
+            Declaração de msi.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.MSO">
+            <summary>
+            Declaração de mso.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.MTX">
+            <summary>
+            Declaração de mtx.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.MVB">
+            <summary>
+            Declaração de mvb.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.MVC">
+            <summary>
+            Declaração de mvc.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.MXP">
+            <summary>
+            Declaração de mxp.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.NC">
+            <summary>
+            Declaração de nc.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.OCTET_STREAM">
+            <summary>
+            Declaração de tipo padrão de dados.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.OCX">
+            <summary>
+            Declaração de ocx.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ODA">
+            <summary>
+            Declaração de oda.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ODP">
+            <summary>
+            Declaração de odp.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ODS">
+            <summary>
+            Declaração de ods.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ODT">
+            <summary>
+            Declaração de odt.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ONE">
+            <summary>
+            Declaração de one.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ONEA">
+            <summary>
+            Declaração de onea.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ONEPKG">
+            <summary>
+            Declaração de onepkg.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ONETMP">
+            <summary>
+            Declaração de onetmp.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ONETOC">
+            <summary>
+            Declaração de onetoc.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ONETOC2">
+            <summary>
+            Declaração de onetoc2.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ORDEREDTEST">
+            <summary>
+            Declaração de orderedtest.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.OSDX">
+            <summary>
+            Declaração de osdx.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.P10">
+            <summary>
+            Declaração de p10.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.P12">
+            <summary>
+            Declaração de p12.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.P7B">
+            <summary>
+            Declaração de p7b.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.P7C">
+            <summary>
+            Declaração de p7c.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.P7M">
+            <summary>
+            Declaração de p7m.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.P7R">
+            <summary>
+            Declaração de p7r.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.P7S">
+            <summary>
+            Declaração de p7s.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.PCAST">
+            <summary>
+            Declaração de pcast.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.PCX">
+            <summary>
+            Declaração de pcx.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.PCZ">
+            <summary>
+            Declaração de pcz.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.PDF">
+            <summary>
+            Declaração de pdf.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.PFB">
+            <summary>
+            Declaração de pfb.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.PFM">
+            <summary>
+            Declaração de pfm.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.PFX">
+            <summary>
+            Declaração de pfx.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.PKO">
+            <summary>
+            Declaração de pko.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.PMA">
+            <summary>
+            Declaração de pma.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.PMC">
+            <summary>
+            Declaração de pmc.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.PML">
+            <summary>
+            Declaração de pml.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.PMR">
+            <summary>
+            Declaração de pmr.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.PMW">
+            <summary>
+            Declaração de pmw.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.POT">
+            <summary>
+            Declaração de pot.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.POTM">
+            <summary>
+            Declaração de potm.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.POTX">
+            <summary>
+            Declaração de potx.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.PPA">
+            <summary>
+            Declaração de ppa.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.PPAM">
+            <summary>
+            Declaração de ppam.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.PPS">
+            <summary>
+            Declaração de pps.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.PPSM">
+            <summary>
+            Declaração de ppsm.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.PPSX">
+            <summary>
+            Declaração de ppsx.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.PPT">
+            <summary>
+            Declaração de ppt.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.PPTM">
+            <summary>
+            Declaração de pptm.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.PPTX">
+            <summary>
+            Declaração de pptx.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.PRF">
+            <summary>
+            Declaração de prf.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.PRM">
+            <summary>
+            Declaração de prm.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.PRX">
+            <summary>
+            Declaração de prx.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.PS">
+            <summary>
+            Declaração de ps.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.PSC1">
+            <summary>
+            Declaração de psc1.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.PSD">
+            <summary>
+            Declaração de psd.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.PSESS">
+            <summary>
+            Declaração de psess.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.PSM">
+            <summary>
+            Declaração de psm.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.PSP">
+            <summary>
+            Declaração de psp.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.PUB">
+            <summary>
+            Declaração de pub.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.PWZ">
+            <summary>
+            Declaração de pwz.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.QTL">
+            <summary>
+            Declaração de qtl.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.QXD">
+            <summary>
+            Declaração de qxd.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.RAR">
+            <summary>
+            Declaração de rar.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.RAT">
+            <summary>
+            Declaração de rat.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.RDLC">
+            <summary>
+            Declaração de rdlc.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.RESX">
+            <summary>
+            Declaração de resx.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.RM">
+            <summary>
+            Declaração de rm.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.RMP">
+            <summary>
+            Declaração de rmp.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ROFF">
+            <summary>
+            Declaração de roff.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.RTF">
+            <summary>
+            Declaração de rtf.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.RULESET">
+            <summary>
+            Declaração de ruleset.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.SAFARIEXTZ">
+            <summary>
+            Declaração de safariextz.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.SCD">
+            <summary>
+            Declaração de scd.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.SDP">
+            <summary>
+            Declaração de sdp.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.SEA">
+            <summary>
+            Declaração de sea.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.SEARCHCONNECTOR_MS">
+            <summary>
+            Declaração de searchConnector-ms.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.SETPAY">
+            <summary>
+            Declaração de setpay.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.SETREG">
+            <summary>
+            Declaração de setreg.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.SETTINGS">
+            <summary>
+            Declaração de settings.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.SGIMB">
+            <summary>
+            Declaração de sgimb.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.SH">
+            <summary>
+            Declaração de sh.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.SHAR">
+            <summary>
+            Declaração de shar.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.SIT">
+            <summary>
+            Declaração de sit.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.SITEMAP">
+            <summary>
+            Declaração de sitemap.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.SKIN">
+            <summary>
+            Declaração de skin.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.SLDM">
+            <summary>
+            Declaração de sldm.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.SLDX">
+            <summary>
+            Declaração de sldx.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.SLK">
+            <summary>
+            Declaração de slk.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.SLUPKG_MS">
+            <summary>
+            Declaração de slupkg-ms.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.SMI">
+            <summary>
+            Declaração de smi.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.SNIPPET">
+            <summary>
+            Declaração de snippet.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.SNP">
+            <summary>
+            Declaração de snp.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.SPC">
+            <summary>
+            Declaração de spc.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.SPL">
+            <summary>
+            Declaração de spl.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.SRC">
+            <summary>
+            Declaração de src.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.SSM">
+            <summary>
+            Declaração de ssm.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.SST">
+            <summary>
+            Declaração de sst.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.STL">
+            <summary>
+            Declaração de stl.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.SV4CPIO">
+            <summary>
+            Declaração de sv4cpio.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.SV4CRC">
+            <summary>
+            Declaração de sv4crc.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.SVC">
+            <summary>
+            Declaração de svc.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.SWF">
+            <summary>
+            Declaração de swf.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.T">
+            <summary>
+            Declaração de t.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.TAR">
+            <summary>
+            Declaração de tar.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.TCL">
+            <summary>
+            Declaração de tcl.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.TESTRUNCONFIG">
+            <summary>
+            Declaração de testrunconfig.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.TESTSETTINGS">
+            <summary>
+            Declaração de testsettings.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.TEX">
+            <summary>
+            Declaração de tex.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.TEXI">
+            <summary>
+            Declaração de texi.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.TEXINFO">
+            <summary>
+            Declaração de texinfo.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.TGZ">
+            <summary>
+            Declaração de tgz.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.THMX">
+            <summary>
+            Declaração de thmx.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.THN">
+            <summary>
+            Declaração de thn.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.TOC">
+            <summary>
+            Declaração de toc.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.TR">
+            <summary>
+            Declaração de tr.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.TRM">
+            <summary>
+            Declaração de trm.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.TRX">
+            <summary>
+            Declaração de trx.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.TTF">
+            <summary>
+            Declaração de ttf.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.U32">
+            <summary>
+            Declaração de u32.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.USTAR">
+            <summary>
+            Declaração de ustar.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.VDX">
+            <summary>
+            Declaração de vdx.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.VSCONTENT">
+            <summary>
+            Declaração de vscontent.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.VSD">
+            <summary>
+            Declaração de vsd.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.VSI">
+            <summary>
+            Declaração de vsi.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.VSIX">
+            <summary>
+            Declaração de vsix.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.VSMDI">
+            <summary>
+            Declaração de vsmdi.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.VSS">
+            <summary>
+            Declaração de vss.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.VST">
+            <summary>
+            Declaração de vst.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.VSTO">
+            <summary>
+            Declaração de vsto.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.VSW">
+            <summary>
+            Declaração de vsw.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.VSX">
+            <summary>
+            Declaração de vsx.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.VTX">
+            <summary>
+            Declaração de vtx.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.WBK">
+            <summary>
+            Declaração de wbk.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.WCM">
+            <summary>
+            Declaração de wcm.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.WDB">
+            <summary>
+            Declaração de wdb.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.WEBARCHIVE">
+            <summary>
+            Declaração de webarchive.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.WEBTEST">
+            <summary>
+            Declaração de webtest.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.WIQ">
+            <summary>
+            Declaração de wiq.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.WIZ">
+            <summary>
+            Declaração de wiz.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.WKS">
+            <summary>
+            Declaração de wks.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.WLMP">
+            <summary>
+            Declaração de WLMP.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.WLPGINSTALL">
+            <summary>
+            Declaração de wlpginstall.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.WLPGINSTALL3">
+            <summary>
+            Declaração de wlpginstall3.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.WMD">
+            <summary>
+            Declaração de wmd.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.WMF">
+            <summary>
+            Declaração de wmf.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.WMLC">
+            <summary>
+            Declaração de wmlc.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.WMLSC">
+            <summary>
+            Declaração de wmlsc.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.WMZ">
+            <summary>
+            Declaração de wmz.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.WPL">
+            <summary>
+            Declaração de wpl.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.WPS">
+            <summary>
+            Declaração de wps.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.WRI">
+            <summary>
+            Declaração de wri.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.X">
+            <summary>
+            Declaração de x.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.XAML">
+            <summary>
+            Declaração de xaml.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.XAP">
+            <summary>
+            Declaração de xap.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.XBAP">
+            <summary>
+            Declaração de xbap.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.XHT">
+            <summary>
+            Declaração de xht.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.XHTML">
+            <summary>
+            Declaração de xhtml.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.XLA">
+            <summary>
+            Declaração de xla.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.XLAM">
+            <summary>
+            Declaração de xlam.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.XLC">
+            <summary>
+            Declaração de xlc.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.XLD">
+            <summary>
+            Declaração de xld.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.XLK">
+            <summary>
+            Declaração de xlk.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.XLL">
+            <summary>
+            Declaração de xll.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.XLM">
+            <summary>
+            Declaração de xlm.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.XLS">
+            <summary>
+            Declaração de xls.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.XLSB">
+            <summary>
+            Declaração de xlsb.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.XLSM">
+            <summary>
+            Declaração de xlsm.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.XLSX">
+            <summary>
+            Declaração de xlsx.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.XLT">
+            <summary>
+            Declaração de xlt.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.XLTM">
+            <summary>
+            Declaração de xltm.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.XLTX">
+            <summary>
+            Declaração de xltx.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.XLW">
+            <summary>
+            Declaração de xlw.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.XMTA">
+            <summary>
+            Declaração de xmta.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.XPS">
+            <summary>
+            Declaração de xps.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.XSC">
+            <summary>
+            Declaração de xsc.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.XSN">
+            <summary>
+            Declaração de xsn.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.XSS">
+            <summary>
+            Declaração de xss.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.XTP">
+            <summary>
+            Declaração de xtp.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.Z">
+            <summary>
+            Declaração de z.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Application.ZIP">
+            <summary>
+            Declaração de zip.
+            </summary>
+        </member>
+        <member name="T:Kardinal.Net.MediaTypeNames.Audio">
+            <summary>
+            Mimetypes do tipo 'Audio'.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Audio.AA">
+            <summary>
+            Declaração de aa.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Audio.AAC">
+            <summary>
+            Declaração de AAC.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Audio.AAX">
+            <summary>
+            Declaração de aax.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Audio.AC3">
+            <summary>
+            Declaração de ac3.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Audio.ADT">
+            <summary>
+            Declaração de ADT.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Audio.ADTS">
+            <summary>
+            Declaração de ADTS.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Audio.AIF">
+            <summary>
+            Declaração de aif.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Audio.AIFC">
+            <summary>
+            Declaração de aifc.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Audio.AIFF">
+            <summary>
+            Declaração de aiff.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Audio.AU">
+            <summary>
+            Declaração de au.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Audio.CAF">
+            <summary>
+            Declaração de caf.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Audio.CDDA">
+            <summary>
+            Declaração de cdda.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Audio.GSM">
+            <summary>
+            Declaração de gsm.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Audio.M3U">
+            <summary>
+            Declaração de m3u.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Audio.M3U8">
+            <summary>
+            Declaração de m3u8.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Audio.M4A">
+            <summary>
+            Declaração de m4a.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Audio.M4B">
+            <summary>
+            Declaração de m4b.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Audio.M4P">
+            <summary>
+            Declaração de m4p.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Audio.M4R">
+            <summary>
+            Declaração de m4r.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Audio.MID">
+            <summary>
+            Declaração de mid.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Audio.MIDI">
+            <summary>
+            Declaração de midi.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Audio.MP3">
+            <summary>
+            Declaração de mp3.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Audio.PLS">
+            <summary>
+            Declaração de pls.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Audio.RA">
+            <summary>
+            Declaração de ra.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Audio.RAM">
+            <summary>
+            Declaração de ram.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Audio.RMI">
+            <summary>
+            Declaração de rmi.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Audio.RPM">
+            <summary>
+            Declaração de rpm.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Audio.SD2">
+            <summary>
+            Declaração de sd2.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Audio.SMD">
+            <summary>
+            Declaração de smd.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Audio.SMX">
+            <summary>
+            Declaração de smx.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Audio.SMZ">
+            <summary>
+            Declaração de smz.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Audio.SND">
+            <summary>
+            Declaração de snd.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Audio.WAV">
+            <summary>
+            Declaração de wav.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Audio.WAVE">
+            <summary>
+            Declaração de wave.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Audio.WAX">
+            <summary>
+            Declaração de wax.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Audio.WMA">
+            <summary>
+            Declaração de wma.
+            </summary>
+        </member>
+        <member name="T:Kardinal.Net.MediaTypeNames.Image">
+            <summary>
+            Mimetypes do tipo 'Image'.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Image.ART">
+            <summary>
+            Declaração de art.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Image.BMP">
+            <summary>
+            Declaração de bmp.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Image.CMX">
+            <summary>
+            Declaração de cmx.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Image.COD">
+            <summary>
+            Declaração de cod.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Image.DIB">
+            <summary>
+            Declaração de dib.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Image.GIF">
+            <summary>
+            Declaração de gif.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Image.ICO">
+            <summary>
+            Declaração de ico.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Image.IEF">
+            <summary>
+            Declaração de ief.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Image.JFIF">
+            <summary>
+            Declaração de jfif.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Image.JPE">
+            <summary>
+            Declaração de jpe.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Image.JPEG">
+            <summary>
+            Declaração de jpeg.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Image.JPG">
+            <summary>
+            Declaração de jpg.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Image.MAC">
+            <summary>
+            Declaração de mac.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Image.PBM">
+            <summary>
+            Declaração de pbm.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Image.PCT">
+            <summary>
+            Declaração de pct.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Image.PGM">
+            <summary>
+            Declaração de pgm.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Image.PIC">
+            <summary>
+            Declaração de pic.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Image.PICT">
+            <summary>
+            Declaração de pict.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Image.PNG">
+            <summary>
+            Declaração de png.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Image.PNM">
+            <summary>
+            Declaração de pnm.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Image.PNT">
+            <summary>
+            Declaração de pnt.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Image.PNTG">
+            <summary>
+            Declaração de pntg.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Image.PNZ">
+            <summary>
+            Declaração de pnz.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Image.PPM">
+            <summary>
+            Declaração de ppm.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Image.QTI">
+            <summary>
+            Declaração de qti.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Image.QTIF">
+            <summary>
+            Declaração de qtif.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Image.RAS">
+            <summary>
+            Declaração de ras.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Image.RF">
+            <summary>
+            Declaração de rf.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Image.RGB">
+            <summary>
+            Declaração de rgb.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Image.TIF">
+            <summary>
+            Declaração de tif.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Image.TIFF">
+            <summary>
+            Declaração de tiff.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Image.WBMP">
+            <summary>
+            Declaração de wbmp.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Image.WDP">
+            <summary>
+            Declaração de wdp.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Image.XBM">
+            <summary>
+            Declaração de xbm.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Image.XPM">
+            <summary>
+            Declaração de xpm.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Image.XWD">
+            <summary>
+            Declaração de xwd.
+            </summary>
+        </member>
+        <member name="T:Kardinal.Net.MediaTypeNames.Text">
+            <summary>
+            Mimetypes do tipo 'texto'.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.H323">
+            <summary>
+            Declaração de H323.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.ADDIN">
+            <summary>
+            Declaração de AddIn.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.ASM">
+            <summary>
+            Declaração de asm.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.BAS">
+            <summary>
+            Declaração de bas.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.C">
+            <summary>
+            Declaração de c.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.CC">
+            <summary>
+            Declaração de cc.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.CD">
+            <summary>
+            Declaração de cd.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.CNF">
+            <summary>
+            Declaração de cnf.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.CONTACT">
+            <summary>
+            Declaração de contact.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.CPP">
+            <summary>
+            Declaração de cpp.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.CS">
+            <summary>
+            Declaração de cs.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.CSDPROJ">
+            <summary>
+            Declaração de csdproj.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.CSPROJ">
+            <summary>
+            Declaração de csproj.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.CSS">
+            <summary>
+            Declaração de css.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.CSV">
+            <summary>
+            Declaração de csv.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.CXX">
+            <summary>
+            Declaração de cxx.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.DBPROJ">
+            <summary>
+            Declaração de dbproj.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.DEF">
+            <summary>
+            Declaração de def.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.DISCO">
+            <summary>
+            Declaração de disco.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.DLLCONFIG">
+            <summary>
+            Declaração de dllconfig.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.DLM">
+            <summary>
+            Declaração de dlm.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.DSW">
+            <summary>
+            Declaração de dsw.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.DTD">
+            <summary>
+            Declaração de dtd.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.DTSCONFIG">
+            <summary>
+            Declaração de dtsConfig.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.ETX">
+            <summary>
+            Declaração de etx.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.EXECONFIG">
+            <summary>
+            Declaração de execonfig.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.GROUP">
+            <summary>
+            Declaração de group.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.H">
+            <summary>
+            Declaração de h.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.HDML">
+            <summary>
+            Declaração de hdml.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.HPP">
+            <summary>
+            Declaração de hpp.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.HTC">
+            <summary>
+            Declaração de htc.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.HTM">
+            <summary>
+            Declaração de htm.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.HTML">
+            <summary>
+            Declaração de html.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.HTT">
+            <summary>
+            Declaração de htt.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.HXT">
+            <summary>
+            Declaração de hxt.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.HXX">
+            <summary>
+            Declaração de hxx.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.I">
+            <summary>
+            Declaração de i.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.IDL">
+            <summary>
+            Declaração de idl.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.INC">
+            <summary>
+            Declaração de inc.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.INL">
+            <summary>
+            Declaração de inl.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.IPPROJ">
+            <summary>
+            Declaração de ipproj.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.IQY">
+            <summary>
+            Declaração de iqy.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.JSX">
+            <summary>
+            Declaração de jsx.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.JSXBIN">
+            <summary>
+            Declaração de jsxbin.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.LST">
+            <summary>
+            Declaração de lst.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.MAK">
+            <summary>
+            Declaração de mak.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.MAP">
+            <summary>
+            Declaração de map.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.MK">
+            <summary>
+            Declaração de mk.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.MNO">
+            <summary>
+            Declaração de mno.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.ODC">
+            <summary>
+            Declaração de odc.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.ODH">
+            <summary>
+            Declaração de odh.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.ODL">
+            <summary>
+            Declaração de odl.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.PKGDEF">
+            <summary>
+            Declaração de pkgdef.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.PKGUNDEF">
+            <summary>
+            Declaração de pkgundef.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.QHT">
+            <summary>
+            Declaração de qht.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.QHTM">
+            <summary>
+            Declaração de qhtm.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.RC">
+            <summary>
+            Declaração de rc.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.RC2">
+            <summary>
+            Declaração de rc2.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.RCT">
+            <summary>
+            Declaração de rct.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.RGS">
+            <summary>
+            Declaração de rgs.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.RQY">
+            <summary>
+            Declaração de rqy.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.RTX">
+            <summary>
+            Declaração de rtx.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.S">
+            <summary>
+            Declaração de s.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.SCT">
+            <summary>
+            Declaração de sct.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.SGML">
+            <summary>
+            Declaração de sgml.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.SHTML">
+            <summary>
+            Declaração de shtml.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.SLN">
+            <summary>
+            Declaração de sln.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.SOL">
+            <summary>
+            Declaração de sol.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.SOR">
+            <summary>
+            Declaração de sor.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.SRF">
+            <summary>
+            Declaração de srf.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.SSISDEPLOYMENTMANIFEST">
+            <summary>
+            Declaração de SSISDeploymentManifest.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.TLH">
+            <summary>
+            Declaração de tlh.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.TLI">
+            <summary>
+            Declaração de tli.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.TSV">
+            <summary>
+            Declaração de tsv.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.TXT">
+            <summary>
+            Declaração de txt.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.ULS">
+            <summary>
+            Declaração de uls.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.USER">
+            <summary>
+            Declaração de user.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.VB">
+            <summary>
+            Declaração de vb.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.VBDPROJ">
+            <summary>
+            Declaração de vbdproj.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.VBPROJ">
+            <summary>
+            Declaração de vbproj.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.VBS">
+            <summary>
+            Declaração de vbs.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.VCF">
+            <summary>
+            Declaração de vcf.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.VCS">
+            <summary>
+            Declaração de vcs.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.VDDPROJ">
+            <summary>
+            Declaração de vddproj.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.VDP">
+            <summary>
+            Declaração de vdp.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.VDPROJ">
+            <summary>
+            Declaração de vdproj.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.VML">
+            <summary>
+            Declaração de vml.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.VSCT">
+            <summary>
+            Declaração de vsct.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.VSIXLANGPACK">
+            <summary>
+            Declaração de vsixlangpack.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.VSIXMANIFEST">
+            <summary>
+            Declaração de vsixmanifest.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.VSPSCC">
+            <summary>
+            Declaração de vspscc.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.VSSCC">
+            <summary>
+            Declaração de vsscc.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.VSSETTINGS">
+            <summary>
+            Declaração de vssettings.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.VSSSCC">
+            <summary>
+            Declaração de vssscc.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.VSTEMPLATE">
+            <summary>
+            Declaração de vstemplate.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.WML">
+            <summary>
+            Declaração de wml.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.WMLS">
+            <summary>
+            Declaração de wmls.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.WSC">
+            <summary>
+            Declaração de wsc.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.WSDL">
+            <summary>
+            Declaração de wsdl.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.XDR">
+            <summary>
+            Declaração de xdr.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.XML">
+            <summary>
+            Declaração de xml.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.XOML">
+            <summary>
+            Declaração de XOML.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.XRM_MS">
+            <summary>
+            Declaração de xrm-ms.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.XSD">
+            <summary>
+            Declaração de xsd.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.XSF">
+            <summary>
+            Declaração de xsf.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.XSL">
+            <summary>
+            Declaração de xsl.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Text.XSLT">
+            <summary>
+            Declaração de xslt.
+            </summary>
+        </member>
+        <member name="T:Kardinal.Net.MediaTypeNames.Video">
+            <summary>
+            Mimetypes do tipo 'Video'.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.V3G2">
+            <summary>
+            Declaração de 3g2.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.V3GP">
+            <summary>
+            Declaração de 3gp.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.V3GP2">
+            <summary>
+            Declaração de 3gp2.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.V3GPP">
+            <summary>
+            Declaração de 3gpp.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.ASF">
+            <summary>
+            Declaração de asf.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.ASR">
+            <summary>
+            Declaração de asr.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.ASX">
+            <summary>
+            Declaração de asx.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.AVI">
+            <summary>
+            Declaração de avi.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.DIF">
+            <summary>
+            Declaração de dif.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.DV">
+            <summary>
+            Declaração de dv.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.FLV">
+            <summary>
+            Declaração de flv.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.IVF">
+            <summary>
+            Declaração de IVF.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.LSF">
+            <summary>
+            Declaração de lsf.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.LSX">
+            <summary>
+            Declaração de lsx.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.M1V">
+            <summary>
+            Declaração de m1v.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.M2T">
+            <summary>
+            Declaração de m2t.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.M2TS">
+            <summary>
+            Declaração de m2ts.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.M2V">
+            <summary>
+            Declaração de m2v.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.M4V">
+            <summary>
+            Declaração de m4v.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.MOD">
+            <summary>
+            Declaração de mod.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.MOV">
+            <summary>
+            Declaração de mov.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.MOVIE">
+            <summary>
+            Declaração de movie.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.MP2">
+            <summary>
+            Declaração de mp2.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.MP2V">
+            <summary>
+            Declaração de mp2v.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.MP4">
+            <summary>
+            Declaração de mp4.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.MP4V">
+            <summary>
+            Declaração de mp4v.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.MPA">
+            <summary>
+            Declaração de mpa.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.MPE">
+            <summary>
+            Declaração de mpe.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.MPEG">
+            <summary>
+            Declaração de mpeg.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.MPG">
+            <summary>
+            Declaração de mpg.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.MPV2">
+            <summary>
+            Declaração de mpv2.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.MQV">
+            <summary>
+            Declaração de mqv.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.MTS">
+            <summary>
+            Declaração de mts.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.NSC">
+            <summary>
+            Declaração de nsc.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.QT">
+            <summary>
+            Declaração de qt.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.TS">
+            <summary>
+            Declaração de ts.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.TTS">
+            <summary>
+            Declaração de tts.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.VBK">
+            <summary>
+            Declaração de vbk.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.WM">
+            <summary>
+            Declaração de wm.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.WMP">
+            <summary>
+            Declaração de wmp.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.WMV">
+            <summary>
+            Declaração de wmv.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.WMX">
+            <summary>
+            Declaração de wmx.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.MediaTypeNames.Video.WVX">
+            <summary>
+            Declaração de wvx.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.TypeLoader.GetTypeInfos(System.Reflection.Assembly)">
+            <summary>
+            Método estático que obtém os tipos de arquivo de um assembly.
+            </summary>
+            <param name="assembly">Assembly onde as definições estão localizadas.</param>
+        </member>
+    </members>
+</doc>

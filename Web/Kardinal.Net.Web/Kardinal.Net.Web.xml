@@ -1,0 +1,1623 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Kardinal.Net.Web</name>
+    </assembly>
+    <members>
+        <member name="T:Kardinal.Net.Web.AbstractOptions">
+            <summary>
+            Classe abstrata de opções.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.AbstractOptions.SectionName">
+            <summary>
+            Nome da sessão de opções.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.AbstractOptions.#ctor(System.String)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="sectionName">Nome da sessão de opções.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.AbstractOptions.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.AbstractService">
+            <summary>
+            Classe base para todos os serviços da aplicação.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.AbstractService._logger">
+            <summary>
+            Instância do serviço de logs.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.AbstractService._provider">
+            <summary>
+            Instância do provedor de serviços da aplicação.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.AbstractService.#ctor(System.IServiceProvider)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="provider">Instância do provedor de serviços da aplicação.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.AbstractService.GetService``1">
+            <summary>
+            Método que obtém a instância de um serviço.
+            </summary>
+            <typeparam name="T">Interface do serviço solicitada.</typeparam>
+            <returns>Instância do serviço solicitado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.AbstractService.GetService(System.Type)">
+            <summary>
+            Método que obtém a instância de um serviço.
+            </summary>
+            <param name="service">Tipo do serviço solicitado.</param>
+            <returns>Instância do serviço solicitado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.AbstractService.Dispose">
+            <summary>
+            Método para liberação de recursos usados pelo serviço.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.AbstractService.Dispose(System.Boolean)">
+            <summary>
+            Método para liberação de recursos usados pelo serviço.
+            </summary>
+            <param name="disposing">Define se propriedades filhas também devem ser liberadas.</param>
+        </member>
+        <member name="T:Kardinal.Net.Web.BaseProgram">
+            <summary>
+            Classe base para inicialização simplificada do WebAPI.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.BaseProgram.CancellationTokenSource">
+            <summary>
+            Fonte do token de cancelamento de operação assíncrona.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.BaseProgram.Logger">
+            <summary>
+            Instância do logger da aplicação.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.BaseProgram.Initialize``1(System.String[])">
+            <summary>
+            Método de inicialização do serviço web.
+            </summary>
+            <typeparam name="TStartup">Classe de inicialização do serviço.</typeparam>
+            <param name="args">Argumentos de inicialização.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.BaseProgram.Initialize``1(Kardinal.Net.KardinalVersion,System.String,System.String[],System.String[])">
+            <summary>
+            Método de inicialização do serviço web.
+            </summary>
+            <typeparam name="TStartup">Classe de inicialização do serviço.</typeparam>
+            <param name="version">Versão do serviço web. veja <see cref="T:Kardinal.Net.KardinalVersion"/>.</param>
+            <param name="description">Descrição serviço web.</param>
+            <param name="args">Argumentos de inicialização.</param>
+            <param name="additionalConfigurationFiles">Arquivos de configuração adicionais.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.BaseProgram.Start``1(System.String[],System.Action{Microsoft.Extensions.DependencyInjection.IServiceCollection},System.String[])">
+            <summary>
+            Método de inicialização do serviço web.
+            </summary>
+            <typeparam name="TStartup">Classe de inicialização do serviço.</typeparam>
+            <param name="args">Argumentos de inicialização.</param>
+            <param name="configureServices">Serviços configurados à serem adicionados ao serviço.</param>
+            <param name="additionalConfigurationFiles">Arquivos de configuração adicionais.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.BaseProgram.Start``1(System.String[],System.String,System.Action{Microsoft.Extensions.DependencyInjection.IServiceCollection},System.String[])">
+            <summary>
+            Método de inicialização do serviço web.
+            </summary>
+            <typeparam name="TStartup">Classe de inicialização do serviço.</typeparam>
+            <param name="args">Argumentos de inicialização.</param>
+            <param name="basePath">Diretório base da aplicação.</param>
+            <param name="configureServices">Serviços configurados à serem adicionados ao serviço.</param>
+            <param name="additionalConfigurationFiles">Arquivos de configuração adicionais.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.BaseProgram.Shutdown(System.Int32)">
+            <summary>
+            Método para o encerramento do serviço.
+            </summary>
+            <param name="exitCode">Código de saída da aplicação.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.BaseProgram.LoadConfiguration(System.String[],System.String,System.String[])">
+            <summary>
+            Método que efetua a leitura das configurações do serviço.
+            </summary>
+            <param name="args">Argumentos de inicialização.</param>
+            <param name="basePath">Diretório base da aplicação.</param>
+            <param name="additionalConfigurationFiles">Arquivos de configuração adicionais.</param>
+            <returns>Instância de <see cref="T:Microsoft.Extensions.Configuration.IConfigurationRoot"/> contendo as configurações do serviço.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.Constants">
+            <summary>
+            Classe estática com constantes de sistema.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Constants.BaseName">
+            <summary>
+            Nome base do serviço da aplicação.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Constants.BaseVersion">
+            <summary>
+            Versão base do serviço da aplicação.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Constants.ApplicationName">
+            <summary>
+            Nome da aplicação.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Constants.Initialized">
+            <summary>
+            Identificação se as constantes do serviço foram inicializadas.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Constants.Environment">
+            <summary>
+            Atributo que determina o ambient atual.
+            </summary>
+            <returns>Ambiente atual da aplicação.</returns>
+        </member>
+        <member name="P:Kardinal.Net.Web.Constants.IsDevelopment">
+            <summary>
+            atributo que indica se o ambiente atual é o de desenvolvimento.
+            </summary>
+            <returns>Verdadeiro caso o ambiente atual seja o de desenvolvimento e falso caso contrário.</returns>
+        </member>
+        <member name="P:Kardinal.Net.Web.Constants.IsProduction">
+            <summary>
+            Método que diz se o ambiente atual é o de produção.
+            </summary>
+            <returns>Verdadeiro caso o ambiente atual seja o de produção e falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.Constants.Initialize(System.String,System.String)">
+            <summary>
+            Método de inicialização do serviço da aplicação.
+            </summary>
+            <param name="version">Versão base do serviço da aplicação.</param>
+            <param name="baseName">Nome da aplicação.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.Constants.Initialize(Kardinal.Net.KardinalVersion,System.String)">
+            <summary>
+            Método de inicialização do serviço da aplicação.
+            </summary>
+            <param name="version">Versão base do serviço da aplicação.</param>
+            <param name="baseName">Nome da aplicação.</param>
+        </member>
+        <member name="T:Kardinal.Net.Web.DefaultClaims">
+            <summary>
+            Classe estática para nomes de claims padrões.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.DefaultClaims.SUB">
+            <summary>
+            Identificador do usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.DefaultClaims.CLIENT_ID">
+            <summary>
+            Identificador do cliente do usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.DefaultClaims.NAME">
+            <summary>
+            Nome do usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.DefaultClaims.FAMILY_NAME">
+            <summary>
+            Nome de família do usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.DefaultClaims.GIVEN_NAME">
+            <summary>
+            Nome atribuído ao usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.DefaultClaims.MIDDLE_NAME">
+            <summary>
+            Sobrenome do usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.DefaultClaims.NICKNAME">
+            <summary>
+            Apelido do usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.DefaultClaims.PREFERED_USERNAME">
+            <summary>
+            Nome de usuário preferencial.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.DefaultClaims.PROFILE">
+            <summary>
+            Perfil do usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.DefaultClaims.PICTURE">
+            <summary>
+            Imagem do usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.DefaultClaims.WEBSITE">
+            <summary>
+            Website do usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.DefaultClaims.GENDER">
+            <summary>
+            Gênero do usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.DefaultClaims.BIRTHDATE">
+            <summary>
+            Data de nascimento do usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.DefaultClaims.ZONEINFO">
+            <summary>
+            Informações de zona do usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.DefaultClaims.LOCALE">
+            <summary>
+            Localização do usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.DefaultClaims.UPDATED_AT">
+            <summary>
+            Data de atualização do usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.DefaultClaims.USERNAME">
+            <summary>
+            Nome de usuário.
+            </summary>
+        </member>
+        <member name="T:Kardinal.Net.Web.DataProtectionCertificateSourceType">
+            <summary>
+            Enumerador do tipo de fonte do certificado.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.DataProtectionCertificateSourceType.None">
+            <summary>
+            Não utilizar certificado.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.DataProtectionCertificateSourceType.FileSystem">
+            <summary>
+            Sistema de arquivos.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.DataProtectionCertificateSourceType.Thumbprint">
+            <summary>
+            Impressão digital.
+            </summary>
+        </member>
+        <member name="T:Kardinal.Net.Web.DataProtectionKeyStorageType">
+            <summary>
+            Enumerador com o tipo de armazenamento das chaves.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.DataProtectionKeyStorageType.FileSystem">
+            <summary>
+            Sistema de arquivos.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.DataProtectionKeyStorageType.Database">
+            <summary>
+            Base de dados.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.DataProtectionKeyStorageType.Registry">
+            <summary>
+            Registro.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.DataProtectionKeyStorageType.Azure">
+            <summary>
+            Serviço Azure.
+            </summary>
+        </member>
+        <member name="T:Kardinal.Net.Web.ServiceException">
+            <summary>
+            Classe de exceção de serviços de Api.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.ServiceException.StatusCode">
+            <summary>
+            Código de status da exceção.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.ServiceException.StatusMessage">
+            <summary>
+            Mensagem de status da exceção.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.ServiceException.#ctor">
+            <summary>
+            Método construtor.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.ServiceException.#ctor(System.String)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="message">Mensagem de exceção.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.ServiceException.#ctor(System.Net.HttpStatusCode,System.String,System.Exception)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="statusCode">Código de status da exceção.</param>
+            <param name="message">Mensagem de exceção.</param>
+            <param name="innerException">Exceção interior.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.ServiceException.#ctor(System.Net.HttpStatusCode)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="statusCode">Código de status da exceção.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.ServiceException.#ctor(System.Net.HttpStatusCode,System.String)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="statusCode">Código de status da exceção.</param>
+            <param name="description">Indica se deve ser adicionado o código de erro à descrição.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.ServiceException.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.ServiceNotFoundException">
+            <summary>
+            Classe de exceção causada por serviço não encontrado.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.ServiceNotFoundException.#ctor(System.String)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="message">Mensagem de exceção.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.ServiceNotFoundException.#ctor(System.Type)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="type">Tipo de classe responsável pela exceção.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.ServiceNotFoundException.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.ApplicationBuilderExtensions">
+            <summary>
+            Classe de extensões para <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/>.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.ApplicationBuilderExtensions.UseSerilog(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Extens serilog logs with additional information like remote IP
+            address
+            </summary>
+            <param name="app">Instance of <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/>.
+            </param>
+        </member>
+        <member name="T:Kardinal.Net.Web.AuthorizationFilterContextExtensions">
+            <summary>
+            Classe de extensões para <see cref="T:Microsoft.AspNetCore.Mvc.Filters.AuthorizationFilterContext"/>.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.AuthorizationFilterContextExtensions.GetAuthorizationToken(Microsoft.AspNetCore.Mvc.Filters.AuthorizationFilterContext,System.String)">
+            <summary>
+            Método que busca o token de autorização da requisição.
+            </summary>
+            <param name="context">Contexto.</param>
+            <param name="type">Tipo de token esperado.</param>
+            <returns>Token de autenticação ou null se o valor for vazio.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.HttpRequestExtensions">
+            <summary>
+            Classe de extensões para <see cref="T:Microsoft.AspNetCore.Http.HttpRequest"/>
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.HttpRequestExtensions.GetHeader(Microsoft.AspNetCore.Http.HttpRequest,System.String)">
+            <summary>
+            Extensão para obtenção de um item do cabeçalho da requisição.
+            </summary>
+            <param name="request">Objeto referenciado.</param>
+            <param name="key">Chave do item.</param>
+            <returns>Valor do item.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.IConfigurationExtensions">
+            <summary>
+            Classe de extensões para <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/>.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.IConfigurationExtensions.GetOptions``1(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Extensão que traz as configurações tipadas da configuração.
+            </summary>
+            <typeparam name="T">Objeto contendo as configurações da sessão</typeparam>
+            <param name="configuration">Instância de <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+            <returns>Objeto contendo as configurações.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.IConfigurationExtensions.GetOptions``1(Microsoft.Extensions.Configuration.IConfiguration,System.String)">
+            <summary>
+            Extensão que traz as configurações tipadas da configuração.
+            </summary>
+            <typeparam name="T">Objeto contendo as configurações da sessão</typeparam>
+            <param name="configuration">Instância de <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+            <param name="sectionName">Nome da sessão de configurações</param>
+            <returns>Objeto contendo as configurações.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.IConfigurationExtensions.GetSectionName``1">
+            <summary>
+            Método que obtém o nome da sessão de opções.
+            </summary>
+            <typeparam name="T">Tipo do objeto de configurações.</typeparam>
+            <returns>Nome da sessão de opções.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.IConfigurationSectionExtensions">
+            <summary>
+            Classe de extensões para <see cref="T:Microsoft.Extensions.Configuration.IConfigurationSection"/>.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.IConfigurationSectionExtensions.GetOptions``1(Microsoft.Extensions.Configuration.IConfigurationSection)">
+            <summary>
+            Extensão que traz as configurações tipadas da sessão.
+            </summary>
+            <typeparam name="T">Objeto contendo as configurações da sessão.</typeparam>
+            <param name="section">Este Objeto.</param>
+            <returns>Instância das configurações.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.ILoggingBuilderExtensions">
+            <summary>
+            Classe de extensões para <see cref="T:Microsoft.Extensions.Logging.ILoggingBuilder"/>.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.ILoggingBuilderExtensions.AddSerilog(Microsoft.Extensions.Logging.ILoggingBuilder,Microsoft.Extensions.Configuration.IConfiguration,System.String)">
+            <summary>
+            Extensão para adição do Serilog ao serviço.
+            </summary>
+            <param name="loggingBuilder">Instância de <see cref="T:Microsoft.Extensions.Logging.ILoggingBuilder"/></param>
+            <param name="config">Instância de <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+            <param name="sectionName">Nome da sessão de configurações</param>
+            <returns>Instância de <see cref="T:Microsoft.Extensions.Logging.ILoggingBuilder"/> informado via parâmetro <paramref name="loggingBuilder"/></returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.IServiceCollectionExtensions">
+            <summary>
+            Classe de extensões para <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.IServiceCollectionExtensions.AddApplicationInfoService(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Extensão para adição de serviço de informações de sistema.
+            </summary>
+            <param name="services">Objeto referenciado.</param>
+            <returns>Objeto referenciado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.IServiceCollectionExtensions.AddBackgroundTaskHostedService(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Extensão para adição do usuário de sistema.
+            </summary>
+            <param name="services">Objeto referenciado.</param>
+            <returns>Objeto referenciado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.IServiceCollectionExtensions.AddBackgroundTaskHostedService(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{Kardinal.Net.Web.BackgroundTaskServiceOptions})">
+            <summary>
+            Extensão para adição do usuário de sistema.
+            </summary>
+            <param name="services">Objeto referenciado.</param>
+            <param name="options">Configurações do serviço de fila.</param>
+            <returns>Objeto referenciado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.IServiceCollectionExtensions.AddDataProtection(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,System.String)">
+            <summary>
+            Extensão para adição do serviço de proteção de dados.
+            </summary>
+            <param name="services">Objeto referenciado.</param>
+            <param name="configuration">Instância do contâiner de configurações.</param>
+            <param name="sector">Setor onde se encontram as configurações de proteção de dados.</param>
+            <returns>Objeto referenciado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.IServiceCollectionExtensions.AddDataProtection(Microsoft.Extensions.DependencyInjection.IServiceCollection,Kardinal.Net.Web.DataProtectionOptions)">
+            <summary>
+            Extensão para adição do serviço de proteção de dados.
+            </summary>
+            <param name="services">Objeto referenciado.</param>
+            <param name="options">Configurações do serviço de proteção de dados.</param>
+            <returns>Objeto referenciado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.IServiceCollectionExtensions.AddCertificateByFileSytem(Microsoft.AspNetCore.DataProtection.IDataProtectionBuilder,System.String,System.String)">
+            <summary>
+            Método para carregamento do certificado de proteção de dados através do sistema de arquivos.
+            </summary>
+            <param name="builder">Instância do construtor de proteção de dados.</param>
+            <param name="path">Caminho do certificado no sistema de arquivos.</param>
+            <param name="password">Senha do certificado.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.IServiceCollectionExtensions.AddCertificateByThumbprint(Microsoft.AspNetCore.DataProtection.IDataProtectionBuilder,System.Security.Cryptography.X509Certificates.StoreName,System.Security.Cryptography.X509Certificates.StoreLocation,System.Boolean,System.String)">
+            <summary>
+            Método para carregamento do certificado de proteção de dados através repositório de certificados.
+            </summary>
+            <param name="builder">Instância do construtor de proteção de dados.</param>
+            <param name="storeName">Nome do diretório de certificados.</param>
+            <param name="storeLocation">Localização do diretório de certificados.</param>
+            <param name="validOnly">Indica que apenas certificados válidos serão buscados.</param>
+            <param name="thumbprint">Impressão digital do certificado.</param>
+        </member>
+        <member name="T:Kardinal.Net.Web.IServiceProviderExtensions">
+            <summary>
+            Classe de extensões para ServiceProvider.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.IServiceProviderExtensions.ServiceExists(System.IServiceProvider,System.Type)">
+            <summary>
+            Extensão para verificar se um serviço está registrado no pool de serviços.
+            </summary>
+            <param name="provider">Objeto referenciado.</param>
+            <param name="service">Tipo do serviço buscado.</param>
+            <returns>Verdadeiro caso o serviço exista e falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.IServiceProviderExtensions.ServiceExists``1(System.IServiceProvider)">
+            <summary>
+            Extensão para verificar se um serviço está registrado no pool de serviços.
+            </summary>
+            <typeparam name="T">Tipo do serviço buscado.</typeparam>
+            <param name="provider">Objeto referenciado.</param>
+            <returns>Verdadeiro caso o serviço exista e falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.IServiceProviderExtensions.GetKardinalService(System.IServiceProvider,System.Type,System.Object)">
+            <summary>
+            Extensão que obtém um serviço do pool de serviços.
+            </summary>
+            <param name="provider">Objeto referenciado.</param>
+            <param name="service">Tipo do serviço buscado.</param>
+            <param name="replacementService">Instância de serviço de substituição caso o serviço solicitado não seja encontrado.</param>
+            <returns>Instância do serviço buscado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.IServiceProviderExtensions.GetKardinalService``1(System.IServiceProvider,``0)">
+            <summary>
+            Extensão que obtém um serviço do pool de serviços.
+            </summary>
+            <typeparam name="T">Tipo do serviço buscado.</typeparam>
+            <param name="provider">Objeto referenciado.</param>
+            <param name="replacementService">Instância de serviço de substituição caso o serviço solicitado não seja encontrado.</param>
+            <returns>Instância do serviço buscado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.IServiceProviderExtensions.GetServerInfoService(System.IServiceProvider)">
+            <summary>
+            Extensão que obtém o serviço de informações do servidor.
+            </summary>
+            <param name="provider">Objeto referenciado.</param>
+            <returns>Instância do serviço <see cref="T:Kardinal.Net.Web.IApplicationInfoService"/></returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.IServiceProviderExtensions.GetLoggerService``1(System.IServiceProvider)">
+            <summary>
+            Extensão que obtém o serviço de log.
+            </summary>
+            <typeparam name="T">Tipo da classe invocadora do logger.</typeparam>
+            <param name="provider">Objeto referenciado.</param>
+            <returns>Instância do serviço <see cref="T:Microsoft.Extensions.Logging.ILogger"/> referente à classe solicitante.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.IServiceProviderExtensions.GetCurrentUser(System.IServiceProvider)">
+            <summary>
+            Extensão que obtém o serviço do usuário atual.
+            </summary>
+            <param name="provider">Objeto referenciado.</param>
+            <returns>Instância do serviço do usuário atual.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.IServiceProviderExtensions.GetOptions``1(System.IServiceProvider)">
+            <summary>
+            Extensão para obter opções.
+            </summary>
+            <typeparam name="T">Tipo da opção desejada.</typeparam>
+            <param name="provider">Objeto referenciado.</param>
+            <returns>Opções solicitadas.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.IServiceProviderExtensions.GetBackgroundTaskQueueService(System.IServiceProvider)">
+            <summary>
+            Extensão para obter o serviço de fila de tarefas em segundo plano.
+            </summary>
+            <param name="provider">Objeto referenciado.</param>
+            <returns>Instância do serviço de fila de tarefas em segundo plano.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.WebApplicationBuilderExtensions">
+            <summary>
+            Extensões para <see cref="T:Microsoft.AspNetCore.Builder.WebApplicationBuilder"/>
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.WebApplicationBuilderExtensions.UseKardinal(Microsoft.AspNetCore.Builder.WebApplicationBuilder,System.String,Kardinal.Net.KardinalVersion,System.String[],System.String[])">
+            <summary>
+            Extensão para definir opções de uso do Kestrel como host da aplicação.
+            </summary>
+            <param name="builder">Objeto referenciado.</param>
+            <param name="serviceName">Nome do serviço.</param>
+            <param name="version">Versão do serviço.</param>
+            <param name="args">Argumentos de inicialização.</param>
+            <param name="configurationFiles"></param>
+            <returns>Objeto referenciado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.WebApplicationBuilderExtensions.UseKestrel(Microsoft.AspNetCore.Builder.WebApplicationBuilder,Kardinal.Net.Web.HostOptions)">
+            <summary>
+            Extensão para definir opções de uso do Kestrel como host da aplicação.
+            </summary>
+            <param name="builder">Objeto referenciado.</param>
+            <param name="options">Opções de configuração do Kestrel.</param>
+            <returns>Objeto referenciado.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.ApplicationInfoService">
+            <summary>
+            Serviço de informação do servidor.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.ApplicationInfoService.ApplicationName">
+            <summary>
+            Nome da aplicação.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.ApplicationInfoService.ApplicationVersion">
+            <summary>
+            Versão da aplicação.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.ApplicationInfoService.Environment">
+            <summary>
+            Ambiente de execução da aplicação.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.ApplicationInfoService.IsProduction">
+            <summary>
+            Indica se a aplicação está em modo de produção.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.ApplicationInfoService.IsDevelopment">
+            <summary>
+            Indica se a aplicação está em modo de desenvolvimento.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.ApplicationInfoService.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.BackgroundTaskHostedService">
+            <summary>
+            Implementação do serviço de execução de tarefas em segundo plano.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.BackgroundTaskHostedService._logger">
+            <summary>
+            Instância do serviço de log.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.BackgroundTaskHostedService._serviceScopeFactory">
+            <summary>
+            Instância do serviço de escopo.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.BackgroundTaskHostedService._taskQueue">
+            <summary>
+            Instância do serviço de fila de tarefas em segundo plano.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.BackgroundTaskHostedService.#ctor(Kardinal.Net.Web.IBackgroundTaskQueue,Microsoft.Extensions.DependencyInjection.IServiceScopeFactory,Microsoft.Extensions.Logging.ILogger{Kardinal.Net.Web.BackgroundTaskHostedService})">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="taskQueue">Instância do serviço de fila de tarefas em segundo plano.</param>
+            <param name="serviceScopeFactory">Instância do serviço de escopo.</param>
+            <param name="logger">Instância do serviço de logs.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.BackgroundTaskHostedService.StartAsync(System.Threading.CancellationToken)">
+            <summary>
+            Método executado quando o serviço de segundo plano é inicializado.
+            </summary>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.BackgroundTaskHostedService.StopAsync(System.Threading.CancellationToken)">
+            <summary>
+            Método executado quando uma solicitação de parada do serviço é feita.
+            </summary>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.BackgroundTaskHostedService.ExecuteAsync(System.Threading.CancellationToken)">
+            <summary>
+            Método executado quando o serviço de background é executado.
+            </summary>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+        </member>
+        <member name="T:Kardinal.Net.Web.BackgroundTaskQueue">
+            <summary>
+            Implementação do serviço de execução de tarefas em segundo plano.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.BackgroundTaskQueue.#ctor(Microsoft.Extensions.Options.IOptions{Kardinal.Net.Web.BackgroundTaskServiceOptions})">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="hostOptions">Opções de execução de tarevas em segundo plano.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.BackgroundTaskQueue.QueueBackgroundTaskAsync(System.Func{Microsoft.Extensions.DependencyInjection.IServiceScopeFactory,System.Threading.CancellationToken,System.Threading.Tasks.ValueTask},System.Threading.CancellationToken)">
+            <summary>
+            Método para registro de uma nova tarefa à ser executada.
+            </summary>
+            <param name="task">Informações da tarefa à ser executada.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>        
+        </member>
+        <member name="M:Kardinal.Net.Web.BackgroundTaskQueue.DequeueAsync(System.Threading.CancellationToken)">
+            <summary>
+            Método para obtenção de de uma das tarefas à serem executadas.
+            </summary>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Tarefa à ser executada.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.CurrentUserService">
+            <summary>
+            Classe que representa um usuário ativo no sistema.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.CurrentUserService.Sub">
+            <summary>
+            Identificador único do usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.CurrentUserService.Username">
+            <summary>
+            Atributo que representa o nome de usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.CurrentUserService.DisplayName">
+            <summary>
+            Atributo que representa o nome apresentável do usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.CurrentUserService.ClientId">
+            <summary>
+            Identificador único do cliente utilizado pelo usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.CurrentUserService.IsAuthenticated">
+            <summary>
+            Atributo que indica se o usuário está autenticado.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.CurrentUserService.LocalIpAddress">
+            <summary>
+            Atributo que representa o Ip local do usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.CurrentUserService.RemoteIpAddress">
+            <summary>
+            Atributo que representa o Ip remoto do usuário.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.CurrentUserService._options">
+            <summary>
+            Instância das configurações.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.CurrentUserService._accessor">
+            <summary>
+            Accessor
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.CurrentUserService.Principal">
+            <summary>
+            Identidade principal do usuário.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.CurrentUserService.#ctor(Microsoft.Extensions.Configuration.IConfiguration,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="configurations">Instância do container de configurações.</param>
+            <param name="accessor">Instância do acessor</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.CurrentUserService.GetClaim(System.String)">
+            <summary>
+            Método que obtém uma claim do usuário de um tipo declarado. 
+            Caso hajam várias claims do mesmo tipo, a primeira será retornada.
+            </summary>
+            <param name="type">Tipo da claim desejada.</param>
+            <returns>Claim referente ao tipo solicitado ou null caso a mesma não seja encontrada.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.CurrentUserService.GetClaims(System.String)">
+            <summary>
+            Método que obtém uma enumeração de claims do usuário de um tipo declarado.
+            </summary>
+            <param name="type">tipo das claims desejadas</param>
+            <returns>Enumeração de claims do tipo solicitado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.CurrentUserService.GetSub">
+            <summary>
+            Método que obtém o id único do usuário.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.CurrentUserService.GetUsername">
+            <summary>
+            Método que obtém o nome de usuário.
+            </summary>
+            <returns>Nome de usuário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.CurrentUserService.GetDisplayName">
+            <summary>
+            Método que obtém o nome apresentável do usuário.
+            </summary>
+            <returns>Nome apresentável do usuário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.CurrentUserService.GetClientId">
+            <summary>
+            Método que obtém o Id único do cliente usado pelo usuário.
+            </summary>
+            <returns>Id único do cliente do usuário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.CurrentUserService.Authenticated">
+            <summary>
+            Método que traz se o usuário está autenticado.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.CurrentUserService.GetLocalIpAddress">
+            <summary>
+            Método que obtém o Ip local da conexão.
+            </summary>
+            <returns>Ip local da conexão.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.CurrentUserService.GetRemoteIpAddress">
+            <summary>
+            Método que obtém o Ip remoto da conexão.
+            </summary>
+            <returns>Ip remoto da conexão.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.CurrentUserService.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.IApplicationInfoService">
+            <summary>
+            Interface do serviço de informação do servidor.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.IApplicationInfoService.ApplicationName">
+            <summary>
+            Nome da aplicação.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.IApplicationInfoService.ApplicationVersion">
+            <summary>
+            Versão da aplicação.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.IApplicationInfoService.Environment">
+            <summary>
+            Ambiente de execução da aplicação.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.IApplicationInfoService.IsProduction">
+            <summary>
+            Indica se a aplicação está em modo de produção.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.IApplicationInfoService.IsDevelopment">
+            <summary>
+            Indica se a aplicação está em modo de desenvolvimento.
+            </summary>
+        </member>
+        <member name="T:Kardinal.Net.Web.IBackgroundTaskQueue">
+            <summary>
+            Interface do serviço de fila de tarefas em segundo plano.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.IBackgroundTaskQueue.QueueBackgroundTaskAsync(System.Func{Microsoft.Extensions.DependencyInjection.IServiceScopeFactory,System.Threading.CancellationToken,System.Threading.Tasks.ValueTask},System.Threading.CancellationToken)">
+            <summary>
+            Método para registro de uma nova tarefa à ser executada.
+            </summary>
+            <param name="task">Informações da tarefa à ser executada.</param>    
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>    
+        </member>
+        <member name="M:Kardinal.Net.Web.IBackgroundTaskQueue.DequeueAsync(System.Threading.CancellationToken)">
+            <summary>
+            Método para obtenção de de uma das tarefas à serem executadas.
+            </summary>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Tarefa à ser executada.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.ICurrentUserService">
+            <summary>
+            Interface que representa um usuário do sistema.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.ICurrentUserService.Sub">
+            <summary>
+            Identificador único do usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.ICurrentUserService.Username">
+            <summary>
+            Atributo que representa o nome de usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.ICurrentUserService.DisplayName">
+            <summary>
+            Atributo que representa o nome apresentável do usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.ICurrentUserService.ClientId">
+            <summary>
+            Identificador único do cliente utilizado pelo usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.ICurrentUserService.LocalIpAddress">
+            <summary>
+            Atributo que representa o Ip local do usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.ICurrentUserService.RemoteIpAddress">
+            <summary>
+            Atributo que representa o Ip remoto do usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.ICurrentUserService.IsAuthenticated">
+            <summary>
+            Atributo que indica se o usuário está autenticado.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.ICurrentUserService.GetClaim(System.String)">
+            <summary>
+            Método que obtém uma claim do usuário de um tipo declarado. 
+            Caso hajam várias claims do mesmo tipo, a primeira será retornada.
+            </summary>
+            <param name="type">Tipo da claim desejada.</param>
+            <returns>Claim referente ao tipo solicitado ou null caso a mesma não seja encontrada.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.ICurrentUserService.GetClaims(System.String)">
+            <summary>
+            Método que obtém uma enumeração de claims do usuário de um tipo declarado.
+            </summary>
+            <param name="type">tipo das claims desejadas</param>
+            <returns>Enumeração de claims do tipo solicitado.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.JsonLogSerializer">
+            <summary>
+            Classe interna de serialização de objetos para log.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.JsonLogSerializer.#cctor">
+            <summary>
+            Construtor estático.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.JsonLogSerializer.Serialize``1(``0)">
+            <summary>
+            Método para serialização de dados.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.JsonLogSerializer.Desserialize(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="json"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.JsonLogSerializer.Desserialize``1(System.String)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="json"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.Localization.Resource">
+            <summary>
+              Uma classe de recurso de tipo de alta segurança, para pesquisar cadeias de caracteres localizadas etc.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.ResourceManager">
+            <summary>
+              Retorna a instância de ResourceManager armazenada em cache usada por essa classe.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.Culture">
+            <summary>
+              Substitui a propriedade CurrentUICulture do thread atual para todas as
+              pesquisas de recursos que usam essa classe de recurso de tipo de alta segurança.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.DEBUG_BACKGROUND_TASK_HOST_START">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The background task host has been initialized..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.DEBUG_BACKGROUND_TASK_HOST_STOP">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The background task host has terminated..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.DEFAULT_SERVICE_NAME">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Api Service.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.ERROR_BACKGROUND_TASK_FAIL">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Failed while executing background task {task}: {message}.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.ERROR_BACKGROUND_TASK_NULL">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The background task to be performed cannot be null..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.ERROR_CANT_USE_BOTH_KESTREL_IIS_INTEGRATION">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a It is not possible to use Kestrel and IIS integration simultaneously..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.ERROR_CERTIFICATE_NOT_FOUND">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The certificate entered was not found at [{path}]..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.ERROR_CERTIFICATE_PRIVATE_KEY_MISSING">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The certificate [{thumbprint}] does not have a private key assigned..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.ERROR_CONTENT_ROOT_INVALID">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Given content root [$[CONTENT_ROOT]] is not a valid directory!.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.ERROR_NULL_EMPTY_CERTIFICATE_PATH">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The service certificate location is null or invalid..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.ERROR_SERVICE_NOT_FOUND">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The service $[SERVICE_NAME] was not found! Check that the service has been properly implemented and registered!.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.FINALIZING_SERVICE">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The service is shutting down....
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.INITIALIZATION_APP_INFO">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Initializing service {service} in environment {environment} [{processId}]..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.INITIALIZATION_COMPLETE">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Initialization Complete.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.INITIALIZE_BASEPATH">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Using base directory {BASEPATH}.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.INITIALIZE_IIS_INTEGRATION">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Using IIS Integration.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.LISTENING_URL">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Listening to requests in {LISTENING_URL}.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.SERVICE_FINALIZED">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The service ended with the code {code}..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.STATUS_CODE_100">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The request can be continued..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.STATUS_CODE_101">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Switching protocol..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.STATUS_CODE_200">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The request has succeeded..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.STATUS_CODE_201">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The request has been fulfilled and resulted in a new resource being created..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.STATUS_CODE_202">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The request has been accepted for processing, but the processing has not been completed..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.STATUS_CODE_203">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The returned metainformation in the entity-header is not the definitive set as available from the origin server, but is gathered from a local or a third-party copy..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.STATUS_CODE_204">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The server has fulfilled the request but does not need to return an entity-body, and might want to return updated metainformation..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.STATUS_CODE_205">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The server has fulfilled the request and the user agent SHOULD reset the document view which caused the request to be sent..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.STATUS_CODE_206">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The server has fulfilled the partial GET request for the resource..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.STATUS_CODE_300">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Multiple responses available..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.STATUS_CODE_301">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The requested resource has been moved to a new address..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.STATUS_CODE_302">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The requested resource has been temporarily moved to another address..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.STATUS_CODE_400">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The request was not accepted due to missing or not validated data. Check the content of the request..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.STATUS_CODE_401">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The request was not authorized. Check if the session is active, the access token has been informed or if the active user has authorization to access this service..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.STATUS_CODE_403">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Access to the requested service is not allowed..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.STATUS_CODE_404">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The requested service or resource was not found..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.STATUS_CODE_405">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The method specified in the request is not allowed for the requested resource..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.STATUS_CODE_406">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The resource identified by the request is only capable of generating response entities which have content characteristics not acceptable according to the accept headers sent in the request..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.STATUS_CODE_407">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Proxy authentication is required before completing the request..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.STATUS_CODE_408">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The client did not produce a request within the time that the server was prepared to wait..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.STATUS_CODE_409">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The request could not be completed due to a conflict with the current state of the resource..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.STATUS_CODE_410">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The requested resource is no longer available at the server and no forwarding address is known..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.STATUS_CODE_411">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The server refuses to accept the requests without a defined Content- Length..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.STATUS_CODE_413">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The server is refusing to process a request because the request entity is larger than the server is willing or able to process.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.STATUS_CODE_414">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The server is refusing to service the request because the Request-URI is longer than the server is willing to interpret..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.STATUS_CODE_415">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The server is refusing to service the request because the entity of the request is in a format not supported by the requested resource for the requested method..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.STATUS_CODE_418">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a I&apos;m a teapot..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.STATUS_CODE_500">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The server encountered an unexpected condition which prevented it from fulfilling the request..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.STATUS_CODE_501">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The server does not support the functionality required to fulfill the request..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.STATUS_CODE_502">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The server, while acting as a gateway or proxy, received an invalid response from the upstream server it accessed in attempting to fulfill the request..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.STATUS_CODE_503">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The server is currently unable to handle the request due to a temporary overloading or maintenance of the server..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.STATUS_CODE_504">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The server, while acting as a gateway or proxy, did not receive a timely response from the upstream server..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.STATUS_CODE_505">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The server does not support, or refuses to support, the HTTP protocol version that was used in the request message..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.STATUS_CODE_510">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The policy for accessing the resource has not been met in the request..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.STATUS_CODE_511">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Network authentication is required before proceeding..
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.STATUS_CODE_UNKNOW">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Unknow response $[VALUE]..
+            </summary>
+        </member>
+        <member name="T:Kardinal.Net.Web.StatusCodeModel">
+            <summary>
+            Modelo de retorno de dados em caso de falhas de requisição.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.StatusCodeModel.Status">
+            <summary>
+            Código de status da falha.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.StatusCodeModel.Title">
+            <summary>
+            Descrição da falha.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.StatusCodeModel.Details">
+            <summary>
+            Detalhes da falha.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.StatusCodeModel.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.BackgroundTaskServiceOptions">
+            <summary>
+            Classe de configurações de serviços em segundo plano.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.BackgroundTaskServiceOptions.#ctor">
+            <summary>
+            Método construtor.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.BackgroundTaskServiceOptions.BackgrounTaskQueueCapacity">
+            <summary>
+            Capacidade de execução simultânea de tarefas em segundo plano.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.BackgroundTaskServiceOptions.BackgroundTaskFullMode">
+            <summary>
+            Indica a ação tomada quando a fila de execução simultânea está com sua capacidade esgotada.
+            </summary>
+        </member>
+        <member name="T:Kardinal.Net.Web.CurrentUserClaimsOptions">
+            <summary>
+            Classe de configurações de claims do usuário de sistema.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.CurrentUserClaimsOptions.Sub">
+            <summary>
+            Identificador do usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.CurrentUserClaimsOptions.ClientId">
+            <summary>
+            Identificador do cliente do usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.CurrentUserClaimsOptions.Name">
+            <summary>
+            Nome do usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.CurrentUserClaimsOptions.FamilyName">
+            <summary>
+            Nome de família do usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.CurrentUserClaimsOptions.GivenName">
+            <summary>
+            Nome atribuído ao usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.CurrentUserClaimsOptions.MiddleName">
+            <summary>
+            Sobrenome do usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.CurrentUserClaimsOptions.Nickname">
+            <summary>
+            Apelido do usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.CurrentUserClaimsOptions.PreferedUsername">
+            <summary>
+            Nome de usuário preferencial.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.CurrentUserClaimsOptions.Profile">
+            <summary>
+            Perfil do usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.CurrentUserClaimsOptions.Picture">
+            <summary>
+            Imagem do usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.CurrentUserClaimsOptions.Website">
+            <summary>
+            Website do usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.CurrentUserClaimsOptions.Gender">
+            <summary>
+            Gênero do usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.CurrentUserClaimsOptions.Birthdate">
+            <summary>
+            Data de nascimento do usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.CurrentUserClaimsOptions.ZoneInfo">
+            <summary>
+            Informações de zona do usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.CurrentUserClaimsOptions.Locale">
+            <summary>
+            Localização do usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.CurrentUserClaimsOptions.UpdatedAt">
+            <summary>
+            Data de atualização do usuário.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.CurrentUserClaimsOptions.Username">
+            <summary>
+            Nome de usuário.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.CurrentUserClaimsOptions.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.CurrentUserOptions">
+            <summary>
+            Classe de configurações do usuário de sistema.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.CurrentUserOptions.#ctor">
+            <summary>
+            Método construtor.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.CurrentUserOptions.Claims">
+            <summary>
+            Definições das claims.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.CurrentUserOptions.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.DataProtectionOptions">
+            <summary>
+            Configurações de proteção de dados.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.DataProtectionOptions.ApplicationName">
+            <summary>
+            Nome da aplicação.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.DataProtectionOptions.KeyStorage">
+            <summary>
+            Tipo de armazenamento das chaves de segurança. Veja <see cref="T:Kardinal.Net.Web.DataProtectionKeyStorageType"/>
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.DataProtectionOptions.Source">
+            <summary>
+            Fonte do certificado de proteção de dados. Veja <see cref="T:Kardinal.Net.Web.DataProtectionCertificateSourceType"/>
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.DataProtectionOptions.Path">
+            <summary>
+            Caminho do arquivo do certificado.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.DataProtectionOptions.Password">
+            <summary>
+            Senha da chave privada do certificado.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.DataProtectionOptions.StoreName">
+            <summary>
+            Nome do diretório de certificados.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.DataProtectionOptions.StoreLocation">
+            <summary>
+            Localização do diretório de certificados.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.DataProtectionOptions.ValidOnly">
+            <summary>
+            Indica que somente certificados válidos devem ser considerados.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.DataProtectionOptions.Thumbprint">
+            <summary>
+            Impressão digital do certificado.
+            </summary>
+        </member>
+        <member name="T:Kardinal.Net.Web.HostCertificateOptions">
+            <summary>
+            Classe de opções de certificado do host.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.HostCertificateOptions.UseCertificate">
+            <summary>
+            Indica que é necessário usar o certificado.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.HostCertificateOptions.Storage">
+            <summary>
+            Fonte do certificado.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.HostCertificateOptions.Path">
+            <summary>
+            Diretório do arquivo de certificado.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.HostCertificateOptions.Password">
+            <summary>
+            Senha do certificado.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.HostCertificateOptions.StoreLocation">
+            <summary>
+            Localização do repositório de certificados.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.HostCertificateOptions.StoreName">
+            <summary>
+            Nome do repositório de certificados.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.HostCertificateOptions.Thumbprint">
+            <summary>
+            Impressão digital do certificado.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.HostCertificateOptions.ValidOnly">
+            <summary>
+            Indica que devem ser carregados apenas certificados válidos.
+            </summary>
+        </member>
+        <member name="T:Kardinal.Net.Web.HostOptions">
+            <summary>
+            Classe de configurações de Host.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.HostOptions.#ctor">
+            <summary>
+            Método construtor.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.HostOptions.UseKestrel">
+            <summary>
+            Indica se deve ser utilizado o servidor Kestrel.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.HostOptions.UseIISIntegration">
+            <summary>
+            Indica se deve ser usada a integração com o Internet Information Service.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.HostOptions.Certificate">
+            <summary>
+            Configurações de certificado.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.HostOptions.Hosts">
+            <summary>
+            Lista de hosts ao qual o serviço deve responder.
+            </summary>
+        </member>
+        <member name="T:Kardinal.Net.Web.StatusCodeUtils">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.StatusCodeUtils.GetDescription(System.Int32,System.Globalization.CultureInfo)">
+            <summary>
+            Método que traz a descrição de um código de status.
+            </summary>
+            <param name="statusCode">Código de status</param>
+            <param name="culture">Dados do idioma desejado</param>
+            <returns>Descrição do código de status</returns>
+        </member>
+    </members>
+</doc>

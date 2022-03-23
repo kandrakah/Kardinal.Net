@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AUTHORIZATION_ADDING_USER_DETAILS" xml:space="preserve">
+    <value>Atualizando os dados do usuário com a autoridade</value>
+  </data>
+  <data name="AUTHORIZATION_ERROR_INVALID_TOKEN" xml:space="preserve">
+    <value>Token de acesso inválido: [{status}] {mensagem}</value>
+  </data>
+  <data name="AUTHORIZATION_ERROR_TOKEN_WRONG_FORMAT" xml:space="preserve">
+    <value>Token de acesso inválido! Formato incorreto.</value>
+  </data>
+  <data name="AUTHORIZATION_ERROR_UPDATE_SYSTEM_USER" xml:space="preserve">
+    <value>Falha ao atualizar usuário do sistema: {msg}</value>
+  </data>
+  <data name="AUTHORIZATION_USER_AUTHORIZED" xml:space="preserve">
+    <value>O usuário {usr} está autorizado a acessar o endpoint {path}.</value>
+  </data>
+  <data name="AUTHORIZATION_USER_ISROOT" xml:space="preserve">
+    <value>Usuário autorizado sob autoridade mestre.</value>
+  </data>
+  <data name="AUTHORIZATION_USER_UNHAUTHORIZED" xml:space="preserve">
+    <value>Usuário não autorizado.</value>
+  </data>
+  <data name="AUTHORIZATION_VALIDATING_TOKEN" xml:space="preserve">
+    <value>Validando token de acesso.</value>
+  </data>
+  <data name="ERROR_PERMISSION_DECLARATION_NOT_REQUIRED" xml:space="preserve">
+    <value>Permissão de acesso anônimo não deve conter declaração de permissões requeridas.</value>
+  </data>
+  <data name="ERROR_PERMISSION_DECLARATION_REQUIRED" xml:space="preserve">
+    <value>Ao menos uma declaração de permissão é requerida para o tipo de validação informado.</value>
+  </data>
+  <data name="ERROR_PERMISSION_MISSING_MULTI_LOGGER" xml:space="preserve">
+    <value>O usuário {usr} não tem uma das permissões necessárias para este serviço: {pems}</value>
+  </data>
+  <data name="ERROR_PERMISSION_MISSING_SINGLE_LOGGER" xml:space="preserve">
+    <value>O usuário {usr} não possui nenhuma das permissões necessárias para acessar este serviço. É necessária pelo menos uma permissão: {pem}</value>
+  </data>
+  <data name="ERROR_PERMISSION_SERVICE_NOT_FOUND" xml:space="preserve">
+    <value>O serviço de autorização baseado em permissões não foi localizado.</value>
+  </data>
+  <data name="PERMISSION_AUTHORIZATION_ANNONYMOUS" xml:space="preserve">
+    <value>Autorizado o acesso ao endpoint {endpoint} de forma anônima pelo solicitante remoto {ipAddress}.</value>
+  </data>
+  <data name="UNAUTHORIZED_DEFAULT_MESSAGE" xml:space="preserve">
+    <value>Acesso não autorizado.</value>
+  </data>
+  <data name="UNAUTHORIZED_INVALID_TOKEN" xml:space="preserve">
+    <value>Token de acesso inválido.</value>
+  </data>
+  <data name="UNAUTHORIZED_MISSING_PERMISSIONS" xml:space="preserve">
+    <value>O usuário {userName} não possui as permissões para acessar este serviço.</value>
+  </data>
+</root>

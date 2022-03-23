@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Kardinal.Net.Web.JWT</name>
+    </assembly>
+    <members>
+        <member name="T:Kardinal.Net.Web.HttpClientExtensions">
+            <summary>
+            Extensões para <see cref="T:System.Net.Http.HttpClient"/>
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.HttpClientExtensions.GetUserInfoAsync(System.Net.Http.HttpClient,System.String,System.String)">
+            <summary>
+            Extensão para busca dos dados do usuário junto à autoridade.
+            </summary>
+            <param name="client">Objeto referenciado</param>
+            <param name="authorityUri">Endereço da autoridade.</param>
+            <param name="token">Token de acesso do usuário.</param>
+            <returns>Dados do usuário</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.JwtSecurityTokenExtensions">
+            <summary>
+            Extensões para <see cref="T:System.IdentityModel.Tokens.Jwt.JwtSecurityToken"/>
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.JwtSecurityTokenExtensions.GetValue(System.IdentityModel.Tokens.Jwt.JwtSecurityToken,System.String)">
+            <summary>
+            Extensão para obter um valor do token.
+            </summary>
+            <param name="token">Objeto referenciado.</param>
+            <param name="type">Tipo da informação requerida.</param>
+            <returns>Valor da informação requerida.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.UserInfo">
+            <summary>
+            Classe que representa as informações de um usuário providas pela autoridade.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.UserInfo.ToClaims">
+            <summary>
+            Método que converte este objeto em uma enumeração de claims. Veja <see cref="T:System.Security.Claims.Claim"/>
+            </summary>
+            <returns>Enumeração de claims do usuário.</returns>
+        </member>
+        <member name="T:Kardinal.Net.JWTManager">
+            <summary>
+            Classe de gerenciamento de token.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.JWTManager._handler">
+            <summary>
+            Handler de tokens.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.JWTManager._issuer">
+            <summary>
+            Nome do emissor do token.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.JWTManager._validAudiences">
+            <summary>
+            Enumeração de audiências válidas.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.JWTManager.#ctor(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="issuer">Nome do emissor do token.</param>
+            <param name="validAudiences">Enumeração de audiências válidas.</param>
+        </member>
+        <member name="M:Kardinal.Net.JWTManager.CanReadToken(System.String)">
+            <summary>
+            Método que verifica se o token pode ser lido.
+            </summary>
+            <param name="token">Token à ser validado.</param>
+            <returns>Verdadeiro caso o token possa ser lido e falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.JWTManager.ReadToken(System.String)">
+            <summary>
+            Método que faz a leitura do token.
+            </summary>
+            <param name="token">Token à ser lido.</param>
+            <returns><see cref="T:Microsoft.IdentityModel.Tokens.SecurityToken"/> contendo os dados do token informado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.JWTManager.ReadJwtToken(System.String)">
+            <summary>
+            Método que faz a leitura do token.
+            </summary>
+            <param name="token">Token à ser lido.</param>
+            <returns><see cref="T:System.IdentityModel.Tokens.Jwt.JwtSecurityToken"/> contendo os dados do token informado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.JWTManager.CreateToken(System.String,System.Int32,System.Collections.Generic.IDictionary{System.String,System.Object},System.Security.Cryptography.RSAParameters,System.String)">
+            <summary>
+            Método que faz a criação de um token.
+            </summary>
+            <param name="audience">Audiência do token.</param>
+            <param name="expiration">Validade, em anos, do token.</param>
+            <param name="claims">Atributos do token.</param>
+            <param name="keyParameters">Parâmetros da chave de segurança do token. Veja <see cref="T:System.Security.Cryptography.RSAParameters"/></param>
+            <param name="algorithm">Algoritmo utilizado na geração da assinatura do token. Veja <see cref="T:Microsoft.IdentityModel.Tokens.SecurityAlgorithms"/></param>
+            <returns>Token JWT gerado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.JWTManager.CreateToken(System.String,System.DateTime,System.Collections.Generic.IDictionary{System.String,System.Object},System.Security.Cryptography.RSAParameters,System.String)">
+            <summary>
+            Método que faz a criação de um token.
+            </summary>
+            <param name="audience">Audiência do token.</param>
+            <param name="expiration">Data de validade do token.</param>
+            <param name="claims">Atributos do token.</param>
+            <param name="keyParameters">Parâmetros da chave de segurança do token. Veja <see cref="T:System.Security.Cryptography.RSAParameters"/></param>
+            <param name="algorithm">Algoritmo utilizado na geração da assinatura do token. Veja <see cref="T:Microsoft.IdentityModel.Tokens.SecurityAlgorithms"/></param>
+            <returns>Token JWT gerado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.JWTManager.ValidateToken(System.String,System.Security.Cryptography.RSAParameters)">
+            <summary>
+            Método que faz a validação do token.
+            </summary>
+            <param name="token">Token que será validado.</param>
+            <param name="keyParameters">Parâmetros da chave de segurança do token. Veja <see cref="T:System.Security.Cryptography.RSAParameters"/></param>
+        </member>
+        <member name="M:Kardinal.Net.JWTManager.GetSecurityKey(System.Security.Cryptography.RSAParameters)">
+            <summary>
+            Método que gera um objeto <see cref="T:Microsoft.IdentityModel.Tokens.SecurityKey"/> com base nos parâmetros
+            da chave de segurança.
+            </summary>
+            <param name="keyParameters">Parâmetros da chave de segurança. Veja <see cref="T:System.Security.Cryptography.RSAParameters"/></param>
+            <returns><see cref="T:Microsoft.IdentityModel.Tokens.SecurityKey"/> contendo os dados da chave de segurança.</returns>
+        </member>
+        <member name="M:Kardinal.Net.JWTManager.CreateSigningCredentials(Microsoft.IdentityModel.Tokens.SecurityKey,System.String)">
+            <summary>
+            Método que cria as credenciais de assinatura do token.
+            </summary>
+            <param name="securityKey">Dados da chave de segurança. Veja <see cref="T:Microsoft.IdentityModel.Tokens.SecurityKey"/></param>
+            <param name="algorithm">Algoritmo utilizado na geração da assinatura do token. Veja <see cref="T:Microsoft.IdentityModel.Tokens.SecurityAlgorithms"/></param>
+            <returns>Dados das credenciais de asinatura do token. Veja <see cref="T:Microsoft.IdentityModel.Tokens.SigningCredentials"/></returns>
+        </member>
+        <member name="M:Kardinal.Net.JWTManager.GetValidationParameters(System.Security.Cryptography.RSAParameters)">
+            <summary>
+            Método que obtém os parâmetros de validação de token.
+            </summary>
+            <param name="keyParameters">Parâmetros da chave de segurança. Veja <see cref="T:System.Security.Cryptography.RSAParameters"/></param>
+            <returns><see cref="T:Microsoft.IdentityModel.Tokens.TokenValidationParameters"/> contendo os parâmetros de validação.</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Kardinal.Net.Geometry</name>
+    </assembly>
+    <members>
+        <member name="M:Kardinal.Net.Square.Equals(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kardinal.Net.Square.Equals(Kardinal.Net.Square)">
+            <summary>
+            
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Kardinal.Net.Square.GetHashCode">
+            <summary>
+            Método que calcula o hashCode desta instância.
+            </summary>
+            <returns>HashCode da instância dessa classe.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Square.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+    </members>
+</doc>
