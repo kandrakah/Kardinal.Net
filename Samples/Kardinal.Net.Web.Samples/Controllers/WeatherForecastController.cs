@@ -1,6 +1,7 @@
 ﻿using Kardinal.Net.Data;
 using Kardinal.Net.Web.Samples.Data;
 using Kardinal.Net.Web.Samples.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -12,30 +13,21 @@ namespace Kardinal.Net.Web.Samples.Controllers
 {
     [ApiController]
     [Route("")]
+    [Authorize]
     public class WeatherForecastController : AbstractController
     {
         private readonly IUnitOfWork _unitOfWork;
 
         public WeatherForecastController(IServiceProvider provider) : base(provider)
         {
-            this._unitOfWork = this.GetService<IUnitOfWork>();
-            var repository = this.GetService<IRepository<SampleDbContext, WeatherEntity>>();
-            repository.Add(new WeatherEntity()
-            {
-                Date = DateTime.Now,
-                Summary = "",
-                TemperatureC = 30,
-                ProtectedSampleProperty = "Teste"
-            });
-
-            repository.SaveChanges();
+            this._unitOfWork = this.GetService<IUnitOfWork>();            
         }
 
         [HttpGet]
         public ActionResult<IEnumerable<WeatherEntity>> Get()
         {
             try
-            {               
+            {
                 var set = this._unitOfWork
                     .Set<WeatherEntity>();
 
@@ -43,6 +35,25 @@ namespace Kardinal.Net.Web.Samples.Controllers
                     .ToList();
 
                 return data;
+            }
+            catch (Exception ex)
+            {
+                return this.Error(ex);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult<WeatherEntity> Post(WeatherEntity entity)
+        {
+            try
+            {
+                var set = this._unitOfWork
+                    .Set<WeatherEntity>();
+
+                set.Add(entity);
+                this._unitOfWork.SaveChanges();
+
+                return entity;
             }
             catch (Exception ex)
             {

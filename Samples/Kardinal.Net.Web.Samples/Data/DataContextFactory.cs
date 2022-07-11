@@ -17,11 +17,11 @@ namespace Kardinal.Net.Web.Samples.Data
         /// <returns>Contexto criado.</returns>
         public SampleDbContext CreateDbContext(string[] args)
         {
-            var builder = new DbContextOptionsBuilder<SampleDbContext>();            
+            var builder = new DbContextOptionsBuilder<SampleDbContext>();
             var migrationsAssembly = typeof(SampleDbContext).GetTypeInfo().Assembly.GetName().Name;
-            builder.UseInMemoryDatabase("SampleDB");
+            builder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=Kardinal;Integrated Security=true;");
 
-            var context = new SampleDbContext(builder.Options, new EphemeralDataProtectionProvider());
+            var context = new SampleDbContext(builder.Options);
             return context;
         }
     }

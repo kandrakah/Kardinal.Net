@@ -3564,6 +3564,11 @@
             Declaração de wvx.
             </summary>
         </member>
+        <member name="T:Kardinal.Net.TypeLoader">
+            <summary>
+            Classe estática para obtenção de perfis de tipos de arquivos.
+            </summary>
+        </member>
         <member name="M:Kardinal.Net.TypeLoader.GetTypeInfos(System.Reflection.Assembly)">
             <summary>
             Método estático que obtém os tipos de arquivo de um assembly.

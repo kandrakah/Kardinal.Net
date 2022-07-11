@@ -1,21 +1,19 @@
-﻿using Kardinal.Net.Web.Samples.Entities;
-using Microsoft.AspNetCore.DataProtection;
+﻿using Microsoft.AspNetCore.DataProtection.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Kardinal.Net.Web.Samples.Data
 {
     public class SampleDbContext : DbContext
     {
-        private readonly IDataProtectionProvider _provider;
+        public DbSet<DataProtectionKey> DataProtectionKeys { get; set; }
 
-        public SampleDbContext(DbContextOptions options, IDataProtectionProvider provider) : base(options)
+        public SampleDbContext(DbContextOptions options) : base(options)
         {
-            this._provider = provider;
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new WeatherConfigurations(this._provider));
+            modelBuilder.ApplyConfiguration(new WeatherConfigurations());
         }
     }
 }

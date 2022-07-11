@@ -10,6 +10,20 @@ namespace Kardinal.Net.Web.Samples.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "DataProtectionKeys",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FriendlyName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Xml = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DataProtectionKeys", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "WeatherEntity",
                 columns: table => new
                 {
@@ -18,7 +32,7 @@ namespace Kardinal.Net.Web.Samples.Migrations
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     TemperatureC = table.Column<int>(type: "int", nullable: false),
                     Summary = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Version = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: false)
+                    Version = table.Column<byte[]>(type: "varbinary(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -28,6 +42,9 @@ namespace Kardinal.Net.Web.Samples.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "DataProtectionKeys");
+
             migrationBuilder.DropTable(
                 name: "WeatherEntity");
         }

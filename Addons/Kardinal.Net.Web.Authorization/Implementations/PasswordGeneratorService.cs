@@ -40,8 +40,6 @@ namespace Kardinal.Net.Web.Authorization
 
         private readonly PasswordOptions _options;
 
-        private readonly RNGCryptoServiceProvider _provider;
-
         /// <summary>
         /// Método construtor.
         /// </summary>
@@ -57,8 +55,6 @@ namespace Kardinal.Net.Web.Authorization
             {
                 this._options = new PasswordOptions();
             }
-
-            this._provider = new RNGCryptoServiceProvider();
         }
 
         /// <summary>
@@ -68,7 +64,6 @@ namespace Kardinal.Net.Web.Authorization
         private PasswordGeneratorService([NotNull] PasswordOptions options)
         {
             this._options = options;
-            this._provider = new RNGCryptoServiceProvider();
         }
 
         /// <summary>
@@ -181,8 +176,9 @@ namespace Kardinal.Net.Web.Authorization
         /// <returns>Valor aleatório dentro da faixa estabelecida.</returns>
         private int GetRandomNumberInRange(int min, int max)
         {
+            var provider = RandomNumberGenerator.Create();
             var data = new byte[sizeof(int)];
-            this._provider.GetBytes(data);
+            provider.GetBytes(data);
             var rnd = BitConverter.ToInt32(data, 0);
             return (int)Math.Floor((double)(min + Math.Abs(rnd % (max - min))));
         }

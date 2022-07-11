@@ -1,4 +1,5 @@
-﻿using Kardinal.Net.Data;
+﻿using Kardinal.Net;
+using Kardinal.Net.Data;
 using System;
 
 namespace Kardinal.Net.Web.Samples.Entities

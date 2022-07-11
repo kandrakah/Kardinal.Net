@@ -26,6 +26,9 @@ using System.Reflection;
 
 namespace Kardinal.Net
 {
+    /// <summary>
+    /// Classe estática para obtenção de perfis de tipos de arquivos.
+    /// </summary>
     public static class TypeLoader
     {
         /// <summary>
