@@ -48,8 +48,8 @@ namespace Kardinal.Net
         /// <summary>
         /// Método construtor.
         /// </summary>
-        /// <param name="info">O System.Runtime.Serialization.SerializationInfo que contém os dados do objeto serializado sobre a exceção que está sendo lançada.</param>
-        /// <param name="context">O System.Runtime.Serialization.StreamingContext que contém informações contextuais sobre a origem ou destino.</param>
+        /// <param name="info">O <see cref="SerializationInfo"/> que contém os dados do objeto serializado sobre a exceção que está sendo lançada.</param>
+        /// <param name="context">O <see cref="StreamingContext"/> que contém informações contextuais sobre a origem ou destino.</param>
         public KardinalException(SerializationInfo info, StreamingContext context) : base(info, context) { }
 
         /// <summary>

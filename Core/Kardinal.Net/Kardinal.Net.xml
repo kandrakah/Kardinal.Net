@@ -130,8 +130,8 @@
             <summary>
             Método construtor.
             </summary>
-            <param name="info">O System.Runtime.Serialization.SerializationInfo que contém os dados do objeto serializado sobre a exceção que está sendo lançada.</param>
-            <param name="context">O System.Runtime.Serialization.StreamingContext que contém informações contextuais sobre a origem ou destino.</param>
+            <param name="info">O <see cref="T:System.Runtime.Serialization.SerializationInfo"/> que contém os dados do objeto serializado sobre a exceção que está sendo lançada.</param>
+            <param name="context">O <see cref="T:System.Runtime.Serialization.StreamingContext"/> que contém informações contextuais sobre a origem ou destino.</param>
         </member>
         <member name="M:Kardinal.Net.KardinalException.ToString">
             <summary>
@@ -495,6 +495,21 @@
             <param name="MaxValue">Valor máximo</param>
             <param name="includeLimits">Indica se os valores das extremidades devem ser incluidos na verificação</param>
             <returns>Resultado da verificação</returns>
+        </member>
+        <member name="T:Kardinal.Net.IQueryableExtensions">
+            <summary>
+            Extensões para <see cref="T:System.Linq.IQueryable`1"/>.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.IQueryableExtensions.ToPaginatedList``1(System.Linq.IQueryable{``0},System.Int32,System.Int32)">
+            <summary>
+            Extensão que transforma obtém uma coleção de itens paginados.
+            </summary>
+            <typeparam name="T">Tipo do objeto da coleção.</typeparam>
+            <param name="query">Objeto referenciado.</param>
+            <param name="skip">Itens à serem ignorados.</param>
+            <param name="take">Itens à serem obtidos.</param>
+            <returns>Coleção de objeto paginados.</returns>
         </member>
         <member name="T:Kardinal.Net.Extensions.MemberInfoExtensions">
             <summary>
@@ -891,6 +906,22 @@
             Returns a value indicating whether the format matches a file header.
             </summary>
         </member>
+        <member name="T:Kardinal.Net.IPaginatedCollection`1">
+            <summary>
+            Interface de coleção de itens paginados.
+            </summary>
+            <typeparam name="T">Tipo do item da coleção.</typeparam>
+        </member>
+        <member name="P:Kardinal.Net.IPaginatedCollection`1.Items">
+            <summary>
+            Enumeração de itens da página.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.IPaginatedCollection`1.Total">
+            <summary>
+            Número total de itens da coleção.
+            </summary>
+        </member>
         <member name="T:Kardinal.Net.Localization.Resource">
             <summary>
               Uma classe de recurso de tipo de alta segurança, para pesquisar cadeias de caracteres localizadas etc.
@@ -1142,7 +1173,7 @@
         </member>
         <member name="P:Kardinal.Net.PaginatedCollection`1.Items">
             <summary>
-            Enumerador de itens da coleção.
+            Enumeração de itens da página.
             </summary>
         </member>
         <member name="P:Kardinal.Net.PaginatedCollection`1.Total">

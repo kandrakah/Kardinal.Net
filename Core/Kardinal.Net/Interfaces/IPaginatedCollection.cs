@@ -18,16 +18,14 @@ Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 
 namespace Kardinal.Net
 {
     /// <summary>
-    /// Classe de modelo de enumeração de itens paginados.
+    /// Interface de coleção de itens paginados.
     /// </summary>
     /// <typeparam name="T">Tipo do item da coleção.</typeparam>
-    public class PaginatedCollection<T> : IPaginatedCollection<T>
+    public interface IPaginatedCollection<T>
     {
         /// <summary>
         /// Enumeração de itens da página.
@@ -37,34 +35,6 @@ namespace Kardinal.Net
         /// <summary>
         /// Número total de itens da coleção.
         /// </summary>
-        public int Total { get; set; }
-
-        /// <summary>
-        /// Método construtor.
-        /// </summary>
-        public PaginatedCollection()
-        {
-            this.Items = Enumerable.Empty<T>();
-        }
-
-        /// <summary>
-        /// Método construtor.
-        /// </summary>
-        /// <param name="items">Coleção dos objetos paginados.</param>
-        /// <param name="total"></param>
-        public PaginatedCollection([NotNull] IEnumerable<T> items, int total) : this()
-        {
-            this.Items = items;
-            Total = total;
-        }
-
-        /// <summary>
-        /// Método que traz uma cadeia de caracteres que representa o objeto atual.
-        /// </summary>
-        /// <returns>Cadeia de caracteres que representa o objeto atual.</returns>
-        public override string ToString()
-        {
-            return $"{this.Items.Count()} / {this.Total}";
-        }
+        int Total { get; set; }
     }
 }
