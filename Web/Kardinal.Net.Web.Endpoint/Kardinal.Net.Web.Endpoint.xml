@@ -1,0 +1,463 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Kardinal.Net.Web.Endpoint</name>
+    </assembly>
+    <members>
+        <member name="T:Kardinal.Net.Web.HttpResponseExtensions">
+            <summary>
+            Extensões para <see cref="T:Microsoft.AspNetCore.Http.HttpResponse"/>
+            </summary>
+        </member>
+        <member name="T:Kardinal.Net.Web.IApplicationBuilderExtensions">
+            <summary>
+            Extensões para <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/>
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.IApplicationBuilderExtensions.UseEndpointHandlerMiddleware(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Extensão que registra o Middleware de manipulação de endpoints.
+            </summary>
+            <param name="builder">Objeto referenciado.</param>
+            <returns>Objeto referenciado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.IApplicationBuilderExtensions.UseEndpointHandlerMiddleware``1(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Extensão que registra o Middleware de manipulação de endpoints.
+            </summary>
+            <typeparam name="T">Tipo do middleware de manipulação de endpoints.</typeparam>
+            <param name="builder">Objeto referenciado.</param>
+            <returns>Objeto referenciado.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.IServiceCollectionExtensions">
+            <summary>
+            Classe de extensões para <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.IServiceCollectionExtensions.AddEndpointRouteHandler(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Extensão que adiciona o manipulador de rotas de endpoints.
+            </summary>
+            <param name="services">Objeto referenciado.</param>
+            <returns>Objeto referenciado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.IServiceCollectionExtensions.AddEndpointRouteHandler``1(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Extensão que adiciona o manipulador de rotas de endpoints.
+            </summary>
+            <typeparam name="T">Tipo do manipulador de rotas de endpoints.</typeparam>
+            <param name="services">Objeto referenciado.</param>
+            <returns>Objeto referenciado.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.IServiceCollectionExtensions.AddEndpoint``1(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.String)">
+            <summary>
+            Extensão que adiciona um manipulador de endpoint.
+            </summary>
+            <typeparam name="T">Tipo do manipulador de endpoint.</typeparam>
+            <param name="services">Objeto referenciado.</param>
+            <param name="name">Nome do endpoint.</param>
+            <param name="route">Rota do endpoint.</param>
+            <returns>Objeto referenciado.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.DefaultEndpointExceptionHandler">
+            <summary>
+            Implementação padrão do serviço de manipulação de exceções de endpoints.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.DefaultEndpointExceptionHandler.HandleAsync(Microsoft.AspNetCore.Http.HttpContext,System.Exception)">
+            <summary>
+            Método invocado para manipular a exceção.
+            </summary>
+            <param name="context">ontexto http associado à requisição.</param>
+            <param name="exception">Exceção lançada à ser manipulada.</param>
+        </member>
+        <member name="T:Kardinal.Net.Web.EndpointRouteHandler">
+            <summary>
+            Implementação do serviço de manipulamento de rotas de manipuladores de endpoints.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.EndpointRouteHandler._handlers">
+            <summary>
+            Enumeração de manipuladores de endpoints registrados.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.EndpointRouteHandler._logger">
+            <summary>
+            Instância do serviço de logs.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.EndpointRouteHandler.#ctor(System.Collections.Generic.IEnumerable{Kardinal.Net.Web.EndpointHandlerModel},Microsoft.Extensions.Logging.ILogger{Kardinal.Net.Web.EndpointRouteHandler})">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="handlers">Enumeração de manipuladores de endpoints registrados.</param>
+            <param name="logger">Instância do serviço de logs.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.EndpointRouteHandler.GetHandler(Microsoft.AspNetCore.Http.HttpContext,Kardinal.Net.Web.EndpointHandlerModel@)">
+            <summary>
+            Método que busca o manipulador do endpoint da requisição.
+            </summary>
+            <param name="context">Contexto http associado à requisição.</param>
+            <param name="endpoint">Dados do manipulador do endpoint.</param>
+            <returns>Instância do maniplulador do endpoint. Veja <see cref="T:Kardinal.Net.Web.IEndpointHandler"/></returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.IEndpointExceptionHandler">
+            <summary>
+            Interface do serviço de manipulação de exceções de endpoints.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.IEndpointExceptionHandler.HandleAsync(Microsoft.AspNetCore.Http.HttpContext,System.Exception)">
+            <summary>
+            Método invocado para manipular a exceção.
+            </summary>
+            <param name="context">ontexto http associado à requisição.</param>
+            <param name="ex">Exceção lançada à ser manipulada.</param>
+        </member>
+        <member name="T:Kardinal.Net.Web.IEndpointHandler">
+            <summary>
+            Interface do manipulador de endpoint.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.IEndpointHandler.ProcessAsync(Microsoft.AspNetCore.Http.HttpContext,System.Threading.CancellationToken)">
+            <summary>
+            Método responsável pelo processamento da requisição enviada ao endpoint.
+            </summary>
+            <param name="context">Contexto http associado à requisição.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Resultado do processamento do endpoint. Veja <see cref="T:Kardinal.Net.Web.IEndpointResult"/></returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.IEndpointHandlerMiddleware">
+            <summary>
+            Interface do middleware responsável pela gestão de manipuladores de endpoints.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.IEndpointHandlerMiddleware.Invoke(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            Método de invoação do middleware.
+            </summary>
+            <param name="context">Contexto http associado à requisição.</param>
+        </member>
+        <member name="T:Kardinal.Net.Web.IEndpointResult">
+            <summary>
+            Interface de resultado de endpoint.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.IEndpointResult.ExecuteAsync(Microsoft.AspNetCore.Http.HttpContext,System.Threading.CancellationToken)">
+            <summary>
+            Método que executa a rotina de resposta do endpoint.
+            </summary>
+            <param name="context">Contexto http associado à requisição.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+        </member>
+        <member name="T:Kardinal.Net.Web.IEndpointRouteHandler">
+            <summary>
+            Interface do serviço de manipulamento de rotas de manipuladores de endpoints.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.IEndpointRouteHandler.GetHandler(Microsoft.AspNetCore.Http.HttpContext,Kardinal.Net.Web.EndpointHandlerModel@)">
+            <summary>
+            Método que busca o manipulador do endpoint da requisição.
+            </summary>
+            <param name="context">Contexto http associado à requisição.</param>
+            <returns>Instância do maniplulador do endpoint. Veja <see cref="T:Kardinal.Net.Web.IEndpointHandler"/></returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.Endpoint.Localization.Resource">
+            <summary>
+              Uma classe de recurso de tipo de alta segurança, para pesquisar cadeias de caracteres localizadas etc.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Endpoint.Localization.Resource.ResourceManager">
+            <summary>
+              Retorna a instância de ResourceManager armazenada em cache usada por essa classe.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Endpoint.Localization.Resource.Culture">
+            <summary>
+              Substitui a propriedade CurrentUICulture do thread atual para todas as
+              pesquisas de recursos que usam essa classe de recurso de tipo de alta segurança.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Endpoint.Localization.Resource.ERROR_HTTP_CONTEXT_NULL">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a The request context is null..
+            </summary>
+        </member>
+        <member name="T:Kardinal.Net.Web.EndpointHandlerMiddleware">
+            <summary>
+            Implementação do middleware responsável pela gestão de manipuladores de endpoints.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.EndpointHandlerMiddleware._next">
+            <summary>
+            Instância do delegador de requisições. Veja <see cref="T:Microsoft.AspNetCore.Http.RequestDelegate"/>
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.EndpointHandlerMiddleware._routeHandler">
+            <summary>
+            Instância do manipulador de rotas. Veja <see cref="T:Kardinal.Net.Web.IEndpointRouteHandler"/>
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.EndpointHandlerMiddleware.exceptionHandler">
+            <summary>
+            Instância do manipulador e exceções de endpoints. Veja <see cref="T:Kardinal.Net.Web.IEndpointExceptionHandler"/>
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.EndpointHandlerMiddleware._logger">
+            <summary>
+            Instância do serviço de logs. Veja <see cref="T:Microsoft.Extensions.Logging.ILogger"/>
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.EndpointHandlerMiddleware.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,Kardinal.Net.Web.IEndpointRouteHandler,Microsoft.Extensions.Logging.ILogger{Kardinal.Net.Web.EndpointHandlerMiddleware},Kardinal.Net.Web.IEndpointExceptionHandler)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="next">Instância do delegador de requisições. Veja <see cref="T:Microsoft.AspNetCore.Http.RequestDelegate"/></param>
+            <param name="routeHandler">Instância do manipulador de rotas. Veja <see cref="T:Kardinal.Net.Web.IEndpointRouteHandler"/></param>
+            <param name="exceptionHandler">Instância do manipulador e exceções de endpoints. Veja <see cref="T:Kardinal.Net.Web.IEndpointExceptionHandler"/></param>
+            <param name="logger">Instância do serviço de logs. Veja <see cref="T:Microsoft.Extensions.Logging.ILogger"/></param>
+        </member>
+        <member name="M:Kardinal.Net.Web.EndpointHandlerMiddleware.Invoke(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            Método de invoação do middleware.
+            </summary>
+            <param name="context">Contexto http associado à requisição.</param>
+        </member>
+        <member name="T:Kardinal.Net.Web.EndpointHandlerModel">
+            <summary>
+            Classe de modelo do manipulador de endpoint.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.EndpointHandlerModel.Name">
+            <summary>
+            Nome do manipulador.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.EndpointHandlerModel.Path">
+            <summary>
+            Caminho do manipulador.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.EndpointHandlerModel.Handler">
+            <summary>
+            Tipo do manipulador. Veja <see cref="T:System.Type"/>
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.EndpointHandlerModel.#ctor(System.String,System.String,System.Type)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="name">Nome do manipulador.</param>
+            <param name="path">Caminho do manipulador.</param>
+            <param name="handlerType">Tipo do manipulador.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.EndpointHandlerModel.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.EndpointRequestParametersModel">
+            <summary>
+            Classe de modelo de parâmetros de endpoint.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.EndpointRequestParametersModel.Context">
+            <summary>
+            Contexto da conexão.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.EndpointRequestParametersModel.Route">
+            <summary>
+            Dicionário de parâmetros de rota.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.EndpointRequestParametersModel.QueryString">
+            <summary>
+            Dicionário de parâmetros via query string.
+            </summary>
+        </member>
+        <member name="T:Kardinal.Net.Web.AbstractEndpointResult">
+            <summary>
+            Classe abstrata de resultado.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.AbstractEndpointResult.ResultAsJsonAsync``1(Microsoft.AspNetCore.Http.HttpContext,System.Int32,``0,System.Threading.CancellationToken)">
+            <summary>
+            Método que escreve o objeto de resultado como json.
+            </summary>
+            <typeparam name="T">Tipo do objeto de resposta.</typeparam>
+            <param name="context">Objeto referenciado.</param>
+            <param name="statusCode">Código de status da resposta.</param>
+            <param name="data">Dados da resposta.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+        </member>
+        <member name="T:Kardinal.Net.Web.ObjectEndpointResult`1">
+            <summary>
+            Classe de retorno simples de código de status HTTP com um objeto como resposta.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.ObjectEndpointResult`1._statusCode">
+            <summary>
+            Código de status de resposta.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.ObjectEndpointResult`1._content">
+            <summary>
+            Conteúdo da resposta.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.ObjectEndpointResult`1.#ctor(System.Net.HttpStatusCode,`0)">
+            <summary>
+            
+            </summary>
+            <param name="statusCode"></param>
+            <param name="content"></param>
+        </member>
+        <member name="M:Kardinal.Net.Web.ObjectEndpointResult`1.#ctor(System.Int32,`0)">
+            <summary>
+            
+            </summary>
+            <param name="statusCode"></param>
+            <param name="content"></param>
+        </member>
+        <member name="M:Kardinal.Net.Web.ObjectEndpointResult`1.ExecuteAsync(Microsoft.AspNetCore.Http.HttpContext,System.Threading.CancellationToken)">
+            <summary>
+            Método que executa a rotina de resposta do endpoint.
+            </summary>
+            <param name="context">Contexto http associado à requisição.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.ObjectEndpointResult`1.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.StatusCodeEndpointResult">
+            <summary>
+            Classe de retorno simples de código de status HTTP.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.StatusCodeEndpointResult.#ctor(System.Net.HttpStatusCode)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="statusCode">Código de status. Veja <see cref="T:System.Net.HttpStatusCode"/></param>
+        </member>
+        <member name="M:Kardinal.Net.Web.StatusCodeEndpointResult.#ctor(System.Net.HttpStatusCode,System.String)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="statusCode">Código de status. Veja <see cref="T:System.Net.HttpStatusCode"/></param>
+            <param name="message">Mensagem de status.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.StatusCodeEndpointResult.#ctor(System.Net.HttpStatusCode,System.String,System.Object)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="statusCode">Código de status. Veja <see cref="T:System.Net.HttpStatusCode"/></param>
+            <param name="message">Mensagem de status.</param>
+            <param name="details">Detalhes de ocorrência.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.StatusCodeEndpointResult.#ctor(System.Int32)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="statusCode">Código de status.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.StatusCodeEndpointResult.#ctor(System.Int32,System.String)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="statusCode">Código de status.</param>
+            <param name="message">Mensagem de status.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.StatusCodeEndpointResult.#ctor(System.Int32,System.String,System.Object)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="statusCode">Código de status.</param>
+            <param name="message">Mensagem de status.</param>
+            <param name="details">Detalhes de ocorrência.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.StatusCodeEndpointResult.ExecuteAsync(Microsoft.AspNetCore.Http.HttpContext,System.Threading.CancellationToken)">
+            <summary>
+            Método que executa a rotina de resposta do endpoint.
+            </summary>
+            <param name="context">Contexto http associado à requisição.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.StatusCodeEndpointResult.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.ValidationStatusCodeEndpointResult">
+            <summary>
+            Classe de retorno de código de status HTTP que inclui uma enumeração de validações.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.ValidationStatusCodeEndpointResult.#ctor(System.Net.HttpStatusCode,System.Collections.Generic.IEnumerable{Kardinal.Net.Web.ValidationModel})">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="statusCode">Código de status. Veja <see cref="T:System.Net.HttpStatusCode"/></param>
+            <param name="validations">Enumeração de validações.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.ValidationStatusCodeEndpointResult.#ctor(System.Net.HttpStatusCode,System.String,System.Collections.Generic.IEnumerable{Kardinal.Net.Web.ValidationModel})">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="statusCode">Código de status. Veja <see cref="T:System.Net.HttpStatusCode"/></param>
+            <param name="message">Mensagem de status.</param>
+            <param name="validations">Enumeração de validações.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.ValidationStatusCodeEndpointResult.#ctor(System.Net.HttpStatusCode,System.String,System.Collections.Generic.IEnumerable{Kardinal.Net.Web.ValidationModel},System.Object)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="statusCode">Código de status. Veja <see cref="T:System.Net.HttpStatusCode"/></param>
+            <param name="message">Mensagem de status.</param>
+            <param name="validations">Enumeração de validações.</param>
+            <param name="details">Detalhes de ocorrência.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.ValidationStatusCodeEndpointResult.#ctor(System.Int32,System.Collections.Generic.IEnumerable{Kardinal.Net.Web.ValidationModel})">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="statusCode">Código de status.</param>
+            <param name="validations">Enumeração de validações.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.ValidationStatusCodeEndpointResult.#ctor(System.Int32,System.String,System.Collections.Generic.IEnumerable{Kardinal.Net.Web.ValidationModel})">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="statusCode">Código de status.</param>
+            <param name="message">Mensagem de status.</param>
+            <param name="validations">Enumeração de validações.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.ValidationStatusCodeEndpointResult.#ctor(System.Int32,System.String,System.Collections.Generic.IEnumerable{Kardinal.Net.Web.ValidationModel},System.Object)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="statusCode">Código de status.</param>
+            <param name="message">Mensagem de status.</param>
+            <param name="validations">Enumeração de validações.</param>
+            <param name="details">Detalhes de ocorrência.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.ValidationStatusCodeEndpointResult.ExecuteAsync(Microsoft.AspNetCore.Http.HttpContext,System.Threading.CancellationToken)">
+            <summary>
+            Método que executa a rotina de resposta do endpoint.
+            </summary>
+            <param name="context">Contexto http associado à requisição.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.ValidationStatusCodeEndpointResult.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+    </members>
+</doc>

@@ -61,6 +61,19 @@
             <param name="service">Tipo do serviço solicitado.</param>
             <returns>Instância do serviço solicitado.</returns>
         </member>
+        <member name="M:Kardinal.Net.Web.AbstractService.CreateValidationBuilder">
+            <summary>
+            método que cria um novo construtor de validações.
+            </summary>
+            <returns>Instância do construtor de validações.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.AbstractService.CreateValidationBuilder(System.String)">
+            <summary>
+            método que cria um novo construtor de validações.
+            </summary>
+            <param name="message">Mensagem geral da validação.</param>
+            <returns>Instância do construtor de validações.</returns>
+        </member>
         <member name="M:Kardinal.Net.Web.AbstractService.Dispose">
             <summary>
             Método para liberação de recursos usados pelo serviço.
@@ -330,6 +343,26 @@
             Serviço Azure.
             </summary>
         </member>
+        <member name="T:Kardinal.Net.Web.EnvironmentType">
+            <summary>
+            Enumerador de tipo de ambiente.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.EnvironmentType.Development">
+            <summary>
+            Desenvolvimento.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.EnvironmentType.Staging">
+            <summary>
+            Homologação.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.EnvironmentType.Production">
+            <summary>
+            Produção.
+            </summary>
+        </member>
         <member name="T:Kardinal.Net.Web.ServiceException">
             <summary>
             Classe de exceção de serviços de Api.
@@ -406,18 +439,77 @@
             </summary>
             <returns>Cadeia de caracteres que representa o objeto atual.</returns>
         </member>
-        <member name="T:Kardinal.Net.Web.ApplicationBuilderExtensions">
+        <member name="T:Kardinal.Net.Web.ValidationException">
             <summary>
-            Classe de extensões para <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/>.
+            Classe de exceção de validação.
             </summary>
         </member>
-        <member name="M:Kardinal.Net.Web.ApplicationBuilderExtensions.UseSerilog(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+        <member name="P:Kardinal.Net.Web.ValidationException.Validations">
             <summary>
-            Extens serilog logs with additional information like remote IP
-            address
+            Coleção de validações contidas na exceção.
             </summary>
-            <param name="app">Instance of <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/>.
-            </param>
+        </member>
+        <member name="M:Kardinal.Net.Web.ValidationException.#ctor">
+            <summary>
+            Método construtor.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.ValidationException.#ctor(System.String)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="message">Mensagem de exceção.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.ValidationException.#ctor(Kardinal.Net.Web.ValidationModel[])">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="validations">Mensagens de validação.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.ValidationException.#ctor(System.String,Kardinal.Net.Web.ValidationModel[])">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="message">Mensagem de exceção.</param>
+            <param name="validations">Mensagens de validação.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.ValidationException.#ctor(System.String,System.Exception)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="message">Mensagem de exceção.</param>
+            <param name="innerException">Exceção interior.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.ValidationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="info"> The System.Runtime.Serialization.SerializationInfo that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The System.Runtime.Serialization.StreamingContext that contains contextual information about the source or destination.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.ValidationException.Add(System.String,System.String)">
+            <summary>
+            Método que adiciona uma mensagem de validação à lista.
+            </summary>
+            <param name="field">Campo relacionado à validação.</param>
+            <param name="message">Mensagem de validação.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.ValidationException.Any">
+            <summary>
+            Método que indica se há mensagens de validação na exceção.
+            </summary>
+            <returns>Verdadeiro caso exista alguma mensagem de validação ou falso caso contrário.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.ValidationException.Throw">
+            <summary>
+            Método que lança a exceção caso haja alguma validação.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.ValidationException.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
         </member>
         <member name="T:Kardinal.Net.Web.AuthorizationFilterContextExtensions">
             <summary>
@@ -432,6 +524,18 @@
             <param name="type">Tipo de token esperado.</param>
             <returns>Token de autenticação ou null se o valor for vazio.</returns>
         </member>
+        <member name="T:Kardinal.Net.Web.HttpContextExtensions">
+            <summary>
+            Extensões para <see cref="T:Microsoft.AspNetCore.Http.HttpContext"/>
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.HttpContextExtensions.GetEnvironment(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            Extensão que obtém o ambiente de execução da aplicação.
+            </summary>
+            <param name="context">Objeto referenciado.</param>
+            <returns>Tipo do ambiente de execução.</returns>
+        </member>
         <member name="T:Kardinal.Net.Web.HttpRequestExtensions">
             <summary>
             Classe de extensões para <see cref="T:Microsoft.AspNetCore.Http.HttpRequest"/>
@@ -444,6 +548,41 @@
             <param name="request">Objeto referenciado.</param>
             <param name="key">Chave do item.</param>
             <returns>Valor do item.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.HttpResponseExtensions">
+            <summary>
+            Extensões para <see cref="T:Microsoft.AspNetCore.Http.HttpResponse"/>
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.HttpResponseExtensions.WriteJsonAsync``1(Microsoft.AspNetCore.Http.HttpResponse,``0,System.Threading.CancellationToken)">
+            <summary>
+            Extensão que escreve a 
+            </summary>
+            <param name="response">Objeto referenciado.</param>
+            <param name="data">Dados à serem serializados.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.HttpResponseExtensions.WriteJsonAsync``1(Microsoft.AspNetCore.Http.HttpResponse,``0,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Extensão que escreve a 
+            </summary>
+            <param name="response">Objeto referenciado.</param>
+            <param name="data">Dados à serem serializados.</param>
+            <param name="contentType">Tipo do conteúdo serializado.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+        </member>
+        <member name="T:Kardinal.Net.Web.IApplicationBuilderExtensions">
+            <summary>
+            Classe de extensões para <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/>.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.IApplicationBuilderExtensions.UseSerilog(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Extens serilog logs with additional information like remote IP
+            address
+            </summary>
+            <param name="app">Instance of <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/>.
+            </param>
         </member>
         <member name="T:Kardinal.Net.Web.IConfigurationExtensions">
             <summary>
@@ -528,41 +667,6 @@
             <param name="options">Configurações do serviço de fila.</param>
             <returns>Objeto referenciado.</returns>
         </member>
-        <member name="M:Kardinal.Net.Web.IServiceCollectionExtensions.AddDataProtection(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,System.String)">
-            <summary>
-            Extensão para adição do serviço de proteção de dados.
-            </summary>
-            <param name="services">Objeto referenciado.</param>
-            <param name="configuration">Instância do contâiner de configurações.</param>
-            <param name="sector">Setor onde se encontram as configurações de proteção de dados.</param>
-            <returns>Objeto referenciado.</returns>
-        </member>
-        <member name="M:Kardinal.Net.Web.IServiceCollectionExtensions.AddDataProtection(Microsoft.Extensions.DependencyInjection.IServiceCollection,Kardinal.Net.Web.DataProtectionOptions)">
-            <summary>
-            Extensão para adição do serviço de proteção de dados.
-            </summary>
-            <param name="services">Objeto referenciado.</param>
-            <param name="options">Configurações do serviço de proteção de dados.</param>
-            <returns>Objeto referenciado.</returns>
-        </member>
-        <member name="M:Kardinal.Net.Web.IServiceCollectionExtensions.AddCertificateByFileSytem(Microsoft.AspNetCore.DataProtection.IDataProtectionBuilder,System.String,System.String)">
-            <summary>
-            Método para carregamento do certificado de proteção de dados através do sistema de arquivos.
-            </summary>
-            <param name="builder">Instância do construtor de proteção de dados.</param>
-            <param name="path">Caminho do certificado no sistema de arquivos.</param>
-            <param name="password">Senha do certificado.</param>
-        </member>
-        <member name="M:Kardinal.Net.Web.IServiceCollectionExtensions.AddCertificateByThumbprint(Microsoft.AspNetCore.DataProtection.IDataProtectionBuilder,System.Security.Cryptography.X509Certificates.StoreName,System.Security.Cryptography.X509Certificates.StoreLocation,System.Boolean,System.String)">
-            <summary>
-            Método para carregamento do certificado de proteção de dados através repositório de certificados.
-            </summary>
-            <param name="builder">Instância do construtor de proteção de dados.</param>
-            <param name="storeName">Nome do diretório de certificados.</param>
-            <param name="storeLocation">Localização do diretório de certificados.</param>
-            <param name="validOnly">Indica que apenas certificados válidos serão buscados.</param>
-            <param name="thumbprint">Impressão digital do certificado.</param>
-        </member>
         <member name="T:Kardinal.Net.Web.IServiceProviderExtensions">
             <summary>
             Classe de extensões para ServiceProvider.
@@ -631,6 +735,13 @@
             <typeparam name="T">Tipo da opção desejada.</typeparam>
             <param name="provider">Objeto referenciado.</param>
             <returns>Opções solicitadas.</returns>
+        </member>
+        <member name="M:Kardinal.Net.Web.IServiceProviderExtensions.GetNewtonSoftJsonSerializerSettings(System.IServiceProvider)">
+            <summary>
+            Extensão para obtenção de configurações do serializador json.
+            </summary>
+            <param name="provider">Objeto referenciado.</param>
+            <returns>Configurações do serializador json.</returns>
         </member>
         <member name="M:Kardinal.Net.Web.IServiceProviderExtensions.GetBackgroundTaskQueueService(System.IServiceProvider)">
             <summary>
@@ -895,6 +1006,46 @@
             </summary>
             <returns>Cadeia de caracteres que representa o objeto atual.</returns>
         </member>
+        <member name="T:Kardinal.Net.Web.ValidationBuilder">
+            <summary>
+            Implementação do construtor de validações.
+            </summary>
+        </member>
+        <member name="F:Kardinal.Net.Web.ValidationBuilder._validations">
+            <summary>
+            Coleção de validações.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.ValidationBuilder.#ctor">
+            <summary>
+            Método construtor.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.ValidationBuilder.#ctor(System.String)">
+            <summary>
+            Método construtor.
+            </summary>
+            <param name="message">Mensagem geral de validação.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.ValidationBuilder.Add(System.String,System.String)">
+            <summary>
+            Método para adição de validação.
+            </summary>
+            <param name="field">Chave de identificação da validação.</param>
+            <param name="message">Mensagem da validação.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.ValidationBuilder.Throw">
+            <summary>
+            Método para lançamento das exceções de validação.
+            O disparo ocorre gerando uma exceção do tipo <see cref="T:Kardinal.Net.Web.ValidationException"/>
+            caso haja validações no construtor.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.ValidationBuilder.Dispose">
+            <summary>
+            Método para liberação de recursos usados pelo serviço.
+            </summary>
+        </member>
         <member name="T:Kardinal.Net.Web.IApplicationInfoService">
             <summary>
             Interface do serviço de informação do servidor.
@@ -999,6 +1150,23 @@
             <param name="type">tipo das claims desejadas</param>
             <returns>Enumeração de claims do tipo solicitado.</returns>
         </member>
+        <member name="T:Kardinal.Net.Web.IValidationBuilder">
+            <summary>
+            Interface do construtor de validações.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.IValidationBuilder.Add(System.String,System.String)">
+            <summary>
+            Método para adição de validação.
+            </summary>
+            <param name="field">Chave de identificação da validação.</param>
+            <param name="message">Mensagem da validação.</param>
+        </member>
+        <member name="M:Kardinal.Net.Web.IValidationBuilder.Throw">
+            <summary>
+            Método para lançamento das exceções caso existam.
+            </summary>
+        </member>
         <member name="T:Kardinal.Net.Web.JsonLogSerializer">
             <summary>
             Classe interna de serialização de objetos para log.
@@ -1101,6 +1269,11 @@
         <member name="P:Kardinal.Net.Web.Localization.Resource.ERROR_SERVICE_NOT_FOUND">
             <summary>
               Consulta uma cadeia de caracteres localizada semelhante a The service $[SERVICE_NAME] was not found! Check that the service has been properly implemented and registered!.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.Localization.Resource.ERROR_VALIDATION">
+            <summary>
+              Consulta uma cadeia de caracteres localizada semelhante a Validation failure..
             </summary>
         </member>
         <member name="P:Kardinal.Net.Web.Localization.Resource.FINALIZING_SERVICE">
@@ -1344,6 +1517,37 @@
             </summary>
             <returns>Cadeia de caracteres que representa o objeto atual.</returns>
         </member>
+        <member name="T:Kardinal.Net.Web.ValidationModel">
+            <summary>
+            Classe de modelo de validação.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.ValidationModel.Field">
+            <summary>
+            Nome do campo validado.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.ValidationModel.Message">
+            <summary>
+            Mensagem de validação.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.ValidationModel.ToString">
+            <summary>
+            Método que traz uma cadeia de caracteres que representa o objeto atual.
+            </summary>
+            <returns>Cadeia de caracteres que representa o objeto atual.</returns>
+        </member>
+        <member name="T:Kardinal.Net.Web.ValidationStatusCodeModel">
+            <summary>
+            Modelo de retorno de dados em caso de falhas de validação da requisição.
+            </summary>
+        </member>
+        <member name="P:Kardinal.Net.Web.ValidationStatusCodeModel.Validations">
+            <summary>
+            Enumeração de validações de requisição.
+            </summary>
+        </member>
         <member name="T:Kardinal.Net.Web.BackgroundTaskServiceOptions">
             <summary>
             Classe de configurações de serviços em segundo plano.
@@ -1481,55 +1685,38 @@
             </summary>
             <returns>Cadeia de caracteres que representa o objeto atual.</returns>
         </member>
-        <member name="T:Kardinal.Net.Web.DataProtectionOptions">
+        <member name="T:Kardinal.Net.Web.EnvironmentOptions">
             <summary>
-            Configurações de proteção de dados.
+            Classe de configurações de ambiente.
             </summary>
         </member>
-        <member name="P:Kardinal.Net.Web.DataProtectionOptions.ApplicationName">
+        <member name="P:Kardinal.Net.Web.EnvironmentOptions.Environment">
             <summary>
-            Nome da aplicação.
+            Tipo de ambiente.
             </summary>
         </member>
-        <member name="P:Kardinal.Net.Web.DataProtectionOptions.KeyStorage">
+        <member name="M:Kardinal.Net.Web.EnvironmentOptions.#ctor">
             <summary>
-            Tipo de armazenamento das chaves de segurança. Veja <see cref="T:Kardinal.Net.Web.DataProtectionKeyStorageType"/>
+            Método construtor.
             </summary>
         </member>
-        <member name="P:Kardinal.Net.Web.DataProtectionOptions.Source">
+        <member name="M:Kardinal.Net.Web.EnvironmentOptions.IsDevelopment">
             <summary>
-            Fonte do certificado de proteção de dados. Veja <see cref="T:Kardinal.Net.Web.DataProtectionCertificateSourceType"/>
+            Método que verifica se o ambiente é de desenvolvimento.
             </summary>
+            <returns>Verdadeiro caso o ambiente seja o de desenvolvimento e falso caso contrário.</returns>
         </member>
-        <member name="P:Kardinal.Net.Web.DataProtectionOptions.Path">
+        <member name="M:Kardinal.Net.Web.EnvironmentOptions.IsStaging">
             <summary>
-            Caminho do arquivo do certificado.
+            Método que verifica se o ambiente é de homologação.
             </summary>
+            <returns>Verdadeiro caso o ambiente seja o de homologação e falso caso contrário.</returns>
         </member>
-        <member name="P:Kardinal.Net.Web.DataProtectionOptions.Password">
+        <member name="M:Kardinal.Net.Web.EnvironmentOptions.IsProduction">
             <summary>
-            Senha da chave privada do certificado.
+            Método que verifica se o ambiente é de produção.
             </summary>
-        </member>
-        <member name="P:Kardinal.Net.Web.DataProtectionOptions.StoreName">
-            <summary>
-            Nome do diretório de certificados.
-            </summary>
-        </member>
-        <member name="P:Kardinal.Net.Web.DataProtectionOptions.StoreLocation">
-            <summary>
-            Localização do diretório de certificados.
-            </summary>
-        </member>
-        <member name="P:Kardinal.Net.Web.DataProtectionOptions.ValidOnly">
-            <summary>
-            Indica que somente certificados válidos devem ser considerados.
-            </summary>
-        </member>
-        <member name="P:Kardinal.Net.Web.DataProtectionOptions.Thumbprint">
-            <summary>
-            Impressão digital do certificado.
-            </summary>
+            <returns>Verdadeiro caso o ambiente seja o de homologação e falso caso produção.</returns>
         </member>
         <member name="T:Kardinal.Net.Web.HostCertificateOptions">
             <summary>

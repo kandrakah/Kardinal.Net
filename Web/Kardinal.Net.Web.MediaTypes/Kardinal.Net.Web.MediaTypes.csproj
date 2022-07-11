@@ -19,10 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Implementations\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="NUGET.LOGO.png">
       <PackagePath>\</PackagePath>
       <Pack>True</Pack>

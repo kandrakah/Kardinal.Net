@@ -17,13 +17,24 @@ along with this program; if not, write to the Free Software Foundation,
 Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+using Microsoft.Extensions.DependencyInjection;
+
 namespace Kardinal.Net.Web
 {
-    //public static class IServiceCollectionExtensions
-    //{
-    //    public static IServiceCollection AddMediaTypesService(this IServiceCollection services)
-    //    {
-    //        return services;
-    //    }
-    //}
+    /// <summary>
+    /// Extensões para <see cref="IServiceCollection"/>
+    /// </summary>
+    public static class IServiceCollectionExtensions
+    {
+        /// <summary>
+        /// Extensão para adição do serviço de detecção de tipos de mídia.
+        /// </summary>
+        /// <param name="services">Objeto referenciado.</param>
+        /// <returns>Objeto referenciado.</returns>
+        public static IServiceCollection AddMediaTypesService(this IServiceCollection services)
+        {
+            services.AddSingleton<IMediaTypeService, MediaTypeService>();
+            return services;
+        }
+    }
 }

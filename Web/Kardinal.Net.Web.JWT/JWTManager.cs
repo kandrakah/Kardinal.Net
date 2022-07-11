@@ -159,7 +159,7 @@ namespace Kardinal.Net
                 _handler.ValidateToken(token, this.GetValidationParameters(keyParameters), out SecurityToken securityToken);
                 return securityToken;
             }
-            catch (Exception ex)
+            catch
             {
                 throw;
             }

@@ -17,9 +17,11 @@ along with this program; if not, write to the Free Software Foundation,
 Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
 using System;
 
 namespace Kardinal.Net.Web
@@ -151,6 +153,25 @@ namespace Kardinal.Net.Web
         {
             var options = provider.GetService<IOptions<T>>();
             return options?.Value ?? Activator.CreateInstance<T>();
+        }
+
+        /// <summary>
+        /// Extensão para obtenção de configurações do serializador json.
+        /// </summary>
+        /// <param name="provider">Objeto referenciado.</param>
+        /// <returns>Configurações do serializador json.</returns>
+        public static JsonSerializerSettings GetNewtonSoftJsonSerializerSettings(this IServiceProvider provider)
+        {
+            try
+            {
+                var options = provider.GetOptions<MvcNewtonsoftJsonOptions>();
+                var settings = options?.SerializerSettings ?? Activator.CreateInstance<JsonSerializerSettings>();
+                return settings;
+            }
+            catch
+            {
+                return Activator.CreateInstance<JsonSerializerSettings>();
+            }
         }
 
         /// <summary>

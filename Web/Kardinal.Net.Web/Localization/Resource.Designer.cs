@@ -22,7 +22,7 @@ namespace Kardinal.Net.Web.Localization {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resource {
+    public class Resource {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Kardinal.Net.Web.Localization {
         ///   Retorna a instância de ResourceManager armazenada em cache usada por essa classe.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Kardinal.Net.Web.Localization.Resource", typeof(Resource).Assembly);
@@ -51,7 +51,7 @@ namespace Kardinal.Net.Web.Localization {
         ///   pesquisas de recursos que usam essa classe de recurso de tipo de alta segurança.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The background task host has been initialized..
         /// </summary>
-        internal static string DEBUG_BACKGROUND_TASK_HOST_START {
+        public static string DEBUG_BACKGROUND_TASK_HOST_START {
             get {
                 return ResourceManager.GetString("DEBUG_BACKGROUND_TASK_HOST_START", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The background task host has terminated..
         /// </summary>
-        internal static string DEBUG_BACKGROUND_TASK_HOST_STOP {
+        public static string DEBUG_BACKGROUND_TASK_HOST_STOP {
             get {
                 return ResourceManager.GetString("DEBUG_BACKGROUND_TASK_HOST_STOP", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Api Service.
         /// </summary>
-        internal static string DEFAULT_SERVICE_NAME {
+        public static string DEFAULT_SERVICE_NAME {
             get {
                 return ResourceManager.GetString("DEFAULT_SERVICE_NAME", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Failed while executing background task {task}: {message}.
         /// </summary>
-        internal static string ERROR_BACKGROUND_TASK_FAIL {
+        public static string ERROR_BACKGROUND_TASK_FAIL {
             get {
                 return ResourceManager.GetString("ERROR_BACKGROUND_TASK_FAIL", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The background task to be performed cannot be null..
         /// </summary>
-        internal static string ERROR_BACKGROUND_TASK_NULL {
+        public static string ERROR_BACKGROUND_TASK_NULL {
             get {
                 return ResourceManager.GetString("ERROR_BACKGROUND_TASK_NULL", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a It is not possible to use Kestrel and IIS integration simultaneously..
         /// </summary>
-        internal static string ERROR_CANT_USE_BOTH_KESTREL_IIS_INTEGRATION {
+        public static string ERROR_CANT_USE_BOTH_KESTREL_IIS_INTEGRATION {
             get {
                 return ResourceManager.GetString("ERROR_CANT_USE_BOTH_KESTREL_IIS_INTEGRATION", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The certificate entered was not found at [{path}]..
         /// </summary>
-        internal static string ERROR_CERTIFICATE_NOT_FOUND {
+        public static string ERROR_CERTIFICATE_NOT_FOUND {
             get {
                 return ResourceManager.GetString("ERROR_CERTIFICATE_NOT_FOUND", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The certificate [{thumbprint}] does not have a private key assigned..
         /// </summary>
-        internal static string ERROR_CERTIFICATE_PRIVATE_KEY_MISSING {
+        public static string ERROR_CERTIFICATE_PRIVATE_KEY_MISSING {
             get {
                 return ResourceManager.GetString("ERROR_CERTIFICATE_PRIVATE_KEY_MISSING", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Given content root [$[CONTENT_ROOT]] is not a valid directory!.
         /// </summary>
-        internal static string ERROR_CONTENT_ROOT_INVALID {
+        public static string ERROR_CONTENT_ROOT_INVALID {
             get {
                 return ResourceManager.GetString("ERROR_CONTENT_ROOT_INVALID", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The service certificate location is null or invalid..
         /// </summary>
-        internal static string ERROR_NULL_EMPTY_CERTIFICATE_PATH {
+        public static string ERROR_NULL_EMPTY_CERTIFICATE_PATH {
             get {
                 return ResourceManager.GetString("ERROR_NULL_EMPTY_CERTIFICATE_PATH", resourceCulture);
             }
@@ -153,16 +153,25 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The service $[SERVICE_NAME] was not found! Check that the service has been properly implemented and registered!.
         /// </summary>
-        internal static string ERROR_SERVICE_NOT_FOUND {
+        public static string ERROR_SERVICE_NOT_FOUND {
             get {
                 return ResourceManager.GetString("ERROR_SERVICE_NOT_FOUND", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a Validation failure..
+        /// </summary>
+        public static string ERROR_VALIDATION {
+            get {
+                return ResourceManager.GetString("ERROR_VALIDATION", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The service is shutting down....
         /// </summary>
-        internal static string FINALIZING_SERVICE {
+        public static string FINALIZING_SERVICE {
             get {
                 return ResourceManager.GetString("FINALIZING_SERVICE", resourceCulture);
             }
@@ -171,7 +180,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Initializing service {service} in environment {environment} [{processId}]..
         /// </summary>
-        internal static string INITIALIZATION_APP_INFO {
+        public static string INITIALIZATION_APP_INFO {
             get {
                 return ResourceManager.GetString("INITIALIZATION_APP_INFO", resourceCulture);
             }
@@ -180,7 +189,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Initialization Complete.
         /// </summary>
-        internal static string INITIALIZATION_COMPLETE {
+        public static string INITIALIZATION_COMPLETE {
             get {
                 return ResourceManager.GetString("INITIALIZATION_COMPLETE", resourceCulture);
             }
@@ -189,7 +198,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Using base directory {BASEPATH}.
         /// </summary>
-        internal static string INITIALIZE_BASEPATH {
+        public static string INITIALIZE_BASEPATH {
             get {
                 return ResourceManager.GetString("INITIALIZE_BASEPATH", resourceCulture);
             }
@@ -198,7 +207,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Using IIS Integration.
         /// </summary>
-        internal static string INITIALIZE_IIS_INTEGRATION {
+        public static string INITIALIZE_IIS_INTEGRATION {
             get {
                 return ResourceManager.GetString("INITIALIZE_IIS_INTEGRATION", resourceCulture);
             }
@@ -207,7 +216,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Listening to requests in {LISTENING_URL}.
         /// </summary>
-        internal static string LISTENING_URL {
+        public static string LISTENING_URL {
             get {
                 return ResourceManager.GetString("LISTENING_URL", resourceCulture);
             }
@@ -216,7 +225,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The service ended with the code {code}..
         /// </summary>
-        internal static string SERVICE_FINALIZED {
+        public static string SERVICE_FINALIZED {
             get {
                 return ResourceManager.GetString("SERVICE_FINALIZED", resourceCulture);
             }
@@ -225,7 +234,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The request can be continued..
         /// </summary>
-        internal static string STATUS_CODE_100 {
+        public static string STATUS_CODE_100 {
             get {
                 return ResourceManager.GetString("STATUS_CODE_100", resourceCulture);
             }
@@ -234,7 +243,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Switching protocol..
         /// </summary>
-        internal static string STATUS_CODE_101 {
+        public static string STATUS_CODE_101 {
             get {
                 return ResourceManager.GetString("STATUS_CODE_101", resourceCulture);
             }
@@ -243,7 +252,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The request has succeeded..
         /// </summary>
-        internal static string STATUS_CODE_200 {
+        public static string STATUS_CODE_200 {
             get {
                 return ResourceManager.GetString("STATUS_CODE_200", resourceCulture);
             }
@@ -252,7 +261,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The request has been fulfilled and resulted in a new resource being created..
         /// </summary>
-        internal static string STATUS_CODE_201 {
+        public static string STATUS_CODE_201 {
             get {
                 return ResourceManager.GetString("STATUS_CODE_201", resourceCulture);
             }
@@ -261,7 +270,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The request has been accepted for processing, but the processing has not been completed..
         /// </summary>
-        internal static string STATUS_CODE_202 {
+        public static string STATUS_CODE_202 {
             get {
                 return ResourceManager.GetString("STATUS_CODE_202", resourceCulture);
             }
@@ -270,7 +279,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The returned metainformation in the entity-header is not the definitive set as available from the origin server, but is gathered from a local or a third-party copy..
         /// </summary>
-        internal static string STATUS_CODE_203 {
+        public static string STATUS_CODE_203 {
             get {
                 return ResourceManager.GetString("STATUS_CODE_203", resourceCulture);
             }
@@ -279,7 +288,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The server has fulfilled the request but does not need to return an entity-body, and might want to return updated metainformation..
         /// </summary>
-        internal static string STATUS_CODE_204 {
+        public static string STATUS_CODE_204 {
             get {
                 return ResourceManager.GetString("STATUS_CODE_204", resourceCulture);
             }
@@ -288,7 +297,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The server has fulfilled the request and the user agent SHOULD reset the document view which caused the request to be sent..
         /// </summary>
-        internal static string STATUS_CODE_205 {
+        public static string STATUS_CODE_205 {
             get {
                 return ResourceManager.GetString("STATUS_CODE_205", resourceCulture);
             }
@@ -297,7 +306,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The server has fulfilled the partial GET request for the resource..
         /// </summary>
-        internal static string STATUS_CODE_206 {
+        public static string STATUS_CODE_206 {
             get {
                 return ResourceManager.GetString("STATUS_CODE_206", resourceCulture);
             }
@@ -306,7 +315,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Multiple responses available..
         /// </summary>
-        internal static string STATUS_CODE_300 {
+        public static string STATUS_CODE_300 {
             get {
                 return ResourceManager.GetString("STATUS_CODE_300", resourceCulture);
             }
@@ -315,7 +324,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The requested resource has been moved to a new address..
         /// </summary>
-        internal static string STATUS_CODE_301 {
+        public static string STATUS_CODE_301 {
             get {
                 return ResourceManager.GetString("STATUS_CODE_301", resourceCulture);
             }
@@ -324,7 +333,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The requested resource has been temporarily moved to another address..
         /// </summary>
-        internal static string STATUS_CODE_302 {
+        public static string STATUS_CODE_302 {
             get {
                 return ResourceManager.GetString("STATUS_CODE_302", resourceCulture);
             }
@@ -333,7 +342,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The request was not accepted due to missing or not validated data. Check the content of the request..
         /// </summary>
-        internal static string STATUS_CODE_400 {
+        public static string STATUS_CODE_400 {
             get {
                 return ResourceManager.GetString("STATUS_CODE_400", resourceCulture);
             }
@@ -342,7 +351,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The request was not authorized. Check if the session is active, the access token has been informed or if the active user has authorization to access this service..
         /// </summary>
-        internal static string STATUS_CODE_401 {
+        public static string STATUS_CODE_401 {
             get {
                 return ResourceManager.GetString("STATUS_CODE_401", resourceCulture);
             }
@@ -351,7 +360,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Access to the requested service is not allowed..
         /// </summary>
-        internal static string STATUS_CODE_403 {
+        public static string STATUS_CODE_403 {
             get {
                 return ResourceManager.GetString("STATUS_CODE_403", resourceCulture);
             }
@@ -360,7 +369,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The requested service or resource was not found..
         /// </summary>
-        internal static string STATUS_CODE_404 {
+        public static string STATUS_CODE_404 {
             get {
                 return ResourceManager.GetString("STATUS_CODE_404", resourceCulture);
             }
@@ -369,7 +378,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The method specified in the request is not allowed for the requested resource..
         /// </summary>
-        internal static string STATUS_CODE_405 {
+        public static string STATUS_CODE_405 {
             get {
                 return ResourceManager.GetString("STATUS_CODE_405", resourceCulture);
             }
@@ -378,7 +387,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The resource identified by the request is only capable of generating response entities which have content characteristics not acceptable according to the accept headers sent in the request..
         /// </summary>
-        internal static string STATUS_CODE_406 {
+        public static string STATUS_CODE_406 {
             get {
                 return ResourceManager.GetString("STATUS_CODE_406", resourceCulture);
             }
@@ -387,7 +396,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Proxy authentication is required before completing the request..
         /// </summary>
-        internal static string STATUS_CODE_407 {
+        public static string STATUS_CODE_407 {
             get {
                 return ResourceManager.GetString("STATUS_CODE_407", resourceCulture);
             }
@@ -396,7 +405,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The client did not produce a request within the time that the server was prepared to wait..
         /// </summary>
-        internal static string STATUS_CODE_408 {
+        public static string STATUS_CODE_408 {
             get {
                 return ResourceManager.GetString("STATUS_CODE_408", resourceCulture);
             }
@@ -405,7 +414,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The request could not be completed due to a conflict with the current state of the resource..
         /// </summary>
-        internal static string STATUS_CODE_409 {
+        public static string STATUS_CODE_409 {
             get {
                 return ResourceManager.GetString("STATUS_CODE_409", resourceCulture);
             }
@@ -414,7 +423,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The requested resource is no longer available at the server and no forwarding address is known..
         /// </summary>
-        internal static string STATUS_CODE_410 {
+        public static string STATUS_CODE_410 {
             get {
                 return ResourceManager.GetString("STATUS_CODE_410", resourceCulture);
             }
@@ -423,7 +432,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The server refuses to accept the requests without a defined Content- Length..
         /// </summary>
-        internal static string STATUS_CODE_411 {
+        public static string STATUS_CODE_411 {
             get {
                 return ResourceManager.GetString("STATUS_CODE_411", resourceCulture);
             }
@@ -432,7 +441,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The server is refusing to process a request because the request entity is larger than the server is willing or able to process.
         /// </summary>
-        internal static string STATUS_CODE_413 {
+        public static string STATUS_CODE_413 {
             get {
                 return ResourceManager.GetString("STATUS_CODE_413", resourceCulture);
             }
@@ -441,7 +450,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The server is refusing to service the request because the Request-URI is longer than the server is willing to interpret..
         /// </summary>
-        internal static string STATUS_CODE_414 {
+        public static string STATUS_CODE_414 {
             get {
                 return ResourceManager.GetString("STATUS_CODE_414", resourceCulture);
             }
@@ -450,7 +459,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The server is refusing to service the request because the entity of the request is in a format not supported by the requested resource for the requested method..
         /// </summary>
-        internal static string STATUS_CODE_415 {
+        public static string STATUS_CODE_415 {
             get {
                 return ResourceManager.GetString("STATUS_CODE_415", resourceCulture);
             }
@@ -459,7 +468,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a I&apos;m a teapot..
         /// </summary>
-        internal static string STATUS_CODE_418 {
+        public static string STATUS_CODE_418 {
             get {
                 return ResourceManager.GetString("STATUS_CODE_418", resourceCulture);
             }
@@ -468,7 +477,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The server encountered an unexpected condition which prevented it from fulfilling the request..
         /// </summary>
-        internal static string STATUS_CODE_500 {
+        public static string STATUS_CODE_500 {
             get {
                 return ResourceManager.GetString("STATUS_CODE_500", resourceCulture);
             }
@@ -477,7 +486,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The server does not support the functionality required to fulfill the request..
         /// </summary>
-        internal static string STATUS_CODE_501 {
+        public static string STATUS_CODE_501 {
             get {
                 return ResourceManager.GetString("STATUS_CODE_501", resourceCulture);
             }
@@ -486,7 +495,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The server, while acting as a gateway or proxy, received an invalid response from the upstream server it accessed in attempting to fulfill the request..
         /// </summary>
-        internal static string STATUS_CODE_502 {
+        public static string STATUS_CODE_502 {
             get {
                 return ResourceManager.GetString("STATUS_CODE_502", resourceCulture);
             }
@@ -495,7 +504,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The server is currently unable to handle the request due to a temporary overloading or maintenance of the server..
         /// </summary>
-        internal static string STATUS_CODE_503 {
+        public static string STATUS_CODE_503 {
             get {
                 return ResourceManager.GetString("STATUS_CODE_503", resourceCulture);
             }
@@ -504,7 +513,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The server, while acting as a gateway or proxy, did not receive a timely response from the upstream server..
         /// </summary>
-        internal static string STATUS_CODE_504 {
+        public static string STATUS_CODE_504 {
             get {
                 return ResourceManager.GetString("STATUS_CODE_504", resourceCulture);
             }
@@ -513,7 +522,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The server does not support, or refuses to support, the HTTP protocol version that was used in the request message..
         /// </summary>
-        internal static string STATUS_CODE_505 {
+        public static string STATUS_CODE_505 {
             get {
                 return ResourceManager.GetString("STATUS_CODE_505", resourceCulture);
             }
@@ -522,7 +531,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a The policy for accessing the resource has not been met in the request..
         /// </summary>
-        internal static string STATUS_CODE_510 {
+        public static string STATUS_CODE_510 {
             get {
                 return ResourceManager.GetString("STATUS_CODE_510", resourceCulture);
             }
@@ -531,7 +540,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Network authentication is required before proceeding..
         /// </summary>
-        internal static string STATUS_CODE_511 {
+        public static string STATUS_CODE_511 {
             get {
                 return ResourceManager.GetString("STATUS_CODE_511", resourceCulture);
             }
@@ -540,7 +549,7 @@ namespace Kardinal.Net.Web.Localization {
         /// <summary>
         ///   Consulta uma cadeia de caracteres localizada semelhante a Unknow response $[VALUE]..
         /// </summary>
-        internal static string STATUS_CODE_UNKNOW {
+        public static string STATUS_CODE_UNKNOW {
             get {
                 return ResourceManager.GetString("STATUS_CODE_UNKNOW", resourceCulture);
             }

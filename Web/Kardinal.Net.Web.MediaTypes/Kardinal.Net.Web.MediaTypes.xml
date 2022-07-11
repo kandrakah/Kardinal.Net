@@ -4,5 +4,17 @@
         <name>Kardinal.Net.Web.MediaTypes</name>
     </assembly>
     <members>
+        <member name="T:Kardinal.Net.Web.IServiceCollectionExtensions">
+            <summary>
+            Extensões para <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.Web.IServiceCollectionExtensions.AddMediaTypesService(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Extensão para adição do serviço de detecção de tipos de mídia.
+            </summary>
+            <param name="services">Objeto referenciado.</param>
+            <returns>Objeto referenciado.</returns>
+        </member>
     </members>
 </doc>

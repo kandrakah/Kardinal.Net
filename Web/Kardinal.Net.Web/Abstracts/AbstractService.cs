@@ -72,6 +72,25 @@ namespace Kardinal.Net.Web
         }
 
         /// <summary>
+        /// método que cria um novo construtor de validações.
+        /// </summary>
+        /// <returns>Instância do construtor de validações.</returns>
+        protected IValidationBuilder CreateValidationBuilder()
+        {
+            return new ValidationBuilder();
+        }
+
+        /// <summary>
+        /// método que cria um novo construtor de validações.
+        /// </summary>
+        /// <param name="message">Mensagem geral da validação.</param>
+        /// <returns>Instância do construtor de validações.</returns>
+        protected IValidationBuilder CreateValidationBuilder(string message)
+        {
+            return new ValidationBuilder(message);
+        }
+
+        /// <summary>
         /// Método para liberação de recursos usados pelo serviço.
         /// </summary>
         public void Dispose()

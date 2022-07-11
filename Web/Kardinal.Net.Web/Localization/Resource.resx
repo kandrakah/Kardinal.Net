@@ -150,6 +150,9 @@
   <data name="ERROR_SERVICE_NOT_FOUND" xml:space="preserve">
     <value>The service $[SERVICE_NAME] was not found! Check that the service has been properly implemented and registered!</value>
   </data>
+  <data name="ERROR_VALIDATION" xml:space="preserve">
+    <value>Validation failure.</value>
+  </data>
   <data name="FINALIZING_SERVICE" xml:space="preserve">
     <value>The service is shutting down...</value>
   </data>
