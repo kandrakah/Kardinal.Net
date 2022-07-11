@@ -25,11 +25,6 @@
             </summary>
             <returns>Cadeia de caracteres que representa o objeto atual.</returns>
         </member>
-        <member name="T:Kardinal.Net.Data.ProtectedAttribute">
-            <summary>
-            Atributo que indica que uma informação deve ser protegida.
-            </summary>
-        </member>
         <member name="T:Kardinal.Net.Data.AbstractRepository`2">
             <summary>
             Classe abstrata de repositório de dados.
@@ -1114,6 +1109,22 @@
             <summary>
               Consulta uma cadeia de caracteres localizada semelhante a The transaction [{TransactionId}] is already underway in this instance..
             </summary>
+        </member>
+        <member name="T:Kardinal.Net.IQueryableExtensions">
+            <summary>
+            Extensões para <see cref="T:System.Linq.IQueryable`1"/>.
+            </summary>
+        </member>
+        <member name="M:Kardinal.Net.IQueryableExtensions.ToPaginatedListAsync``1(System.Linq.IQueryable{``0},System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Extensão que transforma obtém uma coleção de itens paginados.
+            </summary>
+            <typeparam name="T">Tipo do objeto da coleção.</typeparam>
+            <param name="query">Objeto referenciado.</param>
+            <param name="skip">Itens à serem ignorados.</param>
+            <param name="take">Itens à serem obtidos.</param>
+            <param name="cancellationToken">Token de cancelamento de operação assíncrona.</param>
+            <returns>Coleção de objeto paginados.</returns>
         </member>
     </members>
 </doc>
